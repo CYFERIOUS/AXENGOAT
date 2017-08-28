@@ -1,11 +1,11 @@
+
 var ModuleGame = (function () {
 
-    var stage, moveRectangle;
-    var canvas = document.getElementById('demoCanvas');
     var stage;
+    var canvas = document.getElementById('demoCanvas');
     var tile_size = 1;
 
-    var circle, circle2, square;
+    var circle, circle2, square, papa;
    
     var leftArrow, rightArrow, upArrow, downArrow = false;
    
@@ -23,25 +23,53 @@ var ModuleGame = (function () {
     createjs.Ticker.setFPS(60);
     createjs.Ticker.addEventListener("tick", tick);
     
+    square = new createjs.Shape();
+    square.graphics.beginFill("DeepSkyBlue").drawRoundRect(0, 0, 512, 512, 0);
+    square.x =  (1200-512)/2;
+    square.y =  (800-512);
+    square.name = "square";
+    stage.addChild(square);
+
+    square2 = new createjs.Shape();
+    square2.graphics.beginFill("Green").drawRoundRect(0, 0, 128, 512, 0);
+    square2.x =  0;
+    square2.y =  300;
+   
+    stage.addChild(square2);
+
+    square3 = new createjs.Shape();
+    square3.graphics.beginFill("Green").drawRoundRect(0, 0, 128, 512, 0);
+    square3.x =  (1200-128);
+    square3.y =  300;
+   
+    stage.addChild(square3);
+
     circle = new createjs.Shape();
     circle2 = new createjs.Shape();
     circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
-    circle2.graphics.beginFill("Black").drawCircle(0, 0, 50);
-    circle2.x = 550;
-    circle2.y = 450;
+    circle2.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 64);
+    circle2.x = 400;
+    circle2.y = 400;
     stage.addChild(circle);
     stage.addChild(circle2);
-    
-     square = new createjs.Shape();
-        square.graphics.beginFill("#000").drawRoundRect(300, 400, 400, 300, 0);
-        square.x =  200/2;
-        square.y =  200/2;
-        square.name = "square";
-        stage.addChild(square);
 
-        var bitmap = new createjs.Bitmap("../images/crate.jpg");
-         stage.addChild(bitmap);
+    papa = new createjs.Bitmap("../images/papa.png");
+    papa.y = 335;
+    stage.addChild(papa);
 
+    peresozo = new createjs.Bitmap("../images/peresozin.png");
+    peresozo.y = ((800-512)-64);
+    stage.addChild(peresozo);
+
+    sinsalu = new createjs.Bitmap("../images/sinSalud.png");
+    sinsalu.x = (1200-128);
+    sinsalu.y = ((800-512)-64);
+    stage.addChild(sinsalu);
+
+    var casita = new createjs.Bitmap("../images/casita.png");
+        casita.x = square.x;
+        casita.y = square.y;
+        stage.addChild(casita);
     //stage.update();
     stage.addEventListener("stagemousemove", handleMouseMove);
 
@@ -58,7 +86,7 @@ var ModuleGame = (function () {
     }
     
      window.onkeyup = keyUpHandler;
-   window.onkeydown = keyDownHandler;
+     window.onkeydown = keyDownHandler;
    
   };
 
@@ -87,17 +115,21 @@ var ModuleGame = (function () {
   
   function move()
   {
-   if(leftArrow) circle2.x -= SPEED;
-   if(rightArrow) circle2.x += SPEED;
+   if(leftArrow) { circle2.x -= SPEED; papa.x -= SPEED; }
+   if(rightArrow) { circle2.x += SPEED; papa.x += SPEED; }
+
+
    if(circle2.x <= 400){
   
            circle2.x = 400;
+            papa.x = 400-64;
            stage.update();
         }
 
         if(circle2.x >= 800){
 
           circle2.x = 800;
+           papa.x = 800-64;
            stage.update();
         }
    //if(upArrow) circle2.y -= SPEED;
