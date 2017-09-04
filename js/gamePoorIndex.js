@@ -1,33 +1,61 @@
-
-
 var ModuleGame = (function () {
 
-   function init(){
-  
+  var game = new Phaser.Game(950, 720, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
-     
+function preload() {
+    game.load.atlasJSONHash('bot', 'images/running_bot.png', 'images/running_bot.json');
+}
 
-        var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create });
+var s;
 
-        function preload () {
+function create() {
 
-            game.load.image('logo', 'images/phaser.png');
+    s = game.add.sprite(game.world.centerX, game.world.centerY, 'bot');
+    s.anchor.setTo(0.5, 0.5);
+    s.scale.setTo(2, 2);
 
+    s.animations.add('run');
+    s.animations.play('run', 10, true);
+
+}
+
+function update() {
+
+    if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
+    {
+        s.x -= 4;
+        if(s.x < 200){
+            s.x=200;
         }
-
-        function create () {
-
-            var logo = game.add.sprite(game.world.centerX, game.world.centerY, 'logo');
-            logo.anchor.setTo(0.5, 0.5);
-
+    }
+    else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
+    {
+        s.x += 4;
+        if(s.x > 600){
+            s.x=600;
         }
+    }
 
+    if (game.input.keyboard.isDown(Phaser.Keyboard.UP))
+    {
+        s.y -= 4;
+    }
+    else if (game.input.keyboard.isDown(Phaser.Keyboard.DOWN))
+    {
+        s.y += 4;
+    }
+
+}
+
+function render() {
+    game.debug.spriteInfo(s, 20, 32);
+
+}
  
-
-   }
  
    var publicMethod = function () {
-    init();
+    
+      render();
   };
   
   return {
