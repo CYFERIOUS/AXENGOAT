@@ -1,11 +1,12 @@
 
+
 var ModuleGame = (function () {
 
     var stage;
     var canvas = document.getElementById('demoCanvas');
     var tile_size = 1;
 
-    var circle, circle2, square, papa;
+    var circle, circle2, square, papa, fondo;
    
     var leftArrow, rightArrow, upArrow, downArrow = false;
    
@@ -23,12 +24,7 @@ var ModuleGame = (function () {
     createjs.Ticker.setFPS(60);
     createjs.Ticker.addEventListener("tick", tick);
     
-    square = new createjs.Shape();
-    square.graphics.beginFill("DeepSkyBlue").drawRoundRect(0, 0, 512, 512, 0);
-    square.x =  (1200-512)/2;
-    square.y =  (800-512);
-    square.name = "square";
-    stage.addChild(square);
+  
 
     square2 = new createjs.Shape();
     square2.graphics.beginFill("Green").drawRoundRect(0, 0, 128, 512, 0);
@@ -53,6 +49,21 @@ var ModuleGame = (function () {
     stage.addChild(circle);
     stage.addChild(circle2);
 
+     var data = {
+        images: ["../images/papaMove.png"],
+        frames: {width:50, height:128},
+        animations: {
+            stand:0,
+            run:[1,5],
+            jump:[6,8,"run"]
+        }
+    };
+    var spriteSheet = new createjs.SpriteSheet(data);
+    var animation = new createjs.Sprite(spriteSheet, "run");
+
+    stage.addChild(animation);
+
+
     papa = new createjs.Bitmap("../images/papa.png");
     papa.y = 335;
     stage.addChild(papa);
@@ -65,11 +76,12 @@ var ModuleGame = (function () {
     sinsalu.x = (1200-128);
     sinsalu.y = ((800-512)-64);
     stage.addChild(sinsalu);
+  
+   
 
-    var casita = new createjs.Bitmap("../images/casita.png");
-        casita.x = square.x;
-        casita.y = square.y;
-        stage.addChild(casita);
+
+
+
     //stage.update();
     stage.addEventListener("stagemousemove", handleMouseMove);
 
@@ -152,6 +164,12 @@ var ModuleGame = (function () {
 
 })();
 
+
+
+var main = function(){
+  ModuleTest.publicMethod();
+  ModuleGame.publicMethod();
+}
 
 
   
