@@ -4,6 +4,8 @@ var ModuleGame = (function () {
 
 function preload() {
     game.load.atlasJSONHash('bot', 'images/running_bot.png', 'images/running_bot.json');
+    game.load.image('casita', 'images/casita.png');
+
 }
 
 var s;
@@ -13,6 +15,8 @@ function create() {
     s = game.add.sprite(game.world.centerX, game.world.centerY, 'bot');
     s.anchor.setTo(0.5, 0.5);
     s.scale.setTo(2, 2);
+
+     var c = game.add.sprite(game.world.centerX-256,210, 'casita');
 
     s.animations.add('run');
     s.animations.play('run', 10, true);
