@@ -1,17 +1,16 @@
 {
-  "name": "webgl-study-by-me",
-  "description": "my study about webgl",
+  "name": "game for dane",
+  "description": "IPM concept game DANE",
   "main": "index.js",
   "authors": [
-    "fercho"
+    "fercho",
+    "freddy"
   ],
   "license": "ISC",
   "keywords": [
     "webgl",
-    "javascript",
-    "never",
-    "say",
-    "die"
+    "javascript"
+    
   ],
   "homepage": "",
   "private": true,

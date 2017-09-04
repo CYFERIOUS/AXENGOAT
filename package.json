@@ -1,14 +1,14 @@
 {
-  "name": "webgl-study-by-me",
+  "name": "game for dane",
   "version": "1.0.0",
-  "description": "my study about webgl",
+  "description": "IPM concept game DANE",
   "main": "index.js",
   "scripts": {
     "test": "rungl"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CYFERIOUS/webglStudy.git"
+    "url": "http://codeversion.dane.gov.co/DIMCE/IPMGAME.git"
   },
   "keywords": [
     "webgl",
@@ -20,9 +20,9 @@
   "author": "fercho",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CYFERIOUS/webglStudy/issues"
+    "url": "http://codeversion.dane.gov.co/DIMCE/IPMGAME.git"
   },
-  "homepage": "https://github.com/CYFERIOUS/webglStudy#readme",
+  "homepage": "http://codeversion.dane.gov.co/DIMCE/IPMGAME.git",
   "devDependencies": {
     "bower": "^1.7.9",
     "browser-sync": "^2.12.5",
@@ -36,6 +36,9 @@
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "^2.0.0-alpha",
-    "gulp-uglify": "^1.5.3",
+    "gulp-uglify": "^1.5.3"
+  },
+  "dependencies": {
+    "phaser": "^2.6.2"
   }
 }
