@@ -61,11 +61,11 @@ function update() {
     }else{
       this.robot.play('idle');
     }
-    // if (jumpButton.isDown && this.robot.body.onFloor() && game.time.now > jumpTimer)
-    // {
-    //     this.robot.body.velocity.y = -250;
-    //     jumpTimer = game.time.now + 750;
-    // }
+    if (jumpButton.isDown && this.robot.body.onFloor() && game.time.now > jumpTimer)
+    {
+        this.robot.body.velocity.y = -250;
+        jumpTimer = game.time.now + 750;
+    }
 
 }
 
