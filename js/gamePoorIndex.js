@@ -9,6 +9,8 @@ var ModuleGame = (function () {
 
 function preload() {
     game.load.spritesheet('robot', 'images/papa.png', 80, 111);
+    game.load.spritesheet('enemy1', 'images/peresozin.png', 0, 0);
+    game.load.spritesheet('enemy2', 'images/sinSalud.png', 0, 0);
     game.load.image('ground', 'images/platform.png');
     game.load.image('casita', 'images/casita.png');
     game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -24,9 +26,13 @@ function platformsEnemies(tiles, pos){
     for(var i = 0; i<tiles; i++){
       ledgee = platforms.create( elvisLives, 200+(35*i), 'ground');
       ledgee.width = enemiesFloor;
+      ledgee.body.immovable = true;
     }
     
-    ledgee.body.immovable = true;
+}
+
+function enemy(){
+
 }
 
 
@@ -40,18 +46,28 @@ function create() {
       this.robot.animations.add('run', [10,11,12,13,14,15,16,17], 12,true);
       this.robot.animations.play('idle');
       game.physics.arcade.enable(this.robot);
-
-      //  Player physics properties. Give the little guy a slight bounce.
       this.robot.body.bounce.y = 0.2;
       this.robot.body.gravity.y = 400;
-     
+
+      this.peresozin=game.add.sprite(game.world.width-80,130,"enemy1");
+      this.peresozin.anchor.set(0.5,0.5);
+      game.physics.arcade.enable(this.peresozin);
+      this.peresozin.body.bounce.y = 0.2;
+      this.peresozin.body.gravity.y = 400;
+
+      this.sickBoy=game.add.sprite(50,130,"enemy2");
+      this.sickBoy.anchor.set(0.5,0.5);
+      game.physics.arcade.enable(this.sickBoy);
+      this.sickBoy.body.bounce.y = 0.2;
+      this.sickBoy.body.gravity.y = 400;
+
+     enemy();
+
       
       cursors = game.input.keyboard.createCursorKeys();
       jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
-       game.physics.enable(this.robot, Phaser.Physics.ARCADE);
-       this.robot.body.bounce.y = 0.2;
-      this.robot.body.collideWorldBounds = true;
+       
 
       //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
@@ -91,6 +107,8 @@ function create() {
 function update() {
 
   var hitPlatform = game.physics.arcade.collide(this.robot, platforms);
+   var hitPlatform2 = game.physics.arcade.collide(this.peresozin, platforms);
+   var hitPlatform3 = game.physics.arcade.collide(this.sickBoy, platforms);
 
    if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
     {
