@@ -1,6 +1,6 @@
 var ModuleGame = (function () {
  
-  var game = new Phaser.Game(950, 720, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+  var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
    var jumpButton;
   var jumpTimer = 0;
   var cursors;
@@ -13,11 +13,21 @@ function preload() {
     game.load.image('casita', 'images/casita.png');
     game.physics.startSystem(Phaser.Physics.ARCADE);
     game.time.desiredFps = 30;
-    
-
- 
 }
 
+
+
+
+function platformsEnemies(tiles, pos){
+    var enemiesFloor = 80;
+    var elvisLives = pos == 0 ? 0 : (pos-enemiesFloor);
+    for(var i = 0; i<tiles; i++){
+      ledgee = platforms.create( elvisLives, 200+(35*i), 'ground');
+      ledgee.width = enemiesFloor;
+    }
+    
+    ledgee.body.immovable = true;
+}
 
 
 function create() {
@@ -59,17 +69,21 @@ function create() {
     //  This stops it from falling away when you jump on it
     ground.body.immovable = true;
 
-
-    ledge1 = platforms.create(game.world.centerX-226, 350, 'ground');
-    ledge1.body.immovable = true;
-
-    ledge2 = platforms.create(150, 500, 'ground');
-    ledge2.width = 650;
+    var houseFloor2 = 400;
+    ledge2 = platforms.create(game.world.centerX-(houseFloor2/2), 350, 'ground');
+    ledge2.width = houseFloor2;
     ledge2.body.immovable = true;
 
 
+    var houseFloor1 = 650;
+    ledge1 = platforms.create(game.world.centerX-(houseFloor1/2), 475, 'ground');
+    ledge1.width = houseFloor1;
+    ledge1.body.immovable = true;
 
-     var c = game.add.sprite(game.world.centerX-256,210-32, 'casita');
+    platformsEnemies(14, game.world.width);
+    platformsEnemies(14, 0);
+
+     var c = game.add.sprite(game.world.centerX-300,210-32, 'casita');
 
 }
 
