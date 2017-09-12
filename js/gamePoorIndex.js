@@ -5,6 +5,7 @@ var ModuleGame = (function () {
   var jumpTimer = 0;
   var cursors;
   var platforms;
+  var emitter;
 
 
 function preload() {
@@ -13,6 +14,8 @@ function preload() {
     game.load.spritesheet('enemy2', 'images/sinSalud.png', 0, 0);
     game.load.image('ground', 'images/platform.png');
     game.load.image('casita', 'images/casita.png');
+    game.load.image('particle', 'images/partucula.png');
+    
     game.physics.startSystem(Phaser.Physics.ARCADE);
     game.time.desiredFps = 30;
 }
@@ -37,6 +40,13 @@ function enemy(){
 
 
 function create() {
+
+      emitter = game.add.emitter(100, 200, 1);
+      emitter.makeParticles(['particle']);
+      emitter.start(false, 5000, 20);
+      emitter.setYSpeed(-250, 10);
+      emitter.setXSpeed(100, 0);
+      game.physics.arcade.enable(emitter);
       
      
       this.speed=4;
@@ -109,6 +119,7 @@ function update() {
   var hitPlatform = game.physics.arcade.collide(this.robot, platforms);
    var hitPlatform2 = game.physics.arcade.collide(this.peresozin, platforms);
    var hitPlatform3 = game.physics.arcade.collide(this.sickBoy, platforms);
+    var hitPlatform3 = game.physics.arcade.collide(emitter, platforms);
 
    if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
     {

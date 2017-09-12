@@ -46,9 +46,9 @@ gulp.task('scriptsApi', function()
 	           .pipe(concat('temp.js'))
           	 .pipe(uglify())
           	 .on('error', errorlog)
-          	 .pipe(rename('d3sinidelDane.min.js'))
+          	 .pipe(rename('gameMotor.min.js'))
           	 .pipe(sourcemaps.write('./maps/'))
-          	 .pipe(gulp.dest('./spd_dashboard/controllers/min/'))
+          	 .pipe(gulp.dest('./js/min/'))
           	 .pipe(reload({stream:true}));
 });
 

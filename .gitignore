@@ -17,3 +17,4 @@ file-s/
 node_modules/
 static/css/*.css
 js/bower_components/
+js/min/
