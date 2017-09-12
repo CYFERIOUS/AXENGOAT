@@ -20,7 +20,9 @@ function preload() {
     game.time.desiredFps = 30;
 }
 
-
+function randomNumber(){
+  return Math.random();
+}
 
 
 function platformsEnemies(tiles, pos){
@@ -34,21 +36,9 @@ function platformsEnemies(tiles, pos){
     
 }
 
-function enemy(){
-
-}
-
 
 function create() {
 
-      emitter = game.add.emitter(100, 200, 1);
-      emitter.makeParticles(['particle']);
-      emitter.start(false, 5000, 20);
-      emitter.setYSpeed(-250, 10);
-      emitter.setXSpeed(100, 0);
-      game.physics.arcade.enable(emitter);
-      
-     
       this.speed=4;
       this.robot=game.add.sprite(game.world.centerX,130,"robot");
       this.robot.anchor.set(0.5,0.5);
@@ -72,6 +62,16 @@ function create() {
       this.sickBoy.body.gravity.y = 400;
 
      enemy();
+
+     var randomNumberBetween0and19 = Math.floor(Math.random() * 20);
+     console.log(randomNumberBetween0and19);
+
+      emitter = game.add.emitter(0, 100, 1);
+     emitter.makeParticles(['particle']);
+     emitter.start(false, 10000, 20);
+     emitter.setYSpeed(500, 0);
+     emitter.setXSpeed(100, 0);
+     game.physics.arcade.enable(emitter);
 
       
       cursors = game.input.keyboard.createCursorKeys();
