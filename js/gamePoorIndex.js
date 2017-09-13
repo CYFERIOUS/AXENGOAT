@@ -66,14 +66,14 @@ function create() {
      //console.log(randomNumberBetween0and19);
 
     emitter = game.add.emitter(100, 100, 1);
-     emitter.makeParticles(['particle']);
-     emitter.start(false, 10000, 20);
-     emitter.setYSpeed(-100, 20);
-     emitter.setXSpeed(200   , 20);
-     game.physics.arcade.enable(emitter);
-
-
-     emitter.bounce.setTo(1, 1);
+    emitter.makeParticles(['particle']);
+    emitter.start(false, 10000, 20);
+    emitter.setYSpeed(-100, 20);
+    emitter.setXSpeed(200   , 20);
+    game.physics.arcade.enable(emitter);
+    emitter.bounce.setTo(0.5, 0.5);
+   
+     
 
       
       cursors = game.input.keyboard.createCursorKeys();
@@ -123,6 +123,11 @@ function update() {
   var hitPlatform3 = game.physics.arcade.collide(this.sickBoy, platforms);
   var hitPlatform3 = game.physics.arcade.collide(emitter, platforms);
   var hitPlatform4 = game.physics.arcade.collide(emitter, this.robot);
+
+  if (hitPlatform4 == true){
+       this.robot.body.velocity.setTo(0, 0);
+       emitter.bounce.setTo(1, 1);
+  }
 
    if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
     {
