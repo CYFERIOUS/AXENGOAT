@@ -6,6 +6,7 @@ var ModuleGame = (function () {
   var cursors;
   var platforms;
   var emitter;
+  var particula;
 
 
 function preload() {
@@ -61,17 +62,18 @@ function create() {
       this.sickBoy.body.bounce.y = 0.2;
       this.sickBoy.body.gravity.y = 400;
 
-     enemy();
+     //var randomNumberBetween0and19 = Math.floor(Math.random() * 20);
+     //console.log(randomNumberBetween0and19);
 
-     var randomNumberBetween0and19 = Math.floor(Math.random() * 20);
-     console.log(randomNumberBetween0and19);
-
-      emitter = game.add.emitter(0, 100, 1);
+    emitter = game.add.emitter(100, 100, 1);
      emitter.makeParticles(['particle']);
      emitter.start(false, 10000, 20);
-     emitter.setYSpeed(500, 0);
-     emitter.setXSpeed(100, 0);
+     emitter.setYSpeed(-100, 20);
+     emitter.setXSpeed(200   , 20);
      game.physics.arcade.enable(emitter);
+
+
+     emitter.bounce.setTo(1, 1);
 
       
       cursors = game.input.keyboard.createCursorKeys();
@@ -117,9 +119,10 @@ function create() {
 function update() {
 
   var hitPlatform = game.physics.arcade.collide(this.robot, platforms);
-   var hitPlatform2 = game.physics.arcade.collide(this.peresozin, platforms);
-   var hitPlatform3 = game.physics.arcade.collide(this.sickBoy, platforms);
-    var hitPlatform3 = game.physics.arcade.collide(emitter, platforms);
+  var hitPlatform2 = game.physics.arcade.collide(this.peresozin, platforms);
+  var hitPlatform3 = game.physics.arcade.collide(this.sickBoy, platforms);
+  var hitPlatform3 = game.physics.arcade.collide(emitter, platforms);
+  var hitPlatform4 = game.physics.arcade.collide(emitter, this.robot);
 
    if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
     {
@@ -165,11 +168,11 @@ function render() {
 })();
 
 
-
-var main = function(){
-  ModuleGame.publicMethod();
-}
-
+$( document ).ready(function() {
+    var main = function(){
+      ModuleGame.publicMethod();
+    }
+});
 
   
 

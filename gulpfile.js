@@ -108,8 +108,8 @@ gulp.task('build', ['build:copy', 'build:remove', 'directiveString','minString']
 gulp.task('watch', function()
 {
 
-  gulp.watch('./spd_dashboard/controllers/js/**/*.js', ['scriptsApi']);
-  gulp.watch('./spd_dashboard/views/**/*.html', ['html']);
+  gulp.watch('./js/**/*.js', ['scriptsApi']);
+  gulp.watch('./*.html', ['html']);
 });
 
 gulp.task('default', ['scriptsApi', 'html', 'browser-sync', 'watch']);
