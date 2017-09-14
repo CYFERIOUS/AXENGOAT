@@ -7,6 +7,10 @@ var ModuleGame = (function () {
   var platforms;
   var emitter;
   var particula;
+  var ground;
+  var blockContainer;
+  var ledge1, ledge2, ledge3;
+
 
 
 function preload() {
@@ -14,6 +18,11 @@ function preload() {
     game.load.spritesheet('enemy1', 'images/peresozin.png', 0, 0);
     game.load.spritesheet('enemy2', 'images/sinSalud.png', 0, 0);
     game.load.image('ground', 'images/platform.png');
+    
+    game.load.image('piso0', 'images/platform.png');
+    game.load.image('piso1', 'images/platform.png');
+    game.load.image('piso2', 'images/platform.png');
+
     game.load.image('casita', 'images/casita.png');
     game.load.image('particle', 'images/partucula.png');
     
@@ -28,13 +37,29 @@ function randomNumber(){
 
 function platformsEnemies(tiles, pos){
     var enemiesFloor = 80;
-    var elvisLives = pos == 0 ? 0 : (pos-enemiesFloor);
+    blockContainer = [];
+    var placeX = pos == 0 ? 0 : (pos-enemiesFloor);
     for(var i = 0; i<tiles; i++){
-      ledgee = platforms.create( elvisLives, 200+(35*i), 'ground');
-      ledgee.width = enemiesFloor;
-      ledgee.body.immovable = true;
+      ledge3 = platforms.create( placeX, 200+(35*i), 'ground');
+      ledge3.name = 'pila' + i;
+      ledge3.width = enemiesFloor;
+      ledge3.body.immovable = true;
+      game.physics.arcade.enable(ledge3);
+      blockContainer.push(ledge3);
+      
     }
     
+    
+}
+
+function createEmitter(){
+    emitter = game.add.emitter(100, 100, 1);
+    emitter.makeParticles(['particle']);
+    emitter.start(false, 10000, 20);
+    emitter.setYSpeed(-100, 20);
+    emitter.setXSpeed(200, 20);
+    game.physics.arcade.enable(emitter);
+    emitter.bounce.setTo(0.5, 0.5);
 }
 
 
@@ -65,21 +90,13 @@ function create() {
      //var randomNumberBetween0and19 = Math.floor(Math.random() * 20);
      //console.log(randomNumberBetween0and19);
 
-    emitter = game.add.emitter(100, 100, 1);
-    emitter.makeParticles(['particle']);
-    emitter.start(false, 10000, 20);
-    emitter.setYSpeed(-100, 20);
-    emitter.setXSpeed(200   , 20);
-    game.physics.arcade.enable(emitter);
-    emitter.bounce.setTo(0.5, 0.5);
+  
    
      
 
       
       cursors = game.input.keyboard.createCursorKeys();
       jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-
-       
 
       //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
@@ -89,7 +106,7 @@ function create() {
 
     // Here we create the ground.
     var ground = platforms.create(0, game.world.height - 32, 'ground');
-
+    ground.name = "piso0";
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
     //ground.scale.setTo(2, 2);
     ground.scale.x = 800;
@@ -98,22 +115,29 @@ function create() {
     ground.body.immovable = true;
 
     var houseFloor2 = 400;
-    ledge2 = platforms.create(game.world.centerX-(houseFloor2/2), 350, 'ground');
+    ledge2 = platforms.create(game.world.centerX-(houseFloor2/2), 350, 'piso2');
     ledge2.width = houseFloor2;
+    ledge2.name = "piso2";
     ledge2.body.immovable = true;
 
 
     var houseFloor1 = 650;
-    ledge1 = platforms.create(game.world.centerX-(houseFloor1/2), 475, 'ground');
+    ledge1 = platforms.create(game.world.centerX-(houseFloor1/2), 475, 'piso1');
     ledge1.width = houseFloor1;
+    ledge1.name = "piso1";
     ledge1.body.immovable = true;
 
     platformsEnemies(14, game.world.width);
     platformsEnemies(14, 0);
+    createEmitter();
 
      var c = game.add.sprite(game.world.centerX-300,210-32, 'casita');
 
+
+
 }
+
+
 
 
 function update() {
@@ -121,12 +145,40 @@ function update() {
   var hitPlatform = game.physics.arcade.collide(this.robot, platforms);
   var hitPlatform2 = game.physics.arcade.collide(this.peresozin, platforms);
   var hitPlatform3 = game.physics.arcade.collide(this.sickBoy, platforms);
-  var hitPlatform3 = game.physics.arcade.collide(emitter, platforms);
-  var hitPlatform4 = game.physics.arcade.collide(emitter, this.robot);
+  var hitPlatform4 = game.physics.arcade.collide(emitter, platforms);
+  var hitPlatform6 = game.physics.arcade.collide(emitter, this.robot);
+  
 
-  if (hitPlatform4 == true){
+
+  var hitPlatform7 = game.physics.arcade.checkCollision;
+
+
+  if (hitPlatform6 == true){
        this.robot.body.velocity.setTo(0, 0);
        emitter.bounce.setTo(1, 1);
+        
+  }
+ 
+  if(hitPlatform4 == true){
+
+    platforms.forEach(function(coin) {     
+       platforms.getChildAt(3).destroy();
+          
+      }, this); 
+        
+        //platforms.destroy();
+         
+  
+        
+        // if(platforms.children.touching == true){
+        //     emitter.destroy();
+        //   createEmitter();
+        // }
+        //else{
+          //platforms.getChildAt().destroy();
+          
+        //}
+       
   }
 
    if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
