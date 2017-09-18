@@ -26,7 +26,8 @@ function preload() {
     game.load.image('casita', 'images/casita.png');
     game.load.image('particle', 'images/partucula.png');
     
-    game.physics.startSystem(Phaser.Physics.ARCADE);
+    //game.physics.startSystem(Phaser.Physics.ARCADE);
+    game.physics.startSystem(Phaser.Physics.P2JS);
     game.time.desiredFps = 30;
 }
 
@@ -44,8 +45,10 @@ function platformsEnemies(tiles, pos){
       ledge3.name = 'pila' + i;
       ledge3.width = enemiesFloor;
       ledge3.body.immovable = true;
-      game.physics.arcade.enable(ledge3);
+     
       blockContainer.push(ledge3);
+      // blockContainer[i].body.gravity.y = 400;
+      // game.physics.arcade.enable(blockContainer[i]);
       
     }
     
@@ -89,11 +92,6 @@ function create() {
 
      //var randomNumberBetween0and19 = Math.floor(Math.random() * 20);
      //console.log(randomNumberBetween0and19);
-
-  
-   
-     
-
       
       cursors = game.input.keyboard.createCursorKeys();
       jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
@@ -131,7 +129,7 @@ function create() {
     platformsEnemies(14, 0);
     createEmitter();
 
-     var c = game.add.sprite(game.world.centerX-300,210-32, 'casita');
+    var c = game.add.sprite(game.world.centerX-300,210-32, 'casita');
 
 
 
@@ -145,41 +143,19 @@ function update() {
   var hitPlatform = game.physics.arcade.collide(this.robot, platforms);
   var hitPlatform2 = game.physics.arcade.collide(this.peresozin, platforms);
   var hitPlatform3 = game.physics.arcade.collide(this.sickBoy, platforms);
-  var hitPlatform4 = game.physics.arcade.collide(emitter, platforms);
+  var hitPlatform4 = game.physics.arcade.collide(emitter, platforms,hitBlock);
   var hitPlatform6 = game.physics.arcade.collide(emitter, this.robot);
-  
+ 
+ 
 
 
-  var hitPlatform7 = game.physics.arcade.checkCollision;
-
-
+ 
   if (hitPlatform6 == true){
        this.robot.body.velocity.setTo(0, 0);
        emitter.bounce.setTo(1, 1);
         
   }
  
-  if(hitPlatform4 == true){
-
-    platforms.forEach(function(coin) {     
-       platforms.getChildAt(3).destroy();
-          
-      }, this); 
-        
-        //platforms.destroy();
-         
-  
-        
-        // if(platforms.children.touching == true){
-        //     emitter.destroy();
-        //   createEmitter();
-        // }
-        //else{
-          //platforms.getChildAt().destroy();
-          
-        //}
-       
-  }
 
    if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
     {
@@ -203,6 +179,16 @@ function update() {
         this.robot.body.velocity.y = -250;
         jumpTimer = game.time.now + 750;
     }
+
+}
+
+function hitBlock(emitter,platforms){
+  
+  if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" ){
+       platforms.destroy();
+  }
+ 
+
 
 }
 
