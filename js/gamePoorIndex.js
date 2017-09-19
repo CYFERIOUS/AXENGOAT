@@ -8,8 +8,9 @@ var ModuleGame = (function () {
   var emitter;
   var particula;
   var ground;
-  var blockContainer;
-  var ledge1, ledge2, ledge3;
+  var blockContainerRight = []; 
+  var blockContainerLeft = [];
+  var ledge1, ledge2, ledge3, ledge4;
 
 
 
@@ -38,31 +39,36 @@ function randomNumber(){
 
 function platformsEnemies(tiles, pos){
     var enemiesFloor = 80;
-    blockContainer = [];
     var placeX = pos == 0 ? 0 : (pos-enemiesFloor);
-    for(var i = 0; i<tiles; i++){
-      ledge3 = platforms.create( placeX, 200+(35*i), 'ground');
-      ledge3.name = 'pila' + i;
-      ledge3.width = enemiesFloor;
-      ledge3.body.immovable = true;
-     
-      blockContainer.push(ledge3);
-      // blockContainer[i].body.gravity.y = 400;
-      // game.physics.arcade.enable(blockContainer[i]);
+    
+      for(var i = 0; i<tiles; i++){
+        ledge3 = platforms.create( placeX, 200+(35*i), 'ground');
+        
+        ledge3.width = enemiesFloor;
+        ledge3.body.immovable = true;
+        if (placeX == 0) {
+          ledge3.name = 'pila' + i;
+          blockContainerLeft.push(ledge3);
+        }else{
+          ledge3.name = 'pola' + i;
+          blockContainerRight.push(ledge3);
+        }
+      }
       
-    }
-    
-    
+
 }
+
+
 
 function createEmitter(){
     emitter = game.add.emitter(100, 100, 1);
     emitter.makeParticles(['particle']);
     emitter.start(false, 10000, 20);
-    emitter.setYSpeed(-100, 20);
-    emitter.setXSpeed(200, 20);
+    emitter.setYSpeed(1000, 20);
+    emitter.setXSpeed(2000, 20);
     game.physics.arcade.enable(emitter);
     emitter.bounce.setTo(0.5, 0.5);
+    emitter.collideWorldBounds=true;
 }
 
 
@@ -127,6 +133,8 @@ function create() {
 
     platformsEnemies(14, game.world.width);
     platformsEnemies(14, 0);
+
+    
     createEmitter();
 
     var c = game.add.sprite(game.world.centerX-300,210-32, 'casita');
@@ -135,7 +143,24 @@ function create() {
 
 }
 
+function applyGravity(tiles){
+  alert(tiles.name);
+  var str = tiles.name;
+  var word = str.slice(0, 4);
+  var numbo = str.slice(4, 6);
+  var numba = parseInt(numbo);
 
+  if(word == "pola"){
+    for(var i = 0; i<numba; i++){
+      blockContainerRight[numba].body.immovable = false ;
+    }
+  }
+  if (word == "pila") {
+    for(var i = 0; i<numba; i++){
+      blockContainerLeft[numba].body.immovable = false ;
+    }
+  } 
+}
 
 
 function update() {
@@ -146,14 +171,9 @@ function update() {
   var hitPlatform4 = game.physics.arcade.collide(emitter, platforms,hitBlock);
   var hitPlatform6 = game.physics.arcade.collide(emitter, this.robot);
  
- 
-
-
- 
   if (hitPlatform6 == true){
        this.robot.body.velocity.setTo(0, 0);
-       emitter.bounce.setTo(1, 1);
-        
+       emitter.bounce.setTo(1, 1);      
   }
  
 
@@ -184,7 +204,9 @@ function update() {
 
 function hitBlock(emitter,platforms){
   
+  
   if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" ){
+       applyGravity(platforms);
        platforms.destroy();
   }
  
