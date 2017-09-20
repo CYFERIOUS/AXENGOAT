@@ -68,7 +68,8 @@ function createEmitter(){
     emitter.setXSpeed(200, 20);
     game.physics.arcade.enable(emitter);
     emitter.bounce.setTo(0.5, 0.5);
-    emitter.collideWorldBounds=true;
+    emitter.setAll("body.collideWorldBounds", true);
+
 }
 
 
