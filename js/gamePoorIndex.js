@@ -64,8 +64,8 @@ function createEmitter(){
     emitter = game.add.emitter(100, 100, 1);
     emitter.makeParticles(['particle']);
     emitter.start(false, 10000, 20);
-    emitter.setYSpeed(1000, 20);
-    emitter.setXSpeed(2000, 20);
+    emitter.setYSpeed(-100, 20);
+    emitter.setXSpeed(200, 20);
     game.physics.arcade.enable(emitter);
     emitter.bounce.setTo(0.5, 0.5);
     emitter.collideWorldBounds=true;
@@ -139,25 +139,29 @@ function create() {
 
     var c = game.add.sprite(game.world.centerX-300,210-32, 'casita');
 
+    console.log("blockContainerRight"+blockContainerRight);
+    console.log("blockContainerLeft"+blockContainerLeft);
 
 
 }
 
 function applyGravity(tiles){
-  alert(tiles.name);
+ 
   var str = tiles.name;
   var word = str.slice(0, 4);
   var numbo = str.slice(4, 6);
   var numba = parseInt(numbo);
 
   if(word == "pola"){
+     alert(word);
     for(var i = 0; i<numba; i++){
-      blockContainerRight[numba].body.immovable = false ;
+      blockContainerRight[i].body.immovable = false ;
     }
   }
   if (word == "pila") {
+     alert(word);
     for(var i = 0; i<numba; i++){
-      blockContainerLeft[numba].body.immovable = false ;
+      blockContainerLeft[i].body.immovable = false ;
     }
   } 
 }
