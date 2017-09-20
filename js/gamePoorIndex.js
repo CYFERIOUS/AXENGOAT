@@ -63,7 +63,7 @@ function platformsEnemies(tiles, pos){
 function createEmitter(){
     emitter = game.add.emitter(100, 100, 1);
     emitter.makeParticles(['particle']);
-    emitter.start(false, 10000, 20);
+    emitter.start(false, 20000, 20);
     emitter.setYSpeed(-100, 20);
     emitter.setXSpeed(200, 20);
     game.physics.arcade.enable(emitter);
@@ -154,16 +154,24 @@ function applyGravity(tiles){
   var numba = parseInt(numbo);
 
   if(word == "pola"){
-     alert(word);
-    for(var i = 0; i<numba; i++){
-      blockContainerRight[i].body.immovable = false ;
+     alert(numba);
+     var rightLong = blockContainerRight.length-numba;
+     var iRight = 0;
+    while(iRight < rightLong ){
+      blockContainerRight[iRight].body.immovable = false;
+      iRight++;
     }
+    
   }
   if (word == "pila") {
-     alert(word);
-    for(var i = 0; i<numba; i++){
-      blockContainerLeft[i].body.immovable = false ;
+     alert(numba);
+     var leftLong = blockContainerLeft.length - numba;
+     var iLeft = 0;
+   while(iLeft < leftLong ){
+      blockContainerLeft[iLeft].body.immovable = false ;
+      iLeft++;
     }
+   
   } 
 }
 
