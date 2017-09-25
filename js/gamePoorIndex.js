@@ -1,6 +1,4 @@
-var ModuleGame = (function () {
- 
-  var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
    var jumpButton;
   var jumpTimer = 0;
   var cursors;
@@ -8,8 +6,8 @@ var ModuleGame = (function () {
   var emitter;
   var particula;
   var ground;
-  var blockContainerRight = []; 
-  var blockContainerLeft = [];
+  var blockContainerRight = new Array(); 
+  var blockContainerLeft = new Array();
   var ledge1, ledge2, ledge3, ledge4;
 
 
@@ -65,7 +63,7 @@ function createEmitter(){
     emitter.makeParticles(['particle']);
     emitter.start(false, 20000, 20);
     emitter.setYSpeed(-100, 20);
-    emitter.setXSpeed(200, 20);
+    emitter.setXSpeed(300, 20);
     game.physics.arcade.enable(emitter);
     emitter.bounce.setTo(0.5, 0.5);
     emitter.setAll("body.collideWorldBounds", true);
@@ -140,40 +138,40 @@ function create() {
 
     var c = game.add.sprite(game.world.centerX-300,210-32, 'casita');
 
-    console.log("blockContainerRight"+blockContainerRight);
-    console.log("blockContainerLeft"+blockContainerLeft);
+    
 
 
 }
 
-function applyGravity(tiles){
+function applyGravityRight(numba){
+  var iRight = 0;
  
-  var str = tiles.name;
-  var word = str.slice(0, 4);
-  var numbo = str.slice(4, 6);
-  var numba = parseInt(numbo);
-
-  if(word == "pola"){
-     alert(numba);
-     var rightLong = blockContainerRight.length-numba;
-     var iRight = 0;
-    while(iRight < rightLong ){
-      blockContainerRight[iRight].body.immovable = false;
-      iRight++;
-    }
-    
+  while(iRight < numba ){
+    blockContainerRight[iRight].body.y = ((blockContainerRight[iRight].body.y+2) + blockContainerRight[iRight].height);
+    iRight++;
   }
-  if (word == "pila") {
-     alert(numba);
-     var leftLong = blockContainerLeft.length - numba;
-     var iLeft = 0;
-   while(iLeft < leftLong ){
-      blockContainerLeft[iLeft].body.immovable = false ;
+  
+  blockContainerRight.splice(numba, 1); 
+ }
+
+function applyGravityLeft(numba){
+    var iLeft = 0;
+
+    while(iLeft < numba ){
+      blockContainerLeft[iLeft].body.y = ((blockContainerLeft[iLeft].body.y+2) + blockContainerLeft[iLeft].height);
       iLeft++;
     }
-   
-  } 
+    
+    blockContainerLeft.splice(numba, 1);
 }
+
+function destroyParticle(){
+   emitter.forEachAlive(function(particle){
+      particle.kill();
+
+   });
+}
+
 
 
 function update() {
@@ -216,39 +214,38 @@ function update() {
 }
 
 function hitBlock(emitter,platforms){
-  
-  
   if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" ){
-       applyGravity(platforms);
-       platforms.destroy();
+    
+      var str = platforms.name;
+      var word = str.slice(0, 4);
+      var numba;
+      if(word == "pola"){
+        numba = blockContainerRight.indexOf(platforms);
+        platforms.destroy();
+        applyGravityRight(numba);
+        destroyParticle();
+        
+      }
+      if(word == "pila"){
+        numba = blockContainerLeft.indexOf(platforms);
+        platforms.destroy();
+        applyGravityLeft(numba);
+        destroyParticle();
+      }
+  
   }
- 
-
-
 }
 
 function render() {
     //game.debug.spriteInfo(s, 20, 32);
      game.debug.text(game.time.suggestedFps, 32, 32);
-
 }
  
- 
-   var publicMethod = function () {
-      render();
-      update();
-  };
-  
-  return {
-    publicMethod: publicMethod
-  };
-
-})();
-
 
 $( document ).ready(function() {
     var main = function(){
-      ModuleGame.publicMethod();
+        render();
+        update();
     }
 });
 
