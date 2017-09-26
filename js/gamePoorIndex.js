@@ -1,5 +1,8 @@
 var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
-   var jumpButton;
+  
+
+
+  var jumpButton;
   var jumpTimer = 0;
   var cursors;
   var platforms;
@@ -9,6 +12,7 @@ var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-example', { preload
   var blockContainerRight = new Array(); 
   var blockContainerLeft = new Array();
   var ledge1, ledge2, ledge3, ledge4;
+  var emmiter1pos;
 
 
 
@@ -52,13 +56,12 @@ function platformsEnemies(tiles, pos){
           blockContainerRight.push(ledge3);
         }
       }
-      
-
 }
 
 
 
 function createEmitter(){
+    
     emitter = game.add.emitter(100, 100, 1);
     emitter.makeParticles(['particle']);
     emitter.start(false, 20000, 20);
@@ -135,6 +138,7 @@ function create() {
 
     
     createEmitter();
+  
 
     var c = game.add.sprite(game.world.centerX-300,210-32, 'casita');
 
@@ -170,21 +174,25 @@ function destroyParticle(){
       particle.kill();
 
    });
+  
 }
 
 
 
 function update() {
+  
+
 
   var hitPlatform = game.physics.arcade.collide(this.robot, platforms);
   var hitPlatform2 = game.physics.arcade.collide(this.peresozin, platforms);
   var hitPlatform3 = game.physics.arcade.collide(this.sickBoy, platforms);
   var hitPlatform4 = game.physics.arcade.collide(emitter, platforms,hitBlock);
   var hitPlatform6 = game.physics.arcade.collide(emitter, this.robot);
- 
+
+
   if (hitPlatform6 == true){
        this.robot.body.velocity.setTo(0, 0);
-       emitter.bounce.setTo(1, 1);      
+       emitter.bounce.setTo(1, 1);  
   }
  
 
@@ -211,27 +219,31 @@ function update() {
         jumpTimer = game.time.now + 750;
     }
 
+    emitter.y  = this.sickBoy.body.y; 
+   
+
 }
 
 function hitBlock(emitter,platforms){
   if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" ){
-    
       var str = platforms.name;
       var word = str.slice(0, 4);
       var numba;
+      
       if(word == "pola"){
         numba = blockContainerRight.indexOf(platforms);
         platforms.destroy();
         applyGravityRight(numba);
         destroyParticle();
-        
       }
       if(word == "pila"){
         numba = blockContainerLeft.indexOf(platforms);
         platforms.destroy();
         applyGravityLeft(numba);
         destroyParticle();
+        
       }
+     
   
   }
 }
