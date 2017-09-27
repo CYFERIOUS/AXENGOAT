@@ -1,14 +1,28 @@
   var Emittor = (function () {
 
-    var addEmitter = function () {
-      emitter = game.add.emitter(100, 100, 1);
-      emitter.makeParticles(['particle']);
+    var preloadImages = function () {
+        game.load.image('particle1', 'images/partucula.png');
+        game.load.image('particle2', 'images/partucula2.png');
+    };
+
+
+    var addEmitter = function (initialX,initialY,xfast,nomos) {
+      emitter = game.add.emitter(initialX, initialY, 1);
+      emitter.name = nomos;
+      if(emitter.name == "izquierda"){
+           emitter.makeParticles(['particle1']);
+      }
+      if(emitter.name == "derecha"){
+           emitter.makeParticles(['particle2']);
+      }
+    
       emitter.start(false, 20000, 20);
       emitter.setYSpeed(-100, 20);
-      emitter.setXSpeed(300, 20);
+      emitter.setXSpeed(xfast, 20);
       game.physics.arcade.enable(emitter);
       emitter.bounce.setTo(0.5, 0.5);
       emitter.setAll("body.collideWorldBounds", true);
+      return emitter;
     };
 
     var destroyParticle = function (){
@@ -19,6 +33,7 @@
     };
 
     return {
+      preloading: preloadImages,
       emitor: addEmitter,
       destroyer: destroyParticle
     };
