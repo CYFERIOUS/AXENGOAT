@@ -1,17 +1,18 @@
-  var Characters = (function () {
+  var Characters = (function (Emittor) {
 
     var preloadImagesCharacters = function () {
         game.load.spritesheet('robot', 'images/papa.png', 80, 111);
     };
 
     var mainCharacter = function () {
-      this.speed=4;
+      this.speed=10;
       this.robot=game.add.sprite(game.world.centerX,130,"robot");
+      game.physics.arcade.enable(this.robot);
       this.robot.anchor.set(0.5,0.5);
       this.robot.animations.add('idle', [0,1,2,3,4,5,6,7,8,9], 12,true);
       this.robot.animations.add('run', [10,11,12,13,14,15,16,17], 12,true);
-      this.robot.animations.play('idle',[0,1,2,3],12,true);
-      game.physics.arcade.enable(this.robot);
+      this.robot.animations.play('idle',[0,1,2,3],12,true); 
+      this.robot.body.collideWorldBounds = true;
       this.robot.body.bounce.y = 0.2;
       this.robot.body.gravity.y = 400;
       return this.robot;
@@ -36,10 +37,22 @@
       }
     };
 
+    var hitEmitterLeft = function(emitter1,robot){
+      robot.body.velocity.x = 0;
+      emitter1.bounce.setTo(1.5, 1);
+     
+    };
+    var hitEmitterRight = function(emitter2,robot){
+       robot.body.velocity.x = 0;
+       emitter2.bounce.setTo(1.5, 1);
+    };
+    
     return {
       createCharacters: preloadImagesCharacters,
       setMainCharacter: mainCharacter,
-      moveCharacters: movements
+      moveCharacters: movements,
+      collideEmitterLeft: hitEmitterLeft,
+      collideEmitterRight: hitEmitterRight
     };
 
-  })();
+  })(Emittor);

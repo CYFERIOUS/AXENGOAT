@@ -43,27 +43,18 @@ function create() {
 }
 
 
-function update() {  
+function update() { 
+
   var hitPlatform = game.physics.arcade.collide(robot, platforms);
   var hitPlatform2 = game.physics.arcade.collide(peresozin, platforms);
   var hitPlatform3 = game.physics.arcade.collide(sickBoy, platforms);
   var hitPlatform4 = game.physics.arcade.collide(emitter1, platforms,Stage.collideBlockLeft);
   var hitPlatform5 = game.physics.arcade.collide(emitter2, platforms,Stage.collideBlockRight);
-  var hitPlatform6 = game.physics.arcade.collide(emitter1, robot);
-  var hitPlatform7 = game.physics.arcade.collide(emitter2, robot);
-
-  if (hitPlatform6 == true){
-       robot.body.velocity.setTo(0, 0);
-       emitter2.bounce.setTo(1, 1);  
-  }
-  if (hitPlatform7 == true){
-       robot.body.velocity.setTo(0, 0);
-       emitter2.bounce.setTo(1, 1);  
-  }
-
+  var hitPlatform6 = game.physics.arcade.collide(emitter1, robot, Characters.collideEmitterLeft(emitter1,robot));
+  var hitPlatform7 = game.physics.arcade.collide(emitter2, robot, Characters.collideEmitterRight(emitter2,robot));
   Characters.moveCharacters();
   emitter1.y  = sickBoy.body.y;
-  emitter2.y  = peresozin.body.y;  
+  emitter2.y  = peresozin.body.y; 
 }
 
 
