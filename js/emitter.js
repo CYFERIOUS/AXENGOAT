@@ -15,7 +15,6 @@
       if(emitter.name == "derecha"){
            emitter.makeParticles(['particle2']);
       }
-    
       emitter.start(false, 20000, 20);
       emitter.setYSpeed(-100, 20);
       emitter.setXSpeed(xfast, 20);

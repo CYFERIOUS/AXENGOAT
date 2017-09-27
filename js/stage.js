@@ -32,8 +32,8 @@ var Stage = (function (Emittor) {
       }
     };
     var buildGroup = function(){
+      
       platforms = game.add.group();
-
       // We will enable physics for any object that is created in this group
       platforms.enableBody = true;
 
@@ -79,24 +79,26 @@ var Stage = (function (Emittor) {
       blockContainerLeft.splice(numba, 1);
     };
 
-    function hitBlock(emitter,platforms){
-      if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" ){
-        var str = platforms.name;
-        var word = str.slice(0, 4);
+    function hitBlockLeft(emitter,platforms){
+      var str = platforms.name;
+      var word = str.slice(0, 4);
+      if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" && word == "pila"  ){
         var numba;
-      
-        if(word == "pola"){
-          numba = blockContainerRight.indexOf(platforms);
-          platforms.destroy();
-          Stage.fallBlocksRight(numba);
-          Emittor.destroyer();
-        }
-        if(word == "pila"){
-          numba = blockContainerLeft.indexOf(platforms);
-          platforms.destroy();
-          Stage.fallBlocksLeft(numba);
-          Emittor.destroyer();
-        }
+        numba = blockContainerLeft.indexOf(platforms);
+        platforms.destroy();
+        Stage.fallBlocksLeft(numba);
+        Emittor.destroyer();
+      }
+    };
+    function hitBlockRight(emitter,platforms){
+      var str = platforms.name;
+      var word = str.slice(0, 4);
+      if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" && word == "pola" ){
+        var numba;
+        numba = blockContainerRight.indexOf(platforms);
+        platforms.destroy();
+        Stage.fallBlocksRight(numba);
+        Emittor.destroyer();
       }
     };
 
@@ -114,7 +116,8 @@ var Stage = (function (Emittor) {
       houseAdder:addHouse,
       fallBlocksRight: applyGravityRight,
       fallBlocksLeft: applyGravityLeft,
-      collideBlock: hitBlock
+      collideBlockLeft: hitBlockLeft,
+      collideBlockRight: hitBlockRight,
     };
 
 })(Emittor);

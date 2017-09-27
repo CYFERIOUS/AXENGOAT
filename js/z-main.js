@@ -10,7 +10,6 @@ var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-example', { preload
   var blockContainerRight = new Array(); 
   var blockContainerLeft = new Array();
   var ledge1, ledge2, ledge3, ledge4;
-  var emmiter1pos;
   var speed, robot, peresozin, sickBoy;
 
  function preload() {
@@ -48,8 +47,8 @@ function update() {
   var hitPlatform = game.physics.arcade.collide(robot, platforms);
   var hitPlatform2 = game.physics.arcade.collide(peresozin, platforms);
   var hitPlatform3 = game.physics.arcade.collide(sickBoy, platforms);
-  var hitPlatform4 = game.physics.arcade.collide(emitter1, platforms,Stage.collideBlock);
-  var hitPlatform5 = game.physics.arcade.collide(emitter2, platforms,Stage.collideBlock);
+  var hitPlatform4 = game.physics.arcade.collide(emitter1, platforms,Stage.collideBlockLeft);
+  var hitPlatform5 = game.physics.arcade.collide(emitter2, platforms,Stage.collideBlockRight);
   var hitPlatform6 = game.physics.arcade.collide(emitter1, robot);
   var hitPlatform7 = game.physics.arcade.collide(emitter2, robot);
 

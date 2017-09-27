@@ -14,7 +14,6 @@
       game.physics.arcade.enable(this.robot);
       this.robot.body.bounce.y = 0.2;
       this.robot.body.gravity.y = 400;
-
       return this.robot;
     };
 
