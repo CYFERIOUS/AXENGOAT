@@ -19,9 +19,9 @@ var Stage = (function (Emittor) {
     
       for(var i = 0; i<tiles; i++){
         ledge3 = platforms.create( placeX, 200+(35*i), 'ground');
-        
         ledge3.width = enemiesFloor;
         ledge3.body.immovable = true;
+        ledge3.body.bounce.setTo(0.5, 0.5);
         if (placeX == 0) {
           ledge3.name = 'pila' + i;
           blockContainerLeft.push(ledge3);

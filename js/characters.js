@@ -8,6 +8,7 @@
       this.speed=10;
       this.robot=game.add.sprite(game.world.centerX,130,"robot");
       game.physics.arcade.enable(this.robot);
+      this.robot.body.checkCollision.up = false;
       this.robot.anchor.set(0.5,0.5);
       this.robot.animations.add('idle', [0,1,2,3,4,5,6,7,8,9], 12,true);
       this.robot.animations.add('run', [10,11,12,13,14,15,16,17], 12,true);
@@ -37,22 +38,24 @@
       }
     };
 
-    var hitEmitterLeft = function(emitter1,robot){
+    var collideLeft = function(emitter1,robot){
       robot.body.velocity.x = 0;
-      emitter1.bounce.setTo(1.5, 1);
-     
+      emitter1.bounce.setTo(2,1);
+
     };
-    var hitEmitterRight = function(emitter2,robot){
-       robot.body.velocity.x = 0;
-       emitter2.bounce.setTo(1.5, 1);
+    var collideRight = function(emitter2, robot){
+      robot.body.velocity.x = 0;
+     emitter2.bounce.setTo(2,1);
     };
+   
     
     return {
       createCharacters: preloadImagesCharacters,
       setMainCharacter: mainCharacter,
       moveCharacters: movements,
-      collideEmitterLeft: hitEmitterLeft,
-      collideEmitterRight: hitEmitterRight
+      lColliding: collideLeft,
+      rColliding: collideRight,
+      
     };
 
   })(Emittor);

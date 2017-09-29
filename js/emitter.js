@@ -6,7 +6,7 @@
     };
 
 
-    var addEmitter = function (initialX,initialY,xfast,nomos) {
+    var addEmitter = function (initialX,initialY,xfast,nomos,bounce) {
       
 
       emitter = game.add.emitter(initialX, initialY, 1);
@@ -22,10 +22,13 @@
       emitter.setYSpeed(-100, 20);
       emitter.setXSpeed(xfast, 20);
       game.physics.arcade.enable(emitter);
-      emitter.bounce.setTo(1, 1);
+      emitter.bounce.setTo(bounce, 0.5);
       emitter.setAll("body.collideWorldBounds", true);
       return emitter;
     };
+
+
+   
 
     var destroyParticle = function (){
       emitter.forEachAlive(function(particle){
