@@ -8,39 +8,47 @@
 
     var addEmitter = function (initialX,initialY,xfast,nomos,bounce) {
       
-
       emitter = game.add.emitter(initialX, initialY, 1);
       emitter.name = nomos;
       emitter.enableBody = true;
       if(emitter.name == "izquierda"){
+    
            emitter.makeParticles(['particle1']);
       }
       if(emitter.name == "derecha"){
+         
            emitter.makeParticles(['particle2']);
       }
-      emitter.start(false, 10000, 20);
-      emitter.setYSpeed(-100, 20);
+      emitter.start(false, 8000, 400);
       emitter.setXSpeed(xfast, 20);
-      game.physics.arcade.enable(emitter);
-      emitter.bounce.setTo(bounce, 0.5);
+      emitter.setYSpeed(10, 20);
+      emitter.gravity = 150;
+      emitter.bounce.setTo(bounce,1);
       emitter.setAll("body.collideWorldBounds", true);
+      game.physics.arcade.enable(emitter);
       return emitter;
     };
 
 
    
 
-    var destroyParticle = function (){
-      emitter.forEachAlive(function(particle){
+    var destroyParticleLeft = function (){
+      emitter1.forEachAlive(function(particle){
         particle.kill();
       });
-  
+    };
+
+    var destroyParticleRight = function (){
+      emitter2.forEachAlive(function(particle){
+        particle.kill();
+      });
     };
 
     return {
       preloading: preloadImages,
       emitor: addEmitter,
-      destroyer: destroyParticle
+      destroyer1: destroyParticleLeft,
+      destroyer2: destroyParticleRight
     };
 
   })();

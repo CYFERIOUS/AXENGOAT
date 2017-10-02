@@ -80,6 +80,7 @@ var Stage = (function (Emittor) {
     };
 
     function hitBlockLeft(emitter,platforms){
+     
       var str = platforms.name;
       var word = str.slice(0, 4);
       if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" && word == "pila"  ){
@@ -87,10 +88,11 @@ var Stage = (function (Emittor) {
         numba = blockContainerLeft.indexOf(platforms);
         platforms.destroy();
         Stage.fallBlocksLeft(numba);
-        Emittor.destroyer();
+        Emittor.destroyer1();
       }
     };
     function hitBlockRight(emitter,platforms){
+      
       var str = platforms.name;
       var word = str.slice(0, 4);
       if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" && word == "pola" ){
@@ -98,7 +100,7 @@ var Stage = (function (Emittor) {
         numba = blockContainerRight.indexOf(platforms);
         platforms.destroy();
         Stage.fallBlocksRight(numba);
-        Emittor.destroyer();
+        Emittor.destroyer2();
       }
     };
 

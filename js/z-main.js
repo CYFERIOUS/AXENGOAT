@@ -51,10 +51,10 @@ function update() {
   var hitPlatform3 = game.physics.arcade.collide(sickBoy, platforms);
   var hitPlatform4 = game.physics.arcade.collide(emitter1, platforms,Stage.collideBlockLeft);
   var hitPlatform5 = game.physics.arcade.collide(emitter2, platforms,Stage.collideBlockRight);
-  var hitPlatform6 = game.physics.arcade.collide(emitter1, robot, Characters.lColliding(emitter1,robot));
-  var hitPlatform7 = game.physics.arcade.collide(emitter2, robot, Characters.rColliding(emitter2,robot));
+  var hitPlatform6 = game.physics.arcade.collide(emitter1, robot, Characters.lColliding);
+  var hitPlatform7 = game.physics.arcade.collide(emitter2, robot, Characters.rColliding);
   var hitPlatform8 = game.physics.arcade.collide(emitter1, emitter2);
-
+  
   Characters.moveCharacters();
   emitter1.y  = sickBoy.body.y;
   emitter2.y  = peresozin.body.y; 

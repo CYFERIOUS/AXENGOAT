@@ -38,14 +38,25 @@
       }
     };
 
-    var collideLeft = function(emitter1,robot){
-      robot.body.velocity.x = 0;
-      emitter1.bounce.setTo(2,1);
+    var collideLeft = function(){
+
+      emitter1.forEachAlive(function(particle){
+        particle.body.acceleration.x = -120;
+        particle.body.acceleration.y = 50;
+      });  
+       robot.body.velocity.x = 0;
+    
 
     };
-    var collideRight = function(emitter2, robot){
-      robot.body.velocity.x = 0;
-     emitter2.bounce.setTo(2,1);
+    var collideRight = function(){
+
+      emitter2.forEachAlive(function(particle){
+        particle.body.acceleration.x = 120;
+        particle.body.acceleration.y = 50;
+      });
+      
+     robot.body.velocity.x = 0;
+
     };
    
     
