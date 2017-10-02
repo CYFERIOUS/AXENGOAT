@@ -11,6 +11,7 @@ var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-example', { preload
   var blockContainerLeft = new Array();
   var ledge1, ledge2, ledge3, ledge4;
   var speed, robot, peresozin, sickBoy;
+  var houseLife;
 
  function preload() {
     game.physics.startSystem(Phaser.Physics.P2JS);
@@ -27,23 +28,19 @@ var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-example', { preload
 
 function create() {
 
-
     cursors = game.input.keyboard.createCursorKeys();
     jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     robot = Characters.setMainCharacter();
     peresozin = Enemies.addPeresozin();
     sickBoy = Enemies.addSickBoy();
     emitter1 = Emittor.emitor(100,100,300,"izquierda",0.5);
-    emitter2 = Emittor.emitor(game.world.width-63,100,-300,"derecha",0.5);
+    emitter2 = Emittor.emitor(-63,100,-300,"derecha",0.5);
     Stage.groupPlatforms();
     Stage.createPlatforms(14, game.world.width);
     Stage.createPlatforms(14, 0);
     Stage.houseAdder();
-
-    var barConfig = {x: game.world.width/2, y: 10};
-    this.myHealthBar = new HealthBar(this.game, barConfig);
-
-
+    BarLife.lifeBar(game.world.width);
+    BarLife.damage(100);
 }
 
 

@@ -1,4 +1,4 @@
-var Stage = (function (Emittor) {
+var Stage = (function (Emittor,BarLife) {
 
     var preloadImagesPlatforms = function () {
         game.load.image('piso0', 'images/platform.png');
@@ -89,7 +89,13 @@ var Stage = (function (Emittor) {
         platforms.destroy();
         Stage.fallBlocksLeft(numba);
         Emittor.destroyer1();
+      }else{
+        if( platforms.name == "piso1" || platforms.name == "piso2" ){
+          // BarLife.damage(-1);
+          alert("casa");
+        }
       }
+      
     };
     function hitBlockRight(emitter,platforms){
       
@@ -101,15 +107,19 @@ var Stage = (function (Emittor) {
         platforms.destroy();
         Stage.fallBlocksRight(numba);
         Emittor.destroyer2();
+      }else{
+        if( platforms.name == "piso1" || platforms.name == "piso2" ){
+           // BarLife.damage(-1);
+           alert("casa");
+        }
       }
+     
     };
 
     var addHouse = function(){
        var c = game.add.sprite(game.world.centerX-300,210-32, 'casita');
     };
 
-
-  
     return {
       preloadPlatforms: preloadImagesPlatforms,
       setHouse: preloadImagesHouse,
@@ -122,4 +132,4 @@ var Stage = (function (Emittor) {
       collideBlockRight: hitBlockRight,
     };
 
-})(Emittor);
+})(Emittor,BarLife);
