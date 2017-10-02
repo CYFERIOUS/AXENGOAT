@@ -40,6 +40,9 @@ function create() {
     Stage.createPlatforms(14, 0);
     Stage.houseAdder();
 
+    var barConfig = {x: game.world.width/2, y: 10};
+    this.myHealthBar = new HealthBar(this.game, barConfig);
+
 
 }
 

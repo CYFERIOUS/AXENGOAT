@@ -39,18 +39,23 @@
     };
 
     var collideLeft = function(){
-      emitter1.forEachAlive(function(particle){
-        particle.body.acceleration.x = -80;
-        particle.body.acceleration.y = 30;
-      });  
+      if(robot.body.touching.left){
+        emitter1.forEachAlive(function(particle){
+          particle.body.acceleration.x = -80;
+          particle.body.acceleration.y = 30;
+        }); 
+      }
+       
        robot.body.velocity.x = 0;
     };
     var collideRight = function(){
-
-      emitter2.forEachAlive(function(particle){
-        particle.body.acceleration.x = 80;
-        particle.body.acceleration.y = 30;
-      });
+       if(robot.body.touching.right){
+          emitter2.forEachAlive(function(particle){
+            particle.body.acceleration.x = 80;
+            particle.body.acceleration.y = 30;
+          });
+       }
+      
      robot.body.velocity.x = 0;
     };
    
