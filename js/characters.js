@@ -39,24 +39,19 @@
     };
 
     var collideLeft = function(){
-
       emitter1.forEachAlive(function(particle){
-        particle.body.acceleration.x = -120;
-        particle.body.acceleration.y = 50;
+        particle.body.acceleration.x = -80;
+        particle.body.acceleration.y = 30;
       });  
        robot.body.velocity.x = 0;
-    
-
     };
     var collideRight = function(){
 
       emitter2.forEachAlive(function(particle){
-        particle.body.acceleration.x = 120;
-        particle.body.acceleration.y = 50;
+        particle.body.acceleration.x = 80;
+        particle.body.acceleration.y = 30;
       });
-      
      robot.body.velocity.x = 0;
-
     };
    
     
