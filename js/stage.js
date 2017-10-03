@@ -1,5 +1,6 @@
 var Stage = (function (Emittor,BarLife) {
 
+
     var preloadImagesPlatforms = function () {
         game.load.image('piso0', 'images/platform.png');
         game.load.image('piso1', 'images/platform.png');
@@ -79,41 +80,38 @@ var Stage = (function (Emittor,BarLife) {
       blockContainerLeft.splice(numba, 1);
     };
 
+
+  
+
     function hitBlockLeft(emitter,platforms){
      
       var str = platforms.name;
       var word = str.slice(0, 4);
+      if( platforms.name == "piso1" || platforms.name == "piso2" ){
+          BarLife.damage(10);
+      }
       if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" && word == "pila"  ){
         var numba;
         numba = blockContainerLeft.indexOf(platforms);
         platforms.destroy();
         Stage.fallBlocksLeft(numba);
         Emittor.destroyer1();
-      }else{
-        if( platforms.name == "piso1" || platforms.name == "piso2" ){
-          // BarLife.damage(-1);
-          alert("casa");
-        }
       }
-      
     };
     function hitBlockRight(emitter,platforms){
       
       var str = platforms.name;
       var word = str.slice(0, 4);
+      if( platforms.name == "piso1" || platforms.name == "piso2" ){
+        BarLife.damage(10);
+      }
       if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" && word == "pola" ){
         var numba;
         numba = blockContainerRight.indexOf(platforms);
         platforms.destroy();
         Stage.fallBlocksRight(numba);
         Emittor.destroyer2();
-      }else{
-        if( platforms.name == "piso1" || platforms.name == "piso2" ){
-           // BarLife.damage(-1);
-           alert("casa");
-        }
       }
-     
     };
 
     var addHouse = function(){

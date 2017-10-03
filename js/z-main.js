@@ -34,17 +34,18 @@ function create() {
     peresozin = Enemies.addPeresozin();
     sickBoy = Enemies.addSickBoy();
     emitter1 = Emittor.emitor(100,100,300,"izquierda",0.5);
-    emitter2 = Emittor.emitor(-63,100,-300,"derecha",0.5);
+    emitter2 = Emittor.emitor(game.world.width-63,100,-300,"derecha",0.5);
     Stage.groupPlatforms();
     Stage.createPlatforms(14, game.world.width);
     Stage.createPlatforms(14, 0);
     Stage.houseAdder();
     BarLife.lifeBar(game.world.width);
-    BarLife.damage(100);
+    BarLife.initLife();
 }
 
 
-function update() { 
+function update() {
+
   
   var hitPlatform = game.physics.arcade.collide(robot, platforms);
   var hitPlatform2 = game.physics.arcade.collide(peresozin, platforms);
