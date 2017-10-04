@@ -88,7 +88,7 @@ var Stage = (function (Emittor,BarLife) {
       var str = platforms.name;
       var word = str.slice(0, 4);
       if( platforms.name == "piso1" || platforms.name == "piso2" ){
-          BarLife.damage(10);
+          BarLife.damage(2);
       }
       if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" && word == "pila"  ){
         var numba;
@@ -103,7 +103,7 @@ var Stage = (function (Emittor,BarLife) {
       var str = platforms.name;
       var word = str.slice(0, 4);
       if( platforms.name == "piso1" || platforms.name == "piso2" ){
-        BarLife.damage(10);
+        BarLife.damage(2);
       }
       if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" && word == "pola" ){
         var numba;

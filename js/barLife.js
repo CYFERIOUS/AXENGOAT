@@ -1,6 +1,6 @@
 var BarLife = (function () {
 
-    var executed = false;
+     var actual = 100;
 
 
     var addBar = function(xpos){
@@ -24,10 +24,12 @@ var BarLife = (function () {
   };
 
     var lifeLevel = function(value){
-        //alert("collide");
-          var stamina = value/100;
-          this.myHealthBar.setPercent(value);
+        console.log("collide");
         
+          actual = actual - value;
+            var stamina  =  actual;
+            this.myHealthBar.setPercent(stamina);
+    
     }
 
     var initLife = function(){
