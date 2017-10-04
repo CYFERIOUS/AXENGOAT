@@ -96,6 +96,7 @@ var Stage = (function (Emittor,BarLife) {
         platforms.destroy();
         Stage.fallBlocksLeft(numba);
         Emittor.destroyer1();
+        BarLife.restore(2);
       }
     };
     function hitBlockRight(emitter,platforms){
@@ -111,6 +112,7 @@ var Stage = (function (Emittor,BarLife) {
         platforms.destroy();
         Stage.fallBlocksRight(numba);
         Emittor.destroyer2();
+        BarLife.restore(2);
       }
     };
 
