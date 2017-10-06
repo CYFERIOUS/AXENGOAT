@@ -20,12 +20,12 @@
     };
 
     var movements = function () {
-      if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
+      if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT) || game.input.keyboard.isDown(Phaser.Keyboard.A)){
         this.robot.x-=this.speed;
         this.robot.play("run");
         this.robot.scale.x=-1;
       }
-      else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
+      else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) || game.input.keyboard.isDown(Phaser.Keyboard.D)){
         this.robot.x+=this.speed;
         this.robot.play("run");
         this.robot.scale.x=1;
@@ -36,6 +36,12 @@
         this.robot.body.velocity.y = -250;
         jumpTimer = game.time.now + 750;
       }
+      if (game.input.mousePointer.isDown){
+        game.physics.arcade.moveToPointer(this.robot, 400);
+      }
+      if (game.input.mousePointer.isUp){
+         this.robot.body.velocity.x = 0;
+      } 
     };
 
     var collideLeft = function(){
