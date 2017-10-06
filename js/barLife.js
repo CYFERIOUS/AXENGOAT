@@ -11,10 +11,10 @@ var BarLife = (function () {
           x:xpos/2,
           y: 50,
           bg: {
-            color: '#651828'
+            color: '#0CB5E5'
           },
           bar: {
-            color: '#FEFF03'
+            color: '#70FF01'
           },
           animationDuration: 200,
           flipped: false
@@ -30,8 +30,10 @@ var BarLife = (function () {
             var stamina  =  actual;
             this.myHealthBar.setPercent(stamina);
             
-            if(actual == 30){
-              this.myHealthBar.setBarColor('#fc9802');
+            if(actual < 33){
+              this.myHealthBar.setBarColor('#70FF01');
+            }else{
+              this.myHealthBar.setBarColor('#E50000');
             }
 
             if(stamina == 100){
