@@ -1,6 +1,7 @@
-var BarLife = (function () {
+var BarLife = (function (Texto) {
 
      var actual = 0;
+     var score = null;
 
 
     var addBar = function(xpos){
@@ -23,12 +24,12 @@ var BarLife = (function () {
       this.myHealthBar = new HealthBar(game, barConfig);
   };
 
-    var lifeLevelAdd = function(value){
-        console.log("collide");
-        
+    var lifeLevelAdd = function(value){        
           actual = actual + value;
             var stamina  =  actual;
             this.myHealthBar.setPercent(stamina);
+            var score = stamina;
+            Texto.updaterText(score);
             
             if(actual < 33){
               this.myHealthBar.setBarColor('#70FF01');
@@ -65,4 +66,4 @@ var BarLife = (function () {
       restore: lifeLevelMinus
     };
 
-})();
+})(Texto);

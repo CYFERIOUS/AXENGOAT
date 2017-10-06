@@ -13,6 +13,9 @@ var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-example', { preload
   var speed, robot, peresozin, sickBoy;
   var houseLife;
 
+  
+
+
  function preload() {
     game.physics.startSystem(Phaser.Physics.P2JS);
     game.time.desiredFps = 30;  
@@ -22,8 +25,10 @@ var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-example', { preload
     Stage.setHouse();
     Characters.createCharacters();
     Enemies.addEnemies();
+    Texto.precharge();
     
 }
+
 
 
 function create() {
