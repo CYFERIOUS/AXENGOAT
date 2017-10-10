@@ -14,6 +14,7 @@ var Texto = (function () {
     };
 
     var text = null;
+
     var grd;
 
 
@@ -22,34 +23,27 @@ var Texto = (function () {
       game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
     }
 
-   
-    var lifeLevelMax = function(texto){
-        
+    var createText = function(){
+        this.text = game.add.text(500, 50);
+        this.text.anchor.setTo(0.5);
+        this.text.font = 'VT323';
+        this.text.fontSize = 60;
+        this.text.fill = '#FFF';
+        this.text.inputEnabled = true;
+        this.text.fresh = true;
+       
     }
 
-    var lifeLevelMin = function(texto){
-      
-    
+    var updateText = function(texto){
+       this.text.setText(texto);
     }
 
-    var lifeLevelUpdater = function(texto){
-
-        text = game.add.text(500, 50);
-        text.anchor.setTo(0.5);
-        text.font = 'VT323';
-        text.fontSize = 60;
-        text.fill = '#FFF';
-        text.inputEnabled = true;
-        text.setText(texto);
-    }
-
-
+  
 
     return {
-      precharge: preloadText,
-      maxLevel: lifeLevelMax,
-      minLevel: lifeLevelMin,
-      updaterText: lifeLevelUpdater
+      precharge:preloadText,
+      creatingText: createText,
+      update:updateText
     };
 
 })();

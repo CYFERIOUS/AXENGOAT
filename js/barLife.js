@@ -29,8 +29,11 @@ var BarLife = (function (Texto) {
             var stamina  =  actual;
             this.myHealthBar.setPercent(stamina);
             var score = stamina;
-            Texto.updaterText(score);
-            
+            if(score>0){
+              Texto.update(score);
+            }else{
+              Texto.update("0");
+            }
             if(actual < 33){
               this.myHealthBar.setBarColor('#70FF01');
             }else{
@@ -38,7 +41,7 @@ var BarLife = (function (Texto) {
             }
 
             if(stamina == 100){
-                alert("GAME OVER");
+              Texto.update("GAME OVER");
             }
     
     }
@@ -50,7 +53,7 @@ var BarLife = (function (Texto) {
             var stamina  =  actual;
             this.myHealthBar.setPercent(stamina);
             if(stamina == 0){
-                alert("NO ERES POBRE!");
+                Texto.update("NOT POOR");
             }
     
     }

@@ -46,6 +46,7 @@ function create() {
     Stage.houseAdder();
     BarLife.lifeBar(game.world.width);
     BarLife.initLife();
+    Texto.creatingText();
 }
 
 
