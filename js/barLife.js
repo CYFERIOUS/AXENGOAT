@@ -29,10 +29,13 @@ var BarLife = (function (Texto) {
             var stamina  =  actual;
             this.myHealthBar.setPercent(stamina);
             var score = stamina;
-            if(score>0){
+            if(score >= 0){
               Texto.update(score);
             }else{
               Texto.update("0");
+            }
+            if( score >= 100){
+              Texto.update("100 :( ");
             }
             if(actual < 33){
               this.myHealthBar.setBarColor('#70FF01');
