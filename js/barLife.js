@@ -39,12 +39,17 @@ var BarLife = (function (Texto) {
               Texto.updateB("SOBRESALIENDO",60);
               this.myHealthBar.setBarColor('#70FF01');
             }else{
-                  Texto.updateB("PELIGRO: ZONA DE ESCASES",30);
+                  Texto.updateB("PELIGRO: ZONA DE ESCASEZ",30);
                   this.myHealthBar.setBarColor('#E50000');
             }
             if( score >= 100){
               Texto.updateA("100 :( ");
               Texto.updateB("GAME OVER",60);
+              setTimeout(function(){
+                  alert("CONTINUA JUGANDO");
+                  location.reload();
+              }, 3000);
+              
             }
 
             Texto.updateC("stage 1");
