@@ -118,19 +118,24 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
       }
     };
 
+
+
+
     var loadStage2 = function(){
-      if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0){
           Enemies.removePeresozin();
-          Enemies.removeSickBoy();
-          Enemies.addVaguinho();
-          Enemies.addShiquilin();
+          Enemies.removeSickBoy();   
           buildPlatformsEnemies(14,1200);
           buildPlatformsEnemies(14,0);
           Texto.updateC("stage 2");
-          //Emittor.emitor(100,100,300,"izquierda2",0.5);
-          //Emittor.emitor(1200-63,100,-300,"derecha2",0.5);
-    
-      }
+          vaguinho = Enemies.addVaguinho();
+          shiquilin = Enemies.addShiquilin();
+    }
+
+    var stageListener = function(){
+       if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0){
+          stageSelector = 2;
+          loadStage2();
+       }
     }
 
     var addHouse = function(){
@@ -147,6 +152,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
       fallBlocksLeft: applyGravityLeft,
       collideBlockLeft: hitBlockLeft,
       collideBlockRight: hitBlockRight,
+      setStage:stageListener,
       loadingStage2:loadStage2
     };
 

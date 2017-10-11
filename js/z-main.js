@@ -12,7 +12,9 @@ var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-example', { preload
   var ledge1, ledge2, ledge3, ledge4;
   var speed, robot, peresozin, sickBoy;
   var houseLife;
-
+  var stageSelector = 1;
+  var vaguinho;
+  var shiquilin;
   
 
 
@@ -56,16 +58,31 @@ function update() {
   var hitPlatform = game.physics.arcade.collide(robot, platforms);
   var hitPlatform2 = game.physics.arcade.collide(peresozin, platforms);
   var hitPlatform3 = game.physics.arcade.collide(sickBoy, platforms);
-  var hitPlatform4 = game.physics.arcade.collide(emitter1, platforms,Stage.collideBlockLeft);
-  var hitPlatform5 = game.physics.arcade.collide(emitter2, platforms,Stage.collideBlockRight);
-  var hitPlatform6 = game.physics.arcade.collide(emitter1, robot, Characters.lColliding);
-  var hitPlatform7 = game.physics.arcade.collide(emitter2, robot, Characters.rColliding);
-  var hitPlatform8 = game.physics.arcade.collide(emitter1, emitter2);
+  var hitPlatform4 = game.physics.arcade.collide(shiquilin, platforms);
+  var hitPlatform5 = game.physics.arcade.collide(vaguinho, platforms);
+  var hitPlatform6 = game.physics.arcade.collide(emitter1, platforms,Stage.collideBlockLeft);
+  var hitPlatform7 = game.physics.arcade.collide(emitter2, platforms,Stage.collideBlockRight);
+  var hitPlatform8 = game.physics.arcade.collide(emitter1, robot, Characters.lColliding);
+  var hitPlatform9 = game.physics.arcade.collide(emitter2, robot, Characters.rColliding);
+  var hitPlatform10 = game.physics.arcade.collide(emitter1, emitter2);
   
   Characters.moveCharacters();
-  emitter1.y  = sickBoy.body.y;
-  emitter2.y  = peresozin.body.y;
-  Stage.loadingStage2();
+  Stage.setStage();
+
+  if(stageSelector == 1){
+    emitter1.y  = sickBoy.body.y;
+    emitter2.y  = peresozin.body.y;
+  }
+  if(stageSelector == 2){
+    emitter1.y  = shiquilin.body.y;
+    emitter2.y  = vaguinho.body.y;
+  }
+   if(stageSelector == 3){
+    emitter1.y  = sickBoy.body.y;
+  }
+  
+
+  
 
 }
 
