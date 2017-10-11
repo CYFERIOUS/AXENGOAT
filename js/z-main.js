@@ -64,7 +64,8 @@ function update() {
   
   Characters.moveCharacters();
   emitter1.y  = sickBoy.body.y;
-  emitter2.y  = peresozin.body.y; 
+  emitter2.y  = peresozin.body.y;
+  Stage.loadingStage2();
 
 }
 

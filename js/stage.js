@@ -1,4 +1,4 @@
-var Stage = (function (Emittor,BarLife, Texto) {
+var Stage = (function (Emittor,BarLife,Texto,Enemies) {
 
 
     var preloadImagesPlatforms = function () {
@@ -121,6 +121,21 @@ var Stage = (function (Emittor,BarLife, Texto) {
       }
     };
 
+    var loadStage2 = function(){
+      if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0){
+          Enemies.removePeresozin();
+          Enemies.removeSickBoy();
+          Enemies.addVaguinho();
+          Enemies.addShiquilin();
+          buildPlatformsEnemies(14,1200);
+          buildPlatformsEnemies(14,0);
+          Texto.updateC("stage 2");
+          Emittor.emitor(100,100,300,"izquierda",0.5);
+          Emittor.emitor(1200-63,100,-300,"derecha",0.5);
+    
+      }
+    }
+
     var addHouse = function(){
        var c = game.add.sprite(game.world.centerX-300,210-32, 'casita');
     };
@@ -135,6 +150,7 @@ var Stage = (function (Emittor,BarLife, Texto) {
       fallBlocksLeft: applyGravityLeft,
       collideBlockLeft: hitBlockLeft,
       collideBlockRight: hitBlockRight,
+      loadingStage2:loadStage2
     };
 
-})(Emittor,BarLife,Texto);
+})(Emittor,BarLife,Texto,Enemies);

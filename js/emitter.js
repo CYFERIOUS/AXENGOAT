@@ -29,9 +29,6 @@
       return emitter;
     };
 
-
-   
-
     var destroyParticleLeft = function (){
       emitter1.forEachAlive(function(particle){
         particle.kill();

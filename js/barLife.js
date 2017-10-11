@@ -36,6 +36,7 @@ var BarLife = (function (Texto) {
             }
             if( score >= 100){
               Texto.updateA("100 :( ");
+               Texto.updateB("GAME OVER");
             }
             if(actual < 33){
               Texto.updateB("SOBRESALIENDO",60);
@@ -43,10 +44,6 @@ var BarLife = (function (Texto) {
             }else{
               Texto.updateB("PELIGRO: ZONA DE ESCASES",30);
               this.myHealthBar.setBarColor('#E50000');
-            }
-
-            if(stamina == 100){
-              Texto.updateB("GAME OVER");
             }
 
             Texto.updateC("stage 1");

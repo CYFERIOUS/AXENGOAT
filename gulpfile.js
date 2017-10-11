@@ -58,8 +58,8 @@ gulp.task('scriptsApi', function()
 // // /////////////////////////////////////////////
 gulp.task('html', function()
 {
-  gulp.src('./**/*.html')
-	    .pipe(reload({stream:true}));
+  // gulp.src('./**/*.html')
+	 //    .pipe(reload({stream:true}));
 });
 
 // ////////////////////////////////////////////////
@@ -68,6 +68,7 @@ gulp.task('html', function()
 gulp.task('browser-sync', function()
 {
   browserSync({server:{baseDir:"./"}});
+  browserSync.reload({once: true});
   browserSync.stream({once: true});
 });
 
