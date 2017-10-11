@@ -68,6 +68,7 @@ gulp.task('html', function()
 gulp.task('browser-sync', function()
 {
   browserSync({server:{baseDir:"./"}});
+  browserSync.stream({once: true});
 });
 
 // task to run build server for testing final app

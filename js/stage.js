@@ -1,4 +1,4 @@
-var Stage = (function (Emittor,BarLife) {
+var Stage = (function (Emittor,BarLife, Texto) {
 
 
     var preloadImagesPlatforms = function () {
@@ -97,6 +97,9 @@ var Stage = (function (Emittor,BarLife) {
         Stage.fallBlocksLeft(numba);
         Emittor.destroyer1();
         BarLife.restore(2);
+        var statEnemyL = blockContainerLeft.length;
+        Texto.updateD(statEnemyL);
+
       }
     };
     function hitBlockRight(emitter,platforms){
@@ -113,6 +116,8 @@ var Stage = (function (Emittor,BarLife) {
         Stage.fallBlocksRight(numba);
         Emittor.destroyer2();
         BarLife.restore(2);
+        var statEnemyR = blockContainerRight.length;
+        Texto.updateE(statEnemyR);
       }
     };
 
@@ -132,4 +137,4 @@ var Stage = (function (Emittor,BarLife) {
       collideBlockRight: hitBlockRight,
     };
 
-})(Emittor,BarLife);
+})(Emittor,BarLife,Texto);

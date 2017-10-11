@@ -15,6 +15,8 @@ var Texto = (function () {
     var text1 = null;
     var text2 = null;
     var text3 = null;
+    var text4 = null;
+    var text5 = null;
 
     var preloadText = function(){
       game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
@@ -33,7 +35,6 @@ var Texto = (function () {
        	this.text2 = game.add.text(600, 50);
         this.text2.anchor.setTo(0.5);
         this.text2.font = 'VT323';
-
         this.text2.fill = '#FFF';
         this.text2.inputEnabled = true;
         this.text2.fresh = true;
@@ -45,6 +46,22 @@ var Texto = (function () {
         this.text3.fill = '#FFF';
         this.text3.inputEnabled = true;
         this.text3.fresh = true;
+
+        this.text4 = game.add.text(30, 700);
+        this.text4.anchor.setTo(0.5);
+        this.text4.font = 'VT323';
+        this.text4.fontSize = 30;
+        this.text4.fill = '#FFF';
+        this.text4.inputEnabled = true;
+        this.text4.fresh = true;
+
+        this.text5 = game.add.text(1160, 700);
+        this.text5.anchor.setTo(0.5);
+        this.text5.font = 'VT323';
+        this.text5.fontSize = 30;
+        this.text5.fill = '#FFF';
+        this.text5.inputEnabled = true;
+        this.text5.fresh = true;
        
     };
 
@@ -62,13 +79,23 @@ var Texto = (function () {
        this.text3.setText(texto);
     };
 
+    var updateTextD = function(texto){
+       this.text4.setText(texto);
+    };
+
+    var updateTextE = function(texto){
+       this.text5.setText(texto);
+    };
+
 
     return {
       precharge:preloadText,
       creatingText: createText,
       updateA:updateTextA,
       updateB:updateTextB,
-      updateC:updateTextC
+      updateC:updateTextC,
+      updateD:updateTextD,
+      updateE:updateTextE
     };
 
 })();
