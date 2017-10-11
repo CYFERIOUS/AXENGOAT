@@ -80,9 +80,6 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
       blockContainerLeft.splice(numba, 1);
     };
 
-
-  
-
     function hitBlockLeft(emitter,platforms){
      
       var str = platforms.name;
@@ -130,8 +127,8 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
           buildPlatformsEnemies(14,1200);
           buildPlatformsEnemies(14,0);
           Texto.updateC("stage 2");
-          Emittor.emitor(100,100,300,"izquierda",0.5);
-          Emittor.emitor(1200-63,100,-300,"derecha",0.5);
+          //Emittor.emitor(100,100,300,"izquierda2",0.5);
+          //Emittor.emitor(1200-63,100,-300,"derecha2",0.5);
     
       }
     }

@@ -28,22 +28,23 @@ var BarLife = (function (Texto) {
           actual = actual + value;
             var stamina  =  actual;
             this.myHealthBar.setPercent(stamina);
+           
             var score = stamina;
             if(score >= 0){
               Texto.updateA(score);
             }else{
               Texto.updateA("0");
             }
-            if( score >= 100){
-              Texto.updateA("100 :( ");
-               Texto.updateB("GAME OVER");
-            }
             if(actual < 33){
               Texto.updateB("SOBRESALIENDO",60);
               this.myHealthBar.setBarColor('#70FF01');
             }else{
-              Texto.updateB("PELIGRO: ZONA DE ESCASES",30);
-              this.myHealthBar.setBarColor('#E50000');
+                  Texto.updateB("PELIGRO: ZONA DE ESCASES",30);
+                  this.myHealthBar.setBarColor('#E50000');
+            }
+            if( score >= 100){
+              Texto.updateA("100 :( ");
+              Texto.updateB("GAME OVER",60);
             }
 
             Texto.updateC("stage 1");
