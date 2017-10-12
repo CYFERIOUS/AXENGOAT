@@ -32,8 +32,9 @@ var BarLife = (function (Texto) {
             var score = stamina;
             if(score >= 0){
               Texto.updateA("INDICE:"+score);
-            }else{
-              Texto.updateA("0");
+            }
+            if(score <= 0){
+              Texto.updateA(0);
             }
             if(actual < 33){
               Texto.updateB("SOBRESALIENDO",60);
