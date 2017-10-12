@@ -23,7 +23,7 @@ var Texto = (function () {
 
     var createText = function(){
 
-        this.text1 = game.add.text(300, 50);
+        this.text1 = game.add.text(260, 50);
         this.text1.anchor.setTo(0.5);
         this.text1.width = 200;
         this.text1.font = 'VT323';

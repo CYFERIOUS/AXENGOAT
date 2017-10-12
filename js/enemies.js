@@ -53,6 +53,22 @@
       this.shiquilin.body.gravity.y = 400;
       return this.shiquilin;
     };
+    var destroyVaguinho = function () {
+      this.vaguinho.destroy();
+    };
+
+     var destroyShiquilin = function () {
+       this.shiquilin.destroy();
+    };
+
+    var bigBoss = function () {
+      this.bigBoss=game.add.sprite(game.world.width-80,130,"enemy5");
+      this.bigBoss.anchor.set(0.5,0.5);
+      game.physics.arcade.enable(this.bigBoss);
+      this.bigBoss.body.bounce.y = 0.2;
+      this.bigBoss.body.gravity.y = 400;
+      return this.bigBoss;
+    };
     
     return {
       addEnemies: preloadImagesCharacters,
@@ -62,6 +78,9 @@
       removeSickBoy: destroySickBoy,
       addVaguinho: vaguinho,
       addShiquilin: shiquilin,
+      removeVaguinho: destroyVaguinho,
+      removeShiquilin: destroyShiquilin,
+      addBigBoss: bigBoss
     };
 
   })();

@@ -129,12 +129,26 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
           Texto.updateC("stage 2");
           vaguinho = Enemies.addVaguinho();
           shiquilin = Enemies.addShiquilin();
+     
+    }
+
+     var loadStage3 = function(){
+          Enemies.removeVaguinho();
+          Enemies.removeShiquilin();   
+          buildPlatformsEnemies(14,1200);
+          Texto.updateC("stage 3");
+          bigBoss = Enemies.addBigBoss();
+          emitter1.destroy();
     }
 
     var stageListener = function(){
-       if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0){
+       if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0 && stageSelector == 1){
           stageSelector = 2;
           loadStage2();
+       }
+        if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0 && stageSelector == 2){
+          stageSelector = 3;
+          loadStage3();
        }
     }
 

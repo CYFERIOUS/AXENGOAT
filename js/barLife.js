@@ -31,7 +31,7 @@ var BarLife = (function (Texto) {
            
             var score = stamina;
             if(score >= 0){
-              Texto.updateA(score);
+              Texto.updateA("INDICE:"+score);
             }else{
               Texto.updateA("0");
             }
