@@ -58,7 +58,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
       ledge2.body.immovable = true;
 
       var houseFloor1 = 650;
-      ledge1 = platforms.create(game.world.centerX-(houseFloor1/2), 475, 'piso1');
+      ledge1 = platforms.create(game.world.centerX-(houseFloor1/2), 500, 'piso1');
       ledge1.width = houseFloor1;
       ledge1.name = "piso1";
       ledge1.body.immovable = true;

@@ -1,7 +1,7 @@
   var Characters = (function (Emittor) {
 
     var preloadImagesCharacters = function () {
-        game.load.spritesheet('robot', 'images/papa.png', 80, 111);
+        game.load.spritesheet('robot', 'images/robot.png', 80, 111);
     };
 
     var mainCharacter = function () {
