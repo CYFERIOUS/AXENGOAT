@@ -18,7 +18,9 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
     };
 
     var buildPlatformsEnemies = function(tiles, pos){
+    
     var enemiesFloor = 80;
+    
     var placeX = pos == 0 ? 0 : (pos-enemiesFloor);
     
       for(var i = 0; i<tiles; i++){

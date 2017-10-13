@@ -37,6 +37,7 @@ function create() {
 
     cursors = game.input.keyboard.createCursorKeys();
     jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    HomeLevel("casita1");
     robot = Characters.setMainCharacter();
     peresozin = Enemies.addPeresozin();
     sickBoy = Enemies.addSickBoy();
@@ -45,7 +46,6 @@ function create() {
     Stage.groupPlatforms();
     Stage.createPlatforms(14, game.world.width);
     Stage.createPlatforms(14, 0);
-    HomeLevel("casita1");
     BarLife.lifeBar(game.world.width);
     BarLife.initLife();
     Texto.creatingText();
