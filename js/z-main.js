@@ -46,7 +46,7 @@ function create() {
     Stage.groupPlatforms();
     Stage.createPlatforms(14, game.world.width);
     Stage.createPlatforms(14, 0);
-    Stage.houseAdder();
+    HomeLevel("casita1");
     BarLife.lifeBar(game.world.width);
     BarLife.initLife();
     Texto.creatingText();
@@ -70,7 +70,7 @@ function update() {
   
   Characters.moveCharacters();
   Stage.setStage();
-
+  
   if(stageSelector == 1){
     emitter1.y  = sickBoy.body.y;
     emitter2.y  = peresozin.body.y;
@@ -82,14 +82,12 @@ function update() {
    if(stageSelector == 3){
       emitter2.y  = bigBoss.body.y;
   }
-  
-
-  
 
 }
 
-
-
+function HomeLevel(house){
+   Stage.houseAdder(house);
+}
 
 function render() {
      //game.debug.text(game.time.suggestedFps, 32, 32);

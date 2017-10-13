@@ -1,7 +1,7 @@
 var BarLife = (function (Texto) {
 
      var actual = 0;
-     var score = null;
+     var score = 0;
 
 
     var addBar = function(xpos){
@@ -29,7 +29,10 @@ var BarLife = (function (Texto) {
             var stamina  =  actual;
             this.myHealthBar.setPercent(stamina);
            
-            var score = stamina;
+            score = stamina;
+
+            getBarPercent(score);
+            
             if(score >= 0){
               Texto.updateA("INDICE:"+score);
             }
@@ -54,6 +57,8 @@ var BarLife = (function (Texto) {
             }
 
             Texto.updateC("stage 1");
+
+
     
     }
 
@@ -73,11 +78,23 @@ var BarLife = (function (Texto) {
          this.myHealthBar.setPercent(0); 
     }
 
+    var getBarPercent = function(score){
+      
+      if(score >= 33){
+        HomeLevel("casita2");
+      }
+      if(score >= 66){
+        HomeLevel("casita3");
+      }
+      
+    }
+
     return {
       lifeBar: addBar,
       initLife: initLife,
       damage: lifeLevelAdd,
-      restore: lifeLevelMinus
+      restore: lifeLevelMinus,
+      getScore:getBarPercent
     };
 
 })(Texto);

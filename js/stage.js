@@ -1,6 +1,8 @@
 var Stage = (function (Emittor,BarLife,Texto,Enemies) {
 
 
+    
+
     var preloadImagesPlatforms = function () {
         game.load.image('piso0', 'images/platform.png');
         game.load.image('piso1', 'images/platform.png');
@@ -10,8 +12,9 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
 
 
     var preloadImagesHouse = function () {
-        game.load.image('casita', 'images/casita.png');
-        game.load.image('particle', 'images/partucula.png');
+        game.load.image('casita1', 'images/casita.png');
+        game.load.image('casita2', 'images/casita2.png');
+        game.load.image('casita3', 'images/casita3.png');
     };
 
     var buildPlatformsEnemies = function(tiles, pos){
@@ -152,10 +155,10 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
           stageSelector = 3;
           loadStage3();
        }
-    }
+    };
 
-    var addHouse = function(){
-       var c = game.add.sprite(game.world.centerX-300,210-32, 'casita');
+    var addHouse = function(home){
+       var c = game.add.sprite(game.world.centerX-300,210-32, home);
     };
 
     return {
@@ -172,4 +175,4 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
       loadingStage2:loadStage2
     };
 
-})(Emittor,BarLife,Texto,Enemies);
+})(Emittor, BarLife, Texto,Enemies);
