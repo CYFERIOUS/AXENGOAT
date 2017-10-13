@@ -122,6 +122,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
 
 
     var loadStage2 = function(){
+          BarLife.initLife();
           Enemies.removePeresozin();
           Enemies.removeSickBoy();   
           buildPlatformsEnemies(14,1200);
@@ -133,6 +134,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
     }
 
      var loadStage3 = function(){
+          BarLife.initLife();
           Enemies.removeVaguinho();
           Enemies.removeShiquilin();   
           buildPlatformsEnemies(14,1200);
