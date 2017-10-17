@@ -95,8 +95,10 @@ function render() {
 
 $( document ).ready(function() {
     var main = function(){
-        render();
+        preload();
+        create();
         update();
+        render();
     }
 });
 

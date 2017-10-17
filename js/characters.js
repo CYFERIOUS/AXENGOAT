@@ -16,6 +16,7 @@
       this.robot.body.collideWorldBounds = true;
       this.robot.body.bounce.y = 0.2;
       this.robot.body.gravity.y = 400;
+      this.robot.z = 5;
       return this.robot;
     };
 

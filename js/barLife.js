@@ -37,7 +37,8 @@ var BarLife = (function (Texto) {
               Texto.updateA("INDICE:"+score);
             }
             if(score <= 0){
-              Texto.updateA(0);
+              Texto.updateA("0");
+              this.myHealthBar.setPercent(0);
             }
             if(actual < 33){
               Texto.updateB("SOBRESALIENDO",60);

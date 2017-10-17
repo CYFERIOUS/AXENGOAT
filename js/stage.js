@@ -127,6 +127,8 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
 
 
     var loadStage2 = function(){
+          BarLife.damage(0);
+          HomeLevel("casita1");
           BarLife.initLife();
           Enemies.removePeresozin();
           Enemies.removeSickBoy();   
@@ -139,6 +141,8 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
     }
 
      var loadStage3 = function(){
+          BarLife.damage(0);
+          HomeLevel("casita1");
           BarLife.initLife();
           Enemies.removeVaguinho();
           Enemies.removeShiquilin();   
@@ -161,6 +165,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
 
     var addHouse = function(home){
        var c = game.add.sprite(game.world.centerX-300,210-32, home);
+       c.z = 3;
     };
 
     return {
