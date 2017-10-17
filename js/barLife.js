@@ -66,7 +66,9 @@ var BarLife = (function (Texto) {
     }
 
     var initLife = function(){
-         this.myHealthBar.setPercent(0); 
+        this.myHealthBar.setPercent(0);
+        actual = 0;
+        stamina = 0;
     }
 
     var getBarPercent = function(score){
@@ -79,6 +81,7 @@ var BarLife = (function (Texto) {
       }
       
     }
+
 
     return {
       lifeBar: addBar,

@@ -127,7 +127,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
 
 
     var loadStage2 = function(){
-          BarLife.damage(0);
+          BarLife.initLife();
           HomeLevel("casita1");
           BarLife.initLife();
           Enemies.removePeresozin();
@@ -141,7 +141,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
     }
 
      var loadStage3 = function(){
-          BarLife.damage(0);
+          BarLife.initLife();
           HomeLevel("casita1");
           BarLife.initLife();
           Enemies.removeVaguinho();
