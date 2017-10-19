@@ -1,20 +1,15 @@
-var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-example', { preload:preload, create:create, update:update, render: render });
+var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-DANE-game');
 
-  function preload(){
-    Zgame.preload();
-  }
+  game.state.add("init", Init.Main);
+  game.state.add("menu", Menu.Main);
+  game.state.add("play", Play.Main);
+  game.state.add("credit", Credit.Main);
 
-  function create(){
-    Zgame.create();
-  }
+  game.state.start("play");
 
-  function update(){
-    Zgame.update();
-  }
 
-  function render(){
-    Zgame.render();
-  }
+
+
  
   
 
