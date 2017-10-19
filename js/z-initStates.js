@@ -23,11 +23,10 @@
   Menu.Main.prototype = {
 
     preload: function(){
-     
+      CMenu.preloadMenu();
     },
     create: function(){
-        alert("call2");
-     
+      CMenu.createMenu();
     },
     update: function(){
       
