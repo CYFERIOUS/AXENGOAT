@@ -1,6 +1,10 @@
   var Enemies = (function () {
 
-
+    var peresozin, sickBoy;
+    var vaguinho;
+    var shiquilin;
+    var bigBoss;
+    
     var preloadImagesCharacters = function () {
   
         game.load.spritesheet('enemy1', 'images/peresozin.png', 0, 0);

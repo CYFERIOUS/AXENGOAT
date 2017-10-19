@@ -1,27 +1,16 @@
 var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
   
-  game.state.add("intro");
-  game.state.add("intro");
-  game.state.add("intro");
-  game.state.add("intro");
-
-
   var jumpButton;
   var jumpTimer = 0;
-  var cursors;
   var platforms;
   var emitter1, emitter2;
-  var particula;
+
   var ground;
 
-  var ledge1, ledge2, ledge3, ledge4;
-  var speed, robot, peresozin, sickBoy;
-  var houseLife;
+  var speed, robot;
   var stageSelector = 1;
-  var vaguinho;
-  var shiquilin;
-  var bigBoss;
+ 
   
 
 
@@ -62,11 +51,9 @@ function update() {
 
   
   var hitPlatform = game.physics.arcade.collide(robot, platforms);
-  var hitPlatform2 = game.physics.arcade.collide(peresozin, platforms);
-  var hitPlatform3 = game.physics.arcade.collide(sickBoy, platforms);
-  var hitPlatform4 = game.physics.arcade.collide(shiquilin, platforms);
-  var hitPlatform5 = game.physics.arcade.collide(vaguinho, platforms);
-  var hitPlatform6 = game.physics.arcade.collide(bigBoss, platforms);
+ 
+  
+  
   var hitPlatform7 = game.physics.arcade.collide(emitter1, platforms,Stage.collideBlockLeft);
   var hitPlatform8 = game.physics.arcade.collide(emitter2, platforms,Stage.collideBlockRight);
   var hitPlatform9 = game.physics.arcade.collide(emitter1, robot, Characters.lColliding);
@@ -79,13 +66,18 @@ function update() {
   if(stageSelector == 1){
     emitter1.y  = sickBoy.body.y;
     emitter2.y  = peresozin.body.y;
+    var hitPlatform2 = game.physics.arcade.collide(peresozin, platforms);
+    var hitPlatform3 = game.physics.arcade.collide(sickBoy, platforms);
   }
   if(stageSelector == 2){
     emitter1.y  = shiquilin.body.y;
     emitter2.y  = vaguinho.body.y;
+    var hitPlatform4 = game.physics.arcade.collide(shiquilin, platforms);
+    var hitPlatform5 = game.physics.arcade.collide(vaguinho, platforms);
   }
    if(stageSelector == 3){
       emitter2.y  = bigBoss.body.y;
+      var hitPlatform6 = game.physics.arcade.collide(bigBoss, platforms);
   }
 
 }
