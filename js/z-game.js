@@ -1,3 +1,12 @@
+  
+  var jumpButton;
+  var jumpTimer = 0;
+  var platforms;
+  var emitter1, emitter2;
+  var ground;
+  var speed, robot;
+  var stageSelector = 1;
+
 var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage) {
 
     function preload(){
