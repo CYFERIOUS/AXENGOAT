@@ -1,5 +1,12 @@
 var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
+  
+  game.state.add("intro");
+  game.state.add("intro");
+  game.state.add("intro");
+  game.state.add("intro");
+
+
   var jumpButton;
   var jumpTimer = 0;
   var cursors;
@@ -7,8 +14,7 @@ var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-example', { preload
   var emitter1, emitter2;
   var particula;
   var ground;
-  var blockContainerRight = new Array(); 
-  var blockContainerLeft = new Array();
+
   var ledge1, ledge2, ledge3, ledge4;
   var speed, robot, peresozin, sickBoy;
   var houseLife;

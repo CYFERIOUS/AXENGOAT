@@ -1,6 +1,7 @@
 var Stage = (function (Emittor,BarLife,Texto,Enemies) {
 
-
+      var blockContainerRight = new Array(); 
+      var blockContainerLeft = new Array();
     
 
     var preloadImagesPlatforms = function () {
