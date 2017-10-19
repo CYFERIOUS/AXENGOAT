@@ -74,10 +74,10 @@ var BarLife = (function (Texto) {
     var getBarPercent = function(score){
       
       if(stamina >= 33){
-        HomeLevel("casita2");
+      
       }
       if(stamina >= 66){
-        HomeLevel("casita3");
+        
       }
       
     }

@@ -16,8 +16,6 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
 
     var preloadImagesHouse = function () {
         game.load.image('casita1', 'images/casita.png');
-        game.load.image('casita2', 'images/casita2.png');
-        game.load.image('casita3', 'images/casita3.png');
     };
 
     var buildPlatformsEnemies = function(tiles, pos){
@@ -166,9 +164,9 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
        }
     };
 
-    var addHouse = function(home){
-       var c = game.add.sprite(game.world.centerX-300,210-32, home);
-       c.z = 3;
+    var addHouse = function(){
+       var c = game.add.sprite(game.world.centerX-300,210-32, 'casita1');
+
     };
 
     return {
