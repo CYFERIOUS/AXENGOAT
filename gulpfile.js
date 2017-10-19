@@ -48,7 +48,7 @@ gulp.task('scriptsApi', function()
           	 .on('error', errorlog)
           	 .pipe(rename('gameMotor.min.js'))
           	 .pipe(sourcemaps.write('./maps/'))
-          	 .pipe(gulp.dest('./js/min/'))
+          	 .pipe(gulp.dest('./min/'))
           	 .pipe(reload({stream:true}));
 });
 
