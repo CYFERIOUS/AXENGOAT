@@ -1,14 +1,16 @@
   var Characters = (function (Emittor) {
 
     var preloadImagesCharacters = function () {
-        game.load.spritesheet('robot', 'images/robot.png', 80, 111);
+        game.load.spritesheet('dad', 'images/robot1.png', 80, 111);
+        game.load.spritesheet('mom', 'images/robot2.png', 80, 111);
+        game.load.spritesheet('son', 'images/robot3.png', 80, 111);
+        game.load.spritesheet('daughter', 'images/robot4.png', 80, 111);
     };
 
     var mainCharacter = function () {
       this.speed=10;
-      this.robot=game.add.sprite(game.world.centerX,130,"robot");
+      this.robot=game.add.sprite(game.world.centerX,130,"daughter");
       game.physics.arcade.enable(this.robot);
-      //this.robot.body.checkCollision.up = false;
       this.robot.anchor.set(0.5,0.5);
       this.robot.animations.add('idle', [0,1,2,3,4,5,6,7,8,9], 12,true);
       this.robot.animations.add('run', [10,11,12,13,14,15,16,17], 12,true);

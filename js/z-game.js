@@ -68,10 +68,6 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage) {
         //game.debug.text(game.time.suggestedFps, 32, 32);
     }
     
-
-    
-
-
     return {
      preload:preload,
      create:create,

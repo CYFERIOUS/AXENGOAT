@@ -16,7 +16,26 @@
     render: function(){
        
     }
-   }
+  }
+
+  var Story = {};
+  Story.Main = function(game){};
+  Story.Main.prototype = {
+
+    preload: function(){
+     
+    },
+    create: function(){
+        alert("call");
+     
+    },
+    update: function(){
+      
+    },
+    render: function(){
+       
+    }
+  }
 
   var Menu = {};
   Menu.Main = function(game){};
@@ -34,7 +53,26 @@
     render: function(){
        
     }
-   }
+  }
+
+  var Preview = {};
+  Preview.Main = function(game){};
+  Preview.Main.prototype = {
+
+    preload: function(){
+     
+    },
+    create: function(){
+        alert("call");
+     
+    },
+    update: function(){
+      
+    },
+    render: function(){
+       
+    }
+  }
 
   var Play = {};
   Play.Main = function(game){};
@@ -44,7 +82,6 @@
       Zgame.preload();
     },
     create: function(){
-
       Zgame.create();
     },
     update: function(){
@@ -53,7 +90,7 @@
     render: function(){
        Zgame.render();
     }
-   }
+  }
 
   var Credit = {};
   Credit.Main = function(game){};
@@ -72,6 +109,6 @@
     render: function(){
        
     }
-   }
+  }
 
    
