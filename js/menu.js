@@ -1,10 +1,8 @@
   var CMenu = (function () {
 
     var menuChar1, menuChar2, menuChar3, menuChar4;
-
-      var llego = null;
-      
-      console.log("llego"+llego);
+    var llego = null;
+    
 
     var preload = function () {
         game.load.image('dad', 'images/dad.png');
