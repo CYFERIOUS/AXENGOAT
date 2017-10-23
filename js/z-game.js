@@ -6,8 +6,9 @@
   var ground;
   var speed, robot;
   var stageSelector = 1;
+  
 
-var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage) {
+var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMenu) {
 
     function preload(){
       game.physics.startSystem(Phaser.Physics.P2JS);
@@ -23,7 +24,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage) {
       cursors = game.input.keyboard.createCursorKeys();
       jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
       Stage.houseAdder();
-      robot = Characters.setMainCharacter();
+      robot = Characters.setMainCharacter(CMenu.returnChar());
       peresozin = Enemies.addPeresozin();
       sickBoy = Enemies.addSickBoy();
       emitter1 = Emittor.emitor(100,100,300,"izquierda",0.5);
@@ -76,4 +77,4 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage) {
       
     };
 
-})(Texto, BarLife, Characters, Emittor, Enemies, Stage);
+})(Texto, BarLife, Characters, Emittor, Enemies, Stage,CMenu);

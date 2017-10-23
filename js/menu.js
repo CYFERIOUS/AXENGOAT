@@ -2,6 +2,10 @@
 
     var menuChar1, menuChar2, menuChar3, menuChar4;
 
+      var llego = null;
+      
+      console.log("llego"+llego);
+
     var preload = function () {
         game.load.image('dad', 'images/dad.png');
         game.load.image('mom', 'images/mom.png');
@@ -36,15 +40,22 @@
     };
 
     var  listener = function(obj){
-        
-      game.state.start("play");
-
+      llego =  obj.name;
+      setTimeout(function(){ game.state.start("play"); }, 3000);
+  
     };
+
+    var returnChar = function(){
+      return llego;
+    }
 
   
     return {
       preloadMenu: preload,
       createMenu: create,
+      returnChar: returnChar
     };
 
   })();
+
+

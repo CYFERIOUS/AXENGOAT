@@ -7,9 +7,9 @@
         game.load.spritesheet('daughter', 'images/robot4.png', 80, 111);
     };
 
-    var mainCharacter = function () {
+    var mainCharacter = function (bot) {
       this.speed=10;
-      this.robot=game.add.sprite(game.world.centerX,130,"daughter");
+      this.robot=game.add.sprite(game.world.centerX,130,bot);
       game.physics.arcade.enable(this.robot);
       this.robot.anchor.set(0.5,0.5);
       this.robot.animations.add('idle', [0,1,2,3,4,5,6,7,8,9], 12,true);
