@@ -1,7 +1,7 @@
   var CMenu = (function () {
 
     var menuChar1, menuChar2, menuChar3, menuChar4;
-    var llego = null;
+    var robot = null;
     
 
     var preload = function () {
@@ -38,13 +38,13 @@
     };
 
     var  listener = function(obj){
-      llego =  obj.name;
+      robot =  obj.name;
       setTimeout(function(){ game.state.start("play"); }, 3000);
   
     };
 
     var returnChar = function(){
-      return llego;
+      return robot;
     }
 
   
