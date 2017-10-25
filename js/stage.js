@@ -128,6 +128,8 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
 
 
     var loadStage2 = function(){
+          emitter1.on = true;
+          emitter2.on = true;
           BarLife.initLife();
           BarLife.initLife();
           Enemies.removePeresozin();
@@ -148,17 +150,27 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
           buildPlatformsEnemies(14,1200);
           Texto.updateC("stage 3");
           bigBoss = Enemies.addBigBoss();
-          emitter1.destroy();
+          emitter1.on = false;
     }
 
     var stageListener = function(){
+      if(blockContainerLeft.length == 0){
+         emitter1.on = false;
+      }
+      if(blockContainerRight.length == 0){
+         emitter2.on = false;
+      }
+
        if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0 && stageSelector == 1){
           stageSelector = 2;
           loadStage2();
        }
-        if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0 && stageSelector == 2){
+       if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0 && stageSelector == 2){
           stageSelector = 3;
           loadStage3();
+       }
+       if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0 && stageSelector == 3){
+          game.state.start("win");
        }
     };
 

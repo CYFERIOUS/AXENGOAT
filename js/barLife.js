@@ -46,8 +46,7 @@ var BarLife = (function (Texto) {
               Texto.updateA("100 :( ");
               Texto.updateB("GAME OVER",60);
               setTimeout(function(){
-                  alert("CONTINUA JUGANDO");
-                  location.reload();
+                  game.state.start("loose");
               }, 3000);
               
             }

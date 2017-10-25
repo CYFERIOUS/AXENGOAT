@@ -31,12 +31,14 @@
 
     var destroyParticleLeft = function (){
       emitter1.forEachAlive(function(particle){
+        particle.alpha = 0;
         particle.kill();
       });
     };
 
     var destroyParticleRight = function (){
       emitter2.forEachAlive(function(particle){
+        particle.alpha = 0;
         particle.kill();
       });
     };

@@ -92,6 +92,43 @@
     }
   }
 
+  var Loose = {};
+  Loose.Main = function(game){};
+  Loose.Main.prototype = {
+
+    preload: function(){
+     
+    },
+    create: function(){
+      alert("all hell break it loose");
+      location.reload();
+    },
+    update: function(){
+       
+    },
+    render: function(){
+       
+    }
+  }
+
+  var Win = {};
+  Win.Main = function(game){};
+  Win.Main.prototype = {
+
+    preload: function(){
+     
+    },
+    create: function(){
+      alert("gano");
+    },
+    update: function(){
+       
+    },
+    render: function(){
+       
+    }
+  }
+
   var Credit = {};
   Credit.Main = function(game){};
   Credit.Main.prototype = {
