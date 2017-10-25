@@ -151,6 +151,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
           Texto.updateC("stage 3");
           bigBoss = Enemies.addBigBoss();
           emitter1.on = false;
+          emitter2.on = true;
     }
 
     var stageListener = function(){
