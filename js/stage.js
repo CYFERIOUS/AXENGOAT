@@ -1,11 +1,11 @@
 var Stage = (function (Emittor,BarLife,Texto,Enemies) {
 
+   
       var blockContainerRight = new Array(); 
       var blockContainerLeft = new Array();
-
       var ledge1, ledge2, ledge3;
     
-
+      
     var preloadImagesPlatforms = function () {
         game.load.image('piso0', 'images/platform.png');
         game.load.image('piso1', 'images/platform.png');
@@ -128,8 +128,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
 
 
     var loadStage2 = function(){
-          emitter1.on = true;
-          emitter2.on = true;
+      
           BarLife.initLife();
           BarLife.initLife();
           Enemies.removePeresozin();
@@ -150,16 +149,17 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
           buildPlatformsEnemies(14,1200);
           Texto.updateC("stage 3");
           bigBoss = Enemies.addBigBoss();
-          emitter1.on = false;
-          emitter2.on = true;
+          
     }
 
     var stageListener = function(){
       if(blockContainerLeft.length == 0){
          emitter1.on = false;
+         emitter3.on = false;
       }
       if(blockContainerRight.length == 0){
          emitter2.on = false;
+         emitter4.on = false;
       }
 
        if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0 && stageSelector == 1){
