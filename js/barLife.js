@@ -12,10 +12,10 @@ var BarLife = (function (Texto) {
           x:xpos/2,
           y: 50,
           bg: {
-            color: '#0CB5E5'
+            color: '#3F8F01'
           },
           bar: {
-            color: '#70FF01'
+            color: '#E5FF00'
           },
           animationDuration: 200,
           flipped: false
@@ -37,10 +37,10 @@ var BarLife = (function (Texto) {
            
             if(actual < 33){
               Texto.updateB("SOBRESALIENDO",60);
-              this.myHealthBar.setBarColor('#70FF01');
+              this.myHealthBar.setBarColor('#E5FF00');
             }else{
                   Texto.updateB("PELIGRO: ZONA DE ESCASEZ",30);
-                  this.myHealthBar.setBarColor('#E50000');
+                  this.myHealthBar.setBarColor('#FF0000');
             }
             if( stamina >= 100){
               Texto.updateA("100 :( ");
