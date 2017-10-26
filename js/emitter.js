@@ -8,7 +8,7 @@
     };
 
 
-    var addEmitter = function (initialX,initialY,xfast,nomos,bounce) {
+    var addEmitter = function (initialX,initialY,xfast,yfast,nomos,bounce) {
       
       emitter = game.add.emitter(initialX, initialY, 1);
       emitter.name = nomos;
@@ -23,7 +23,7 @@
       }
       emitter.start(false, 8000, 400);
       emitter.setXSpeed(xfast, 20);
-      emitter.setYSpeed(10, 20);
+      emitter.setYSpeed(yfast, 20);
       emitter.gravity = 150;
       emitter.bounce.setTo(bounce,1);
       emitter.setAll("body.collideWorldBounds", true);

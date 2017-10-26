@@ -27,11 +27,11 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMen
       robot = Characters.setMainCharacter(CMenu.returnChar());
       peresozin = Enemies.addPeresozin();
       sickBoy = Enemies.addSickBoy();
-      emitter1 = Emittor.emitor(100,100,300,"izquierda",0.5);
-      emitter2 = Emittor.emitor(game.world.width-63,100,-300,"derecha",0.5);
-      emitter3 = Emittor.emitor(100,100,300,"izquierda",0.5);
-      emitter4 = Emittor.emitor(game.world.width-63,100,-300,"derecha",0.5);
-      emitter5 = Emittor.emitor(game.world.width-63,100,-300,"derecha",0.5);
+      emitter1 = Emittor.emitor(100,100,300,10,"izquierda",0.5);
+      emitter2 = Emittor.emitor(game.world.width-63,100,(300*(-1)),10,"derecha",0.5);
+      emitter3 = Emittor.emitor(100,100,300,30,"izquierda",0.5);
+      emitter4 = Emittor.emitor(game.world.width-63,100,(600*(-1)),30,"derecha",0.5);
+      emitter5 = Emittor.emitor(game.world.width-63,100,(900*(-1)),60,"derecha",0.5);
       Stage.groupPlatforms();
       Stage.createPlatforms(14, game.world.width);
       Stage.createPlatforms(14, 0);
