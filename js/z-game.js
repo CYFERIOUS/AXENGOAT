@@ -47,6 +47,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMen
       Stage.setStage();
   
       if(stageSelector == 1){
+        Texto.updateC("stage 1");
         Stage.activeEmissionLevel1();
         CollideManager.stageOne();
         emitter1.y  = sickBoy.body.y;
@@ -54,6 +55,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMen
         
       }
       if(stageSelector == 2){
+        Texto.updateC("stage 2");
         Stage.activeEmissionLevel2();
         CollideManager.stageTwo();
         emitter1.y  = shiquilin.body.y;
@@ -63,6 +65,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMen
         
       }
        if(stageSelector == 3){
+          Texto.updateC("stage 3");
           Stage.activeEmissionLevel3();
           CollideManager.stageThree();
           emitter1.x  = game.world.width-63;

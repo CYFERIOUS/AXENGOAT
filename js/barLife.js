@@ -51,7 +51,7 @@ var BarLife = (function (Texto) {
               
             }
 
-            Texto.updateC("stage 1");
+           
     }
 
     var lifeLevelMinus = function(value){        
