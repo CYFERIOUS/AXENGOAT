@@ -152,17 +152,34 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
           
     }
 
-    var stageListener = function(){
-      if(blockContainerLeft.length == 0){
-         emitter1.on = false;
-         emitter3.on = false;
+
+
+    var stagePileListenerStage1 = function(){
+      Emittor.stageEmission(true,true,false,false,false);
+      if(blockContainerLeft.length == 0 ){
+        Emittor.stageEmission(false,true,false,false,false);
       }
       if(blockContainerRight.length == 0){
-         emitter2.on = false;
-         emitter4.on = false;
+        Emittor.stageEmission(true,false,false,false,false);
       }
+    };
 
-       if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0 && stageSelector == 1){
+    var stagePileListenerStage2 = function(){
+      Emittor.stageEmission(true,true,true,true,false);
+      if(blockContainerLeft.length == 0 ){
+        Emittor.stageEmission(false,true,false,true,false);
+      }
+      if(blockContainerRight.length == 0){
+        Emittor.stageEmission(true,false,true,false,false);
+      }
+    };
+
+    var stagePileListenerStage3 = function(){
+      Emittor.stageEmission(true,true,true,true,true);
+    };
+
+    var stageSetter = function(){
+        if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0 && stageSelector == 1){
           stageSelector = 2;
           loadStage2();
        }
@@ -170,7 +187,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
           stageSelector = 3;
           loadStage3();
        }
-       if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0 && stageSelector == 3){
+       if(blockContainerRight.length == 0 && stageSelector == 3){
           game.state.start("win");
        }
     };
@@ -190,8 +207,10 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
       fallBlocksLeft: applyGravityLeft,
       collideBlockLeft: hitBlockLeft,
       collideBlockRight: hitBlockRight,
-      setStage:stageListener,
-      loadingStage2:loadStage2
+      setStage:stageSetter,
+      activeEmissionLevel1:stagePileListenerStage1,
+      activeEmissionLevel2:stagePileListenerStage2,
+      activeEmissionLevel3:stagePileListenerStage3
     };
 
 })(Emittor, BarLife, Texto,Enemies);

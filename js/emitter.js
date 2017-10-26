@@ -1,5 +1,7 @@
   var Emittor = (function () {
 
+
+
     var preloadImages = function () {
         game.load.image('particle1', 'images/partucula.png');
         game.load.image('particle2', 'images/partucula2.png');
@@ -31,23 +33,32 @@
 
     var destroyParticleLeft = function (){
       emitter1.forEachAlive(function(particle){
-        particle.alpha = 0;
         particle.kill();
       });
     };
 
     var destroyParticleRight = function (){
       emitter2.forEachAlive(function(particle){
-        particle.alpha = 0;
         particle.kill();
       });
     };
+
+    var emittorStage = function(a,b,c,d,e){
+        emitter1.on = a;
+        emitter2.on = b;
+        emitter3.on = c;
+        emitter4.on = d;
+        emitter5.on = e;
+    };
+
+
 
     return {
       preloading: preloadImages,
       emitor: addEmitter,
       destroyer1: destroyParticleLeft,
-      destroyer2: destroyParticleRight
+      destroyer2: destroyParticleRight,
+      stageEmission: emittorStage
     };
 
   })();

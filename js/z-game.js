@@ -64,20 +64,14 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMen
       Stage.setStage();
   
       if(stageSelector == 1){
-        emitter3.on = false;
-        emitter4.on = false;
-        emitter5.on = false;
+        Stage.activeEmissionLevel1();
         emitter1.y  = sickBoy.body.y;
         emitter2.y  = peresozin.body.y;
         var hitPlatform2 = game.physics.arcade.collide(peresozin, platforms);
         var hitPlatform3 = game.physics.arcade.collide(sickBoy, platforms);
       }
       if(stageSelector == 2){
-        emitter1.on = true;
-        emitter2.on = true;
-        emitter3.on = true;
-        emitter4.on = true;
-        emitter5.on = false;
+        Stage.activeEmissionLevel2();
         emitter1.y  = shiquilin.body.y;
         emitter2.y  = vaguinho.body.y;
         emitter3.y = shiquilin.body.y;
@@ -86,15 +80,9 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMen
         var hitPlatform5 = game.physics.arcade.collide(vaguinho, platforms);
       }
        if(stageSelector == 3){
-          emitter1.on = true;
-          emitter2.on = true;
-          emitter3.on = true;
-          emitter4.on = true;
-          emitter5.on = true;
-          
+          Stage.activeEmissionLevel3();
           emitter1.x  = game.world.width-63;
           emitter3.x  = game.world.width-63;
-       
           emitter1.y  = bigBoss.body.y;
           emitter2.y  = bigBoss.body.y;
           emitter3.y  = bigBoss.body.y;
