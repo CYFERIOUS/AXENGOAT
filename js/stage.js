@@ -135,7 +135,6 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
           Enemies.removeSickBoy();   
           buildPlatformsEnemies(14,1200);
           buildPlatformsEnemies(14,0);
-          Texto.updateC("stage 2");
           vaguinho = Enemies.addVaguinho();
           shiquilin = Enemies.addShiquilin();
      
@@ -147,7 +146,6 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
           Enemies.removeVaguinho();
           Enemies.removeShiquilin();   
           buildPlatformsEnemies(14,1200);
-          Texto.updateC("stage 3");
           bigBoss = Enemies.addBigBoss();
           
     }
