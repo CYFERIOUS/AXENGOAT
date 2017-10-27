@@ -4,6 +4,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
       var blockContainerRight = new Array(); 
       var blockContainerLeft = new Array();
       var ledge1, ledge2, ledge3;
+       var house;
     
       
     var preloadImagesPlatforms = function () {
@@ -147,6 +148,9 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
           Enemies.removeShiquilin();   
           buildPlatformsEnemies(14,1200);
           bigBoss = Enemies.addBigBoss();
+          ledge1.x = 0;
+          ledge2.x = 0;
+          house.x = 0;
           
     }
 
@@ -191,7 +195,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
     };
 
     var addHouse = function(){
-       var c = game.add.sprite(game.world.centerX-300,210-32, 'casita1');
+      house = game.add.sprite(game.world.centerX-300,210-32, 'casita1');
 
     };
 
