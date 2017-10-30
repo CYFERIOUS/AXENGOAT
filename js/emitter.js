@@ -22,8 +22,8 @@
            emitter.makeParticles(['particle2']);
       }
       emitter.start(false, 8000, 400);
-      emitter.setXSpeed(xfast, 20);
-      emitter.setYSpeed(yfast, 20);
+      emitter.setXSpeed(xfast, yfast);
+      emitter.setYSpeed(xfast, yfast);
       emitter.gravity = 150;
       emitter.bounce.setTo(bounce,1);
       emitter.setAll("body.collideWorldBounds", true);
