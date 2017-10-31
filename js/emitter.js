@@ -5,6 +5,10 @@
     var preloadImages = function () {
         game.load.image('particle1', 'images/partucula.png');
         game.load.image('particle2', 'images/partucula2.png');
+        game.load.image('particle3', 'images/partucula3.png');
+        game.load.image('particle4', 'images/partucula4.png');
+        game.load.image('particle5', 'images/partucula5.png');
+        
     };
 
 
