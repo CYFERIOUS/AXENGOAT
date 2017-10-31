@@ -8,6 +8,7 @@
     };
 
     var mainCharacter = function (bot) {
+
       this.speed=10;
       this.robot=game.add.sprite(game.world.centerX,130,bot);
       game.physics.arcade.enable(this.robot);
@@ -25,13 +26,17 @@
     var movements = function () {
       if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT) || game.input.keyboard.isDown(Phaser.Keyboard.A)){
         this.robot.x-=this.speed;
+        this.robot.body.checkCollision.left = true;
         this.robot.play("run");
         this.robot.scale.x=-1;
+      
       }
       else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) || game.input.keyboard.isDown(Phaser.Keyboard.D)){
         this.robot.x+=this.speed;
+        this.robot.body.checkCollision.right = true;
         this.robot.play("run");
         this.robot.scale.x=1;
+
       }else{
         this.robot.play('idle');
       }

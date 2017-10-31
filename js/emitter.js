@@ -35,10 +35,19 @@
       emitter1.forEachAlive(function(particle){
         particle.kill();
       });
+      emitter3.forEachAlive(function(particle){
+        particle.kill();
+      });
     };
 
     var destroyParticleRight = function (){
       emitter2.forEachAlive(function(particle){
+        particle.kill();
+      });
+      emitter4.forEachAlive(function(particle){
+        particle.kill();
+      });
+      emitter5.forEachAlive(function(particle){
         particle.kill();
       });
     };
