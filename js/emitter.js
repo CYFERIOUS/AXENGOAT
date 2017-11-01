@@ -3,12 +3,7 @@
 
 
     var preloadImages = function () {
-        game.load.image('particle1', 'images/partucula.png');
-        game.load.image('particle2', 'images/partucula2.png');
-        game.load.image('particle3', 'images/partucula3.png');
-        game.load.image('particle4', 'images/partucula4.png');
-        game.load.image('particle5', 'images/partucula5.png');
-        
+         game.load.spritesheet('particles', 'images/partuculas.png', 63, 63);    
     };
 
 
@@ -19,11 +14,11 @@
       emitter.enableBody = true;
       if(emitter.name == "izquierda"){
     
-           emitter.makeParticles(['particle1']);
+           emitter.makeParticles('particles',[0,1,2,3,4], 1, true, true);
       }
       if(emitter.name == "derecha"){
          
-           emitter.makeParticles(['particle2']);
+           emitter.makeParticles('particles',[0,1,2,3,4], 1, true, true);
       }
       emitter.start(false, 8000, 400);
       emitter.setXSpeed(xfast, yfast);
