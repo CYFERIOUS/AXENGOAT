@@ -3,7 +3,7 @@
 
 
     var preloadImages = function () {
-         game.load.spritesheet('particles', 'images/partuculas.png', 63, 63);    
+         game.load.spritesheet('particles', 'images/partuculas.png', 63, 63);   
     };
 
 

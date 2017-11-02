@@ -8,7 +8,7 @@
   var stageSelector = 1;
   
 
-var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMenu, CollideManager) {
+var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMenu, CollideManager,TimerObject) {
 
     function preload(){
       game.physics.startSystem(Phaser.Physics.P2JS);
@@ -21,6 +21,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMen
       Texto.precharge();
     }
     function create(){
+
       cursors = game.input.keyboard.createCursorKeys();
       jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
       Stage.houseAdder();
@@ -38,6 +39,10 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMen
       BarLife.lifeBar(game.world.width);
       BarLife.initLife();
       Texto.creatingText();
+      TimerObject.createTimer();
+
+      //TimerObject.endTimer();
+      TimerObject.formatTime();
     }
 
     function update() {
@@ -80,7 +85,8 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMen
       }    
     }
     function render() {
-        //game.debug.text(game.time.suggestedFps, 32, 32);
+     TimerObject.renderTimer();
+     
     }
     
     return {
@@ -91,4 +97,4 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMen
       
     };
 
-})(Texto, BarLife, Characters, Emittor, Enemies, Stage,CMenu,CollideManager);
+})(Texto, BarLife, Characters, Emittor, Enemies, Stage,CMenu,CollideManager,TimerObject);

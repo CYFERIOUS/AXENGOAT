@@ -37,6 +37,7 @@
         this.robot.play("run");
         this.robot.scale.x=1;
 
+
       }else{
         this.robot.play('idle');
       }
@@ -45,10 +46,14 @@
         jumpTimer = game.time.now + 750;
       }
       if (game.input.mousePointer.isDown){
-        game.physics.arcade.moveToPointer(this.robot, 400);
+        game.physics.arcade.moveToPointer(this.robot, 700);
+        this.robot.animations.play('run',[10,11,12,13,14,15,16,17],12,true);
+        
+
       }
       if (game.input.mousePointer.isUp){
          this.robot.body.velocity.x = 0;
+
       } 
     };
 
