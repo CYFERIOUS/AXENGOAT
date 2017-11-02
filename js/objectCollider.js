@@ -55,20 +55,20 @@ var CollideManager = (function () {
       var hitPlatform33 = game.physics.arcade.collide(emitter5, robot, Characters.rColliding);
       var hitPlatform34 = game.physics.arcade.collide(bigBoss, platforms);
 
-      var hitPlatform35 = game.physics.arcade.collide(emitter5, emitter1);
-      var hitPlatform36 = game.physics.arcade.collide(emitter5, emitter2);
-      var hitPlatform37 = game.physics.arcade.collide(emitter5, emitter3);
-      var hitPlatform38 = game.physics.arcade.collide(emitter5, emitter4);
+      // var hitPlatform35 = game.physics.arcade.collide(emitter5, emitter1);
+      // var hitPlatform36 = game.physics.arcade.collide(emitter5, emitter2);
+      // var hitPlatform37 = game.physics.arcade.collide(emitter5, emitter3);
+      // var hitPlatform38 = game.physics.arcade.collide(emitter5, emitter4);
 
-      var hitPlatform39 = game.physics.arcade.collide(emitter4, emitter1);
-      var hitPlatform40 = game.physics.arcade.collide(emitter4, emitter2);
-      var hitPlatform41 = game.physics.arcade.collide(emitter4, emitter3);
-      var hitPlatform42 = game.physics.arcade.collide(emitter4, emitter5);
+      // var hitPlatform39 = game.physics.arcade.collide(emitter4, emitter1);
+      // var hitPlatform40 = game.physics.arcade.collide(emitter4, emitter2);
+      // var hitPlatform41 = game.physics.arcade.collide(emitter4, emitter3);
+      // var hitPlatform42 = game.physics.arcade.collide(emitter4, emitter5);
 
-      var hitPlatform43 = game.physics.arcade.collide(emitter3, emitter1);
-      var hitPlatform44 = game.physics.arcade.collide(emitter3, emitter2);
+      // var hitPlatform43 = game.physics.arcade.collide(emitter3, emitter1);
+      // var hitPlatform44 = game.physics.arcade.collide(emitter3, emitter2);
 
-      var hitPlatform45 = game.physics.arcade.collide(emitter2, emitter1);
+      // var hitPlatform45 = game.physics.arcade.collide(emitter2, emitter1);
     };
 
 

@@ -4,17 +4,18 @@ var TimerObject = (function () {
 
     var create = function(){
         timer = game.time.create();
-        timerEvent = timer.add(Phaser.Timer.MINUTE * 3 + Phaser.Timer.SECOND * 30, this.endTimer, this);
+        timerEvent = timer.add(Phaser.Timer.MINUTE * 7 + Phaser.Timer.SECOND * 30, this.endTimer, this);
         timer.start();
     };
 
     var render =  function () {
         // If our timer is running, show the time in a nicely formatted way, else show 'Done!'
-        if (timer) {
+        if (timer.running) {
             game.debug.text(this.formatTime(Math.round((timerEvent.delay - timer.ms) / 1000)), 2, 14, "#ff0");
         }
         else {
-            game.debug.text("Done!", 2, 14, "#0f0");
+            game.debug.text("pierdes!", 2, 14, "#0f0");
+            game.state.start("loose");
         }
     };
     var endTimer = function() {
