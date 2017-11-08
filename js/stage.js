@@ -195,7 +195,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
     };
 
     var addHouse = function(){
-      house = game.add.sprite(game.world.centerX-300,210-32, 'casita1');
+      house = game.add.sprite(game.world.centerX-256,373-32, 'casita1');
 
     };
 

@@ -8,7 +8,7 @@
     var preloadImagesCharacters = function () {
   
         game.load.spritesheet('enemy1', 'images/peresozin.png', 0, 0);
-        game.load.spritesheet('enemy2', 'images/sinSalud.png', 0, 0);
+        game.load.spritesheet('enemy2', 'images/sinSalud.png', 189, 189);
         game.load.spritesheet('enemy3', 'images/vaguinho.png', 0, 0);
         game.load.spritesheet('enemy4', 'images/shiquilin.png', 0, 0);
         game.load.spritesheet('enemy5', 'images/bigboss.png', 0, 0);
@@ -25,7 +25,10 @@
     };
 
      var sickBoy = function () {
-      this.sickBoy=game.add.sprite(50,130,"enemy2");
+
+      this.sickBoy=game.add.sprite(90,100,"enemy2");
+      this.sickBoy.animations.add('attack', [1,2,3,4,5], 12,true);
+      this.sickBoy.animations.play('attack',[1,2,3,4,5],12,true); 
       this.sickBoy.anchor.set(0.5,0.5);
       game.physics.arcade.enable(this.sickBoy);
       this.sickBoy.body.bounce.y = 0.2;
