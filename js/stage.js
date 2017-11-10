@@ -60,12 +60,14 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
       ledge2.width = houseFloor2;
       ledge2.name = "piso2";
       ledge2.body.immovable = true;
+      ledge2.alpha = 0;
 
       var houseFloor1 = 650;
-      ledge1 = platforms.create(game.world.centerX-(houseFloor1/2), 500, 'piso1');
+      ledge1 = platforms.create(game.world.centerX-(houseFloor1/2), 510, 'piso1');
       ledge1.width = houseFloor1;
       ledge1.name = "piso1";
       ledge1.body.immovable = true;
+      ledge1.alpha = 0;
     };
 
     var  applyGravityRight = function(numba){
@@ -195,7 +197,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
     };
 
     var addHouse = function(){
-      house = game.add.sprite(game.world.centerX-256,373-32, 'casita1');
+      house = game.add.sprite(game.world.centerX-330,373-32, 'casita1');
 
     };
 
