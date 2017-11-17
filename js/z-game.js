@@ -34,8 +34,8 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMen
       emitter4 = Emittor.emitor(game.world.width-63,100,(400*(-1)),30,"derecha",0.5);
       emitter5 = Emittor.emitor(game.world.width-63,100,(500*(-1)),10,"derecha",0.5);
       Stage.groupPlatforms();
-      Stage.createPlatforms(14, game.world.width);
-      Stage.createPlatforms(14, 0);
+      Stage.createPlatforms(14, game.world.width,80);
+      Stage.createPlatforms(14, 0,80);
       BarLife.lifeBar(game.world.width);
       BarLife.initLife();
       Texto.creatingText();

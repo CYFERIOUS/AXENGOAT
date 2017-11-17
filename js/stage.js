@@ -19,9 +19,9 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
         game.load.image('casita1', 'images/casita.png');
     };
 
-    var buildPlatformsEnemies = function(tiles, pos){
+    var buildPlatformsEnemies = function(tiles, pos, base){
     
-    var enemiesFloor = 80;
+    var enemiesFloor = base;
     
     var placeX = pos == 0 ? 0 : (pos-enemiesFloor);
     
@@ -102,7 +102,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
         platforms.destroy();
         Stage.fallBlocksLeft(numba);
         Emittor.destroyer1();
-        BarLife.restore(2);
+        BarLife.restore(5);
         var statEnemyL = blockContainerLeft.length;
         Texto.updateD(statEnemyL);
 
@@ -121,7 +121,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
         platforms.destroy();
         Stage.fallBlocksRight(numba);
         Emittor.destroyer2();
-        BarLife.restore(2);
+        BarLife.restore(5);
         var statEnemyR = blockContainerRight.length;
         Texto.updateE(statEnemyR);
       }
@@ -136,8 +136,8 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
           BarLife.initLife();
           Enemies.removePeresozin();
           Enemies.removeSickBoy();   
-          buildPlatformsEnemies(14,1200);
-          buildPlatformsEnemies(14,0);
+          buildPlatformsEnemies(14,1200,80);
+          buildPlatformsEnemies(14,0,80);
           vaguinho = Enemies.addVaguinho();
           shiquilin = Enemies.addShiquilin();
      
@@ -148,7 +148,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies) {
           BarLife.initLife();
           Enemies.removeVaguinho();
           Enemies.removeShiquilin();   
-          buildPlatformsEnemies(14,1200);
+          buildPlatformsEnemies(14,1200,200);
           bigBoss = Enemies.addBigBoss();
           ledge1.x = 0;
           ledge2.x = 0;
