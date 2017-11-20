@@ -5,8 +5,8 @@ var CollideManager = (function () {
     };
 
     var collideStage1 = function (){
-      var hitPlatform1 = game.physics.arcade.collide(emitter1, platforms,Stage.collideBlockLeft);
-      var hitPlatform2 = game.physics.arcade.collide(emitter2, platforms,Stage.collideBlockRight);
+      var hitPlatform1 = game.physics.arcade.collide(emitter1, platforms,Platform.collideBlockLeft);
+      var hitPlatform2 = game.physics.arcade.collide(emitter2, platforms,Platform.collideBlockRight);
 
       var hitPlatform3 = game.physics.arcade.collide(emitter1, robot, Characters.lColliding);
       var hitPlatform4 = game.physics.arcade.collide(emitter2, robot, Characters.rColliding);
@@ -19,10 +19,10 @@ var CollideManager = (function () {
     var collideStage2 = function (){
       
 
-      var hitPlatform8 = game.physics.arcade.collide(emitter1, platforms,Stage.collideBlockLeft);
-      var hitPlatform9 = game.physics.arcade.collide(emitter2, platforms,Stage.collideBlockRight);
-      var hitPlatform10 = game.physics.arcade.collide(emitter3, platforms,Stage.collideBlockLeft);
-      var hitPlatform11 = game.physics.arcade.collide(emitter4, platforms,Stage.collideBlockRight);
+      var hitPlatform8 = game.physics.arcade.collide(emitter1, platforms,Platform.collideBlockLeft);
+      var hitPlatform9 = game.physics.arcade.collide(emitter2, platforms,Platform.collideBlockRight);
+      var hitPlatform10 = game.physics.arcade.collide(emitter3, platforms,Platform.collideBlockLeft);
+      var hitPlatform11 = game.physics.arcade.collide(emitter4, platforms,Platform.collideBlockRight);
 
       var hitPlatform12 = game.physics.arcade.collide(emitter1, robot, Characters.lColliding);
       var hitPlatform13 = game.physics.arcade.collide(emitter2, robot, Characters.rColliding);
@@ -42,11 +42,11 @@ var CollideManager = (function () {
     var collideStage3 = function(){
 
       
-      var hitPlatform24 = game.physics.arcade.collide(emitter1, platforms,Stage.collideBlockRight);
-      var hitPlatform25 = game.physics.arcade.collide(emitter2, platforms,Stage.collideBlockRight);
-      var hitPlatform26 = game.physics.arcade.collide(emitter3, platforms,Stage.collideBlockRight);
-      var hitPlatform27 = game.physics.arcade.collide(emitter4, platforms,Stage.collideBlockRight);
-      var hitPlatform28 = game.physics.arcade.collide(emitter5, platforms,Stage.collideBlockRight);
+      var hitPlatform24 = game.physics.arcade.collide(emitter1, platforms,Platform.collideBlockRight);
+      var hitPlatform25 = game.physics.arcade.collide(emitter2, platforms,Platform.collideBlockRight);
+      var hitPlatform26 = game.physics.arcade.collide(emitter3, platforms,Platform.collideBlockRight);
+      var hitPlatform27 = game.physics.arcade.collide(emitter4, platforms,Platform.collideBlockRight);
+      var hitPlatform28 = game.physics.arcade.collide(emitter5, platforms,Platform.collideBlockRight);
       
       var hitPlatform29 = game.physics.arcade.collide(emitter1, robot, Characters.lColliding);
       var hitPlatform30 = game.physics.arcade.collide(emitter2, robot, Characters.rColliding);

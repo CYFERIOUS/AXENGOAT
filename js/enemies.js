@@ -76,18 +76,25 @@
       this.bigBoss.body.gravity.y = 400;
       return this.bigBoss;
     };
-    
+    var killEnemies = function(stage){
+      if(stage == 2){
+        destroyPeresozin();
+        destroySickBoy();
+      }
+      if(stage == 3){
+        destroyVaguinho();
+        destroyShiquilin();
+      }
+
+    }
     return {
       addEnemies: preloadImagesCharacters,
       addPeresozin: peresozin,
       addSickBoy: sickBoy,
-      removePeresozin: destroyPeresozin,
-      removeSickBoy: destroySickBoy,
       addVaguinho: vaguinho,
       addShiquilin: shiquilin,
-      removeVaguinho: destroyVaguinho,
-      removeShiquilin: destroyShiquilin,
-      addBigBoss: bigBoss
+      addBigBoss: bigBoss,
+      enemyKiller: killEnemies
     };
 
   })();

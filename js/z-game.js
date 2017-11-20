@@ -1,21 +1,25 @@
-
+  var stageOne, stageTwo, stageThree;
   var jumpButton;
   var jumpTimer = 0;
   var platforms;
-  var emitter1, emitter2, emitter3, emitter4, emitter5 ;
-  var ground;
+  var emitter1, emitter2, emitter3, emitter4, emitter5;
+  var ground, house;
   var speed, robot;
   var stageSelector = 1;
+
+   var  loadGlobal = function(){
+        Stage.loadStage(stageSelector);
+    }
   
 
-var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMenu, CollideManager,TimerObject) {
+var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage) {
 
     function preload(){
       game.physics.startSystem(Phaser.Physics.P2JS);
       game.time.desiredFps = 30;  
       Emittor.preloading();
-      Stage.preloadPlatforms();
-      Stage.setHouse();
+      Platform.preloadPlatforms();
+      Home.setHouse();
       Characters.createCharacters();
       Enemies.addEnemies();
       Texto.precharge();
@@ -24,20 +28,10 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMen
 
       cursors = game.input.keyboard.createCursorKeys();
       jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-      Stage.houseAdder();
-      robot = Characters.setMainCharacter(CMenu.returnChar());
-      peresozin = Enemies.addPeresozin();
-      sickBoy = Enemies.addSickBoy();
-      emitter1 = Emittor.emitor(100,100,300,60,"izquierda",0.5);
-      emitter2 = Emittor.emitor(game.world.width-63,100,(300*(-1)),60,"derecha",0.5);
-      emitter3 = Emittor.emitor(100,100,300,30,"izquierda",0.5);
-      emitter4 = Emittor.emitor(game.world.width-63,100,(400*(-1)),30,"derecha",0.5);
-      emitter5 = Emittor.emitor(game.world.width-63,100,(500*(-1)),10,"derecha",0.5);
-      Stage.groupPlatforms();
-      Stage.createPlatforms(14, game.world.width,80);
-      Stage.createPlatforms(14, 0,80);
-      BarLife.lifeBar(game.world.width);
-      BarLife.initLife();
+      Stage.initStages();
+      loadGlobal();
+
+      
       Texto.creatingText();
       TimerObject.createTimer();
 
@@ -49,29 +43,28 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMen
       
       CollideManager.general();
       Characters.moveCharacters();
-      Stage.setStage();
-  
+      Platform.blockUpdater();
+
       if(stageSelector == 1){
         Texto.updateC("stage 1");
-        Stage.activeEmissionLevel1();
+        Platform.activeEmissionLevel1();
         CollideManager.stageOne();
         emitter1.y  = sickBoy.body.y;
         emitter2.y  = peresozin.body.y;
-        
       }
       if(stageSelector == 2){
         Texto.updateC("stage 2");
-        Stage.activeEmissionLevel2();
+        Platform.activeEmissionLevel2();
         CollideManager.stageTwo();
         emitter1.y  = shiquilin.body.y;
         emitter2.y  = vaguinho.body.y;
         emitter3.y = shiquilin.body.y;
         emitter4.y = vaguinho.body.y;
-        
       }
        if(stageSelector == 3){
+       
           Texto.updateC("stage 3");
-          Stage.activeEmissionLevel3();
+          Platform.activeEmissionLevel3();
           CollideManager.stageThree();
           emitter1.x  = game.world.width-63;
           emitter3.x  = game.world.width-63;
@@ -80,7 +73,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMen
           emitter3.y  = bigBoss.body.y;
           emitter4.y  = bigBoss.body.y;
           emitter5.y  = bigBoss.body.y;
-
+          
           
       }    
     }
@@ -97,4 +90,4 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Stage, CMen
       
     };
 
-})(Texto, BarLife, Characters, Emittor, Enemies, Stage,CMenu,CollideManager,TimerObject);
+})(Texto, BarLife, Characters, Emittor, Enemies, Platform,CMenu,CollideManager,TimerObject,Home, Stage);
