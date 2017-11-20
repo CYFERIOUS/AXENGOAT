@@ -152,12 +152,14 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
 
 
     var blockListener = function(){
+      if(stageSelector == 1 || stageSelector == 2){
         if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0){
           stageSelector ++;
           alert(stageSelector);
           Enemies.enemyKiller(stageSelector);
           loadGlobal();
-       }
+        }
+      }
        
        if(stageSelector == 3){
         if(blockContainerRight.length == 0){
