@@ -85,7 +85,6 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
     };
 
     function hitBlockLeft(emitter,platforms){
-     
       var str = platforms.name;
       var word = str.slice(0, 4);
       if( platforms.name == "piso1" || platforms.name == "piso2" ){
@@ -96,15 +95,15 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
         numba = blockContainerLeft.indexOf(platforms);
         platforms.destroy();
         Platform.fallBlocksLeft(numba);
-        Emittor.destroyer1();
-        BarLife.restore(5);
+        Emittor.destroyer1(emitter.parent.name);
+        BarLife.restore(2);
         var statEnemyL = blockContainerLeft.length;
         Texto.updateD(statEnemyL);
 
       }
     };
     function hitBlockRight(emitter,platforms){
-      
+
       var str = platforms.name;
       var word = str.slice(0, 4);
       if( platforms.name == "piso1" || platforms.name == "piso2" ){
@@ -115,8 +114,11 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
         numba = blockContainerRight.indexOf(platforms);
         platforms.destroy();
         Platform.fallBlocksRight(numba);
-        Emittor.destroyer2();
-        BarLife.restore(5);
+        Emittor.destroyer2(emitter.parent.name);
+        if(stageSelector == 3){
+          Emittor.destroyer1(emitter.parent.name);
+        }
+        BarLife.restore(2);
         var statEnemyR = blockContainerRight.length;
         Texto.updateE(statEnemyR);
       }

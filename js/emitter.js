@@ -12,13 +12,15 @@
       emitter = game.add.emitter(initialX, initialY, 1);
       emitter.name = nomos;
       emitter.enableBody = true;
-      if(emitter.name == "izquierda"){
+      if(emitter.name == "izquierda1" || emitter.name == "izquierda2" ){
     
            emitter.makeParticles('particles',[0,1,2,3,4], 1, true, true);
+           
       }
-      if(emitter.name == "derecha"){
+      if(emitter.name == "derecha1" || emitter.name == "derecha2" || emitter.name == "derecha3" ){
          
            emitter.makeParticles('particles',[0,1,2,3,4], 1, true, true);
+          
       }
       emitter.start(false, 8000, 400);
       emitter.setXSpeed(xfast, yfast);
@@ -30,25 +32,35 @@
       return emitter;
     };
 
-    var destroyParticleLeft = function (){
-      emitter1.forEachAlive(function(particle){
-        particle.kill();
-      });
-      emitter3.forEachAlive(function(particle){
-        particle.kill();
-      });
+    var destroyParticleLeft = function (emitorName){
+      if(emitorName == "izquierda1"){
+        emitter1.forEachAlive(function(particle){
+          particle.kill();
+        });
+      }
+      if(emitorName == "izquierda2"){
+        emitter3.forEachAlive(function(particle){
+          particle.kill();
+        });
+      }
     };
 
-    var destroyParticleRight = function (){
-      emitter2.forEachAlive(function(particle){
-        particle.kill();
-      });
-      emitter4.forEachAlive(function(particle){
-        particle.kill();
-      });
-      emitter5.forEachAlive(function(particle){
-        particle.kill();
-      });
+    var destroyParticleRight = function (emitorName){
+      if(emitorName == "derecha1"){
+        emitter2.forEachAlive(function(particle){
+          particle.kill();
+        });
+      }
+      if(emitorName == "derecha2"){
+        emitter4.forEachAlive(function(particle){
+          particle.kill();
+        });
+      }
+      if(emitorName == "derecha3"){
+        emitter5.forEachAlive(function(particle){
+          particle.kill();
+        });
+      }
     };
 
     var emittorStage = function(a,b,c,d,e){

@@ -5,11 +5,11 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home) {
 
    var initStages = function(){
       home = Home.addHome();
-      emitter1 = Emittor.emitor(100,100,300,60,"izquierda",0.5);
-      emitter2 = Emittor.emitor(game.world.width-63,100,(300*(-1)),60,"derecha",0.5);
-      emitter3 = Emittor.emitor(100,100,300,30,"izquierda",0.5);
-      emitter4 = Emittor.emitor(game.world.width-63,100,(400*(-1)),30,"derecha",0.5);
-      emitter5 = Emittor.emitor(game.world.width-63,100,(500*(-1)),10,"derecha",0.5);
+      emitter1 = Emittor.emitor(100,100,300,60,"izquierda1",0.5);
+      emitter2 = Emittor.emitor(game.world.width-63,100,(300*(-1)),60,"derecha1",0.5);
+      emitter3 = Emittor.emitor(100,100,300,30,"izquierda2",0.5);
+      emitter4 = Emittor.emitor(game.world.width-63,100,(400*(-1)),30,"derecha2",0.5);
+      emitter5 = Emittor.emitor(game.world.width-63,100,(500*(-1)),10,"derecha3",0.5);
       robot = Characters.setMainCharacter(CMenu.returnChar());
       Platform.groupPlatforms();
       BarLife.lifeBar(game.world.width);
