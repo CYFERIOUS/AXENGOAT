@@ -5,11 +5,11 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home) {
 
    var initStages = function(){
       home = Home.addHome();
-      emitter1 = Emittor.emitor(100,100,300,60,"izquierda1",0.5);
-      emitter2 = Emittor.emitor(game.world.width-63,100,(300*(-1)),60,"derecha1",0.5);
-      emitter3 = Emittor.emitor(100,100,300,30,"izquierda2",0.5);
-      emitter4 = Emittor.emitor(game.world.width-63,100,(400*(-1)),30,"derecha2",0.5);
-      emitter5 = Emittor.emitor(game.world.width-63,100,(500*(-1)),10,"derecha3",0.5);
+      emitter1 = Emittor.emitor(100,100,300,30,"izquierda1",0.5);
+      emitter2 = Emittor.emitor(game.world.width-63,100,-300,30,"derecha1",0.5);
+      emitter3 = Emittor.emitor(100,100,300,20,"izquierda2",0.5);
+      emitter4 = Emittor.emitor(game.world.width-63,100,-400,20,"derecha2",0.5);
+      emitter5 = Emittor.emitor(game.world.width-63,100,-500,10,"derecha3",0.5);
       robot = Characters.setMainCharacter(CMenu.returnChar());
       Platform.groupPlatforms();
       BarLife.lifeBar(game.world.width);
@@ -38,11 +38,18 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home) {
     }
 
      var loadStage3 = function(){
-          BarLife.initLife();  
+          BarLife.initLife(); 
           Platform.createPlatforms(14,1200,200);
           bigBoss = Enemies.addBigBoss();
           home.x = -100;
-          
+          emitter1.x  = game.world.width-210;
+          emitter2.x  = game.world.width-210;
+          emitter3.x  = game.world.width-210;
+          emitter4.x  = game.world.width-210;
+          emitter5.x  = game.world.width-210;
+          emitter1.setXSpeed(-800, 10);
+          emitter3.setXSpeed(-800,10);
+        
           
     }
 

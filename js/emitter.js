@@ -19,8 +19,7 @@
       }
       if(emitter.name == "derecha1" || emitter.name == "derecha2" || emitter.name == "derecha3" ){
          
-           emitter.makeParticles('particles',[0,1,2,3,4], 1, true, true);
-          
+           emitter.makeParticles('particles',[0,1,2,3,4], 1, true, true);          
       }
       emitter.start(false, 8000, 400);
       emitter.setXSpeed(xfast, yfast);

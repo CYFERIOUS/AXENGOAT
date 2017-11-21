@@ -66,8 +66,6 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
           Texto.updateC("stage 3");
           Platform.activeEmissionLevel3();
           CollideManager.stageThree();
-          emitter1.x  = game.world.width-63;
-          emitter3.x  = game.world.width-63;
           emitter1.y  = bigBoss.body.y;
           emitter2.y  = bigBoss.body.y;
           emitter3.y  = bigBoss.body.y;

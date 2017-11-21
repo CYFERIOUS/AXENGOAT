@@ -47,7 +47,7 @@ var BarLife = (function (Texto) {
               Texto.updateB("GAME OVER",60);
               setTimeout(function(){
                   game.state.start("loose");
-              }, 3000);
+              }, 1000);
               
             }
 

@@ -50,7 +50,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
     //  This stops it from falling away when you jump on it
       ground.body.immovable = true;
 
-      var houseFloor2 = 400;
+      var houseFloor2 = 450;
       ledge2 = platforms.create(game.world.centerX-(houseFloor2/2), 350, 'piso2');
       ledge2.width = houseFloor2;
       ledge2.name = "piso2";
@@ -147,24 +147,23 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
 
     var stagePileListenerStage3 = function(){
       Emittor.stageEmission(true,true,true,true,true);
-      ledge1.x = 0;
-      ledge2.x = 0;
+      ledge1.x = -100;
+      ledge2.x = 10;
     };
 
 
 
     var blockListener = function(){
       if(stageSelector == 1 || stageSelector == 2){
-        if(blockContainerLeft.length == 0 &&  blockContainerRight.length == 0){
+        if(blockContainerLeft.length == 0 && blockContainerRight.length == 0){
           stageSelector ++;
-          alert(stageSelector);
           Enemies.enemyKiller(stageSelector);
           loadGlobal();
         }
       }
        
        if(stageSelector == 3){
-        if(blockContainerRight.length == 0){
+        if( blockContainerLeft.length == 0 && blockContainerRight.length == 0 ){
           game.state.start("win");
         }
        }
