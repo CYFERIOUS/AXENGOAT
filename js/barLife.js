@@ -1,4 +1,4 @@
-var BarLife = (function (Texto) {
+var BarLife = (function (Texto,Home) {
 
      var actual = 0;
      var stamina = 0;
@@ -28,7 +28,7 @@ var BarLife = (function (Texto) {
             actual = actual + value;
             stamina  =  actual;
             this.myHealthBar.setPercent(stamina);
-            getBarPercent(stamina);
+            getBarPercent(actual);
             Texto.updateA("INDICE:"+stamina);
             if(stamina <= 0){
                 Texto.updateA("INDICE:"+0);
@@ -71,7 +71,22 @@ var BarLife = (function (Texto) {
     }
 
     var getBarPercent = function(score){
-           return homeLine = score;
+           if(score<33){
+            Home.change(0);
+           }
+            if(score>44){
+            Home.change(1);
+           }
+            if(score>55){
+            Home.change(2);
+           }
+            if(score>66){
+            Home.change(3);
+           }
+            if(score>77){
+            Home.change(4);
+           }
+           
    
 
       
@@ -87,5 +102,5 @@ var BarLife = (function (Texto) {
       
     };
 
-})(Texto);
+})(Texto,Home);
 

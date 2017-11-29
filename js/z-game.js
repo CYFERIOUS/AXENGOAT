@@ -23,6 +23,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       Characters.createCharacters();
       Enemies.addEnemies();
       Texto.precharge();
+     
     }
     function create(){
 
