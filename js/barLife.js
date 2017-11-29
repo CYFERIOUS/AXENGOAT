@@ -71,13 +71,9 @@ var BarLife = (function (Texto) {
     }
 
     var getBarPercent = function(score){
-      
-      if(stamina >= 33){
-      
-      }
-      if(stamina >= 66){
-        
-      }
+           return homeLine = score;
+   
+
       
     }
 
@@ -87,7 +83,9 @@ var BarLife = (function (Texto) {
       initLife: initLife,
       damage: lifeLevelAdd,
       restore: lifeLevelMinus,
-      getScore:getBarPercent
+      getScore:getBarPercent,
+      
     };
 
 })(Texto);
+
