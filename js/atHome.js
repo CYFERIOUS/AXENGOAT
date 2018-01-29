@@ -5,11 +5,16 @@ var Home = (function () {
       var preloadingHouse = function () {
           game.load.spritesheet('casita', 'images/casita.png', 659, 373,5);
           game.load.image('fondo1', 'images/fondo1.png');
+          game.load.image('fondo3', 'images/fondo3.png');
 
     };
 
     var addLandscape = function(){
+        if(stageSelector == 1 || stageSelector ==2){
          var image = game.add.image(0, 0, 'fondo1');
+        }else{
+          var image = game.add.image(0, 0, 'fondo3');
+        }
     }
     
     var addHouse = function(){
