@@ -10,7 +10,8 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
         game.load.image('piso0', 'images/platform.png');
         game.load.image('piso1', 'images/platform.png');
         game.load.image('piso2', 'images/platform.png');
-        game.load.image('ground', 'images/platform.png');
+        game.load.image('piles', 'images/platform.png');
+        game.load.image('ground', 'images/ground.png');
     };
 
 
@@ -22,7 +23,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
     var placeX = pos == 0 ? 0 : (pos-enemiesFloor);
     
       for(var i = 0; i<tiles; i++){
-        ledge3 = platforms.create( placeX, 200+(35*i), 'ground');
+        ledge3 = platforms.create( placeX, 200+(35*i), 'piles');
         ledge3.width = enemiesFloor;
         ledge3.body.immovable = true;
         ledge3.body.bounce.setTo(0.5, 0.5);
