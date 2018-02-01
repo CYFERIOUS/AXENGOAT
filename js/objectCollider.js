@@ -2,6 +2,7 @@ var CollideManager = (function () {
 
     var generalCollide = function () {
       var hitPlatform = game.physics.arcade.collide(robot, platforms);
+      var hitPlatformDog = game.physics.arcade.collide(dog, platforms);
     };
 
     var collideStage1 = function (){

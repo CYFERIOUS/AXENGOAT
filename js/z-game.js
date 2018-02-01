@@ -5,14 +5,14 @@
   var emitter1, emitter2, emitter3, emitter4, emitter5;
   var ground, house;
   var speed, robot;
-  var stageSelector = 1;
+  var stageSelector = 3;
 
    var  loadGlobal = function(){
         Stage.loadStage(stageSelector);
     }
   
 
-var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage) {
+var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage, Dog) {
 
     function preload(){
       game.physics.startSystem(Phaser.Physics.P2JS);
@@ -23,6 +23,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       Characters.createCharacters();
       Enemies.addEnemies();
       Texto.precharge();
+      Dog.loadDog();
      
     }
     function create(){
@@ -89,4 +90,4 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       
     };
 
-})(Texto, BarLife, Characters, Emittor, Enemies, Platform,CMenu,CollideManager,TimerObject,Home, Stage);
+})(Texto, BarLife, Characters, Emittor, Enemies, Platform,CMenu,CollideManager,TimerObject,Home, Stage,Dog);
