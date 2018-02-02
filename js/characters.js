@@ -15,6 +15,8 @@
       this.robot.anchor.set(0.5,0.5);
       this.robot.animations.add('idle', [0,1,2,3,4,5,6,7,8,9], 12,true);
       this.robot.animations.add('run', [10,11,12,13,14,15,16,17], 12,true);
+      this.robot.animations.add('turbo', [20,21,22,23,24,25,26,27,28], 12,true);
+      
       this.robot.animations.play('idle',[0,1,2,3],12,true); 
       this.robot.body.collideWorldBounds = true;
       this.robot.body.bounce.y = 0.2;
@@ -42,12 +44,14 @@
         this.robot.play('idle');
       }
       if (jumpButton.isDown  && game.time.now > jumpTimer){
+        this.robot.animations.play('run',12,true);
         this.robot.body.velocity.y = -250;
         jumpTimer = game.time.now + 750;
       }
       if (game.input.mousePointer.isDown){
+        this.robot.animations.play('turbo',12,true);
         game.physics.arcade.moveToPointer(this.robot, 700);
-        this.robot.animations.play('run',[10,11,12,13,14,15,16,17],12,true);
+        
         
 
       }
