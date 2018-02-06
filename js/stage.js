@@ -1,8 +1,8 @@
 var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog) {
 
   
-  var home,dog;
-
+  var home;
+  
    var initStages = function(){
       home = Home.addHome();
       emitter1 = Emittor.emitor(100,100,300,30,"izquierda1",0.5);
@@ -11,8 +11,10 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog) {
       emitter4 = Emittor.emitor(game.world.width-63,100,-400,20,"derecha2",0.5);
       emitter5 = Emittor.emitor(game.world.width-63,100,-500,10,"derecha3",0.5);
       robot = Characters.setMainCharacter(CMenu.returnChar());
+      dog = Dog.addDog();
       Platform.groupPlatforms();
       BarLife.lifeBar(game.world.width);
+
       
    }
 
@@ -24,7 +26,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog) {
       Platform.createPlatforms(14, game.world.width,80);
       Platform.createPlatforms(14, 0,80);
       BarLife.initLife();
-      doggy = Dog.dogLevel(1);
+     
      
   }
 
@@ -36,7 +38,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog) {
           Platform.createPlatforms(14,0,80);
           vaguinho = Enemies.addVaguinho();
           shiquilin = Enemies.addShiquilin();
-          dog = Dog.dogLevel(2);
+       
     }
 
      var loadStage3 = function(){
@@ -51,7 +53,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog) {
           emitter5.x  = game.world.width-210;
           emitter1.setXSpeed(-800, 10);
           emitter3.setXSpeed(-800,10);
-          dog = Dog.dogLevel(3);
+   
           
     }
 

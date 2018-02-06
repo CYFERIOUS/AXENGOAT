@@ -69,7 +69,7 @@
         }); 
       }
        
-       robot.body.velocity.x = 0;
+       //this.robot.body.velocity.x = 0;
     };
     var collideRight = function(){
        if(robot.body.touching.right){
@@ -79,7 +79,7 @@
           });
        }
       
-     robot.body.velocity.x = 0;
+     //this.robot.body.velocity.x = 0;
     };
    
     
