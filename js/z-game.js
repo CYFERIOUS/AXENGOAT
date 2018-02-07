@@ -5,7 +5,7 @@
   var emitter1, emitter2, emitter3, emitter4, emitter5;
   var ground, house;
   var speed, robot, dog;
-  var stageSelector = 3;
+  var stageSelector = 1;
 
    var  loadGlobal = function(){
         Stage.loadStage(stageSelector);

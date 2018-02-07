@@ -12,9 +12,9 @@
       this.speed=10;
       this.robot=game.add.sprite(game.world.centerX,130,bot);
       game.physics.arcade.enable(this.robot);
-      this.robot.anchor.set(0.5,0.5);
+      this.robot.anchor.set(0.8,0.8);
       this.robot.animations.add('idle', [0,1,2,3,4,5,6,7,8,9], 12,true);
-      this.robot.animations.add('run', [10,11,12,13,14,15,16,17], 12,true);
+      this.robot.animations.add('run', [10,11,12,13,14,15,16], 12,true);
       this.robot.animations.add('turbo', [20,21,22,23,24,25,26,27,28], 12,true);
       
       this.robot.animations.play('idle',[0,1,2,3],12,true); 
