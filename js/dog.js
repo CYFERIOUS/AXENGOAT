@@ -8,8 +8,8 @@ var Dog = (function () {
 
     var dog = function () {
       this.dog=game.add.sprite(300,600,"bruno");
-      this.dog.animations.add('attack1', [1,2,3,4,5], 6,true);
-      this.dog.animations.play('attack1',[1,2,3,4,5],6,true); 
+      this.dog.animations.add('attack1', [1,2,3,4,5,6,7,8,9,10], 6,true);
+      this.dog.animations.play('attack1',true); 
       this.dog.anchor.set(0.5,0.5);
       game.physics.arcade.enable(this.dog);
       this.dog.body.collideWorldBounds = true;
