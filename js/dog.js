@@ -2,7 +2,7 @@ var Dog = (function () {
  
     var preloadImagesDog = function () {
   
-        game.load.spritesheet('bruno', 'images/doggy.png', 50, 33);
+        game.load.spritesheet('bruno', 'images/doggy.png', 50, 99);
        
     };
 
@@ -22,23 +22,32 @@ var Dog = (function () {
 
 
     var dogMove  = function(stage){
-  
+       
          if(stage == 1 || stage == 2 ){
-            if(this.dog.body.x <=310){
-              game.physics.arcade.moveToXY(this.dog, 940, 900, 100 );
+            
+            if(this.dog.body.x < 310){
+              this.dog.scale.x=-1;
+              game.physics.arcade.moveToXY(this.dog, 910, 900, 100 );
+              
             }
-            if(this.dog.body.x >=930){
+            if(this.dog.body.x > 900){
+              this.dog.scale.x=1;
               game.physics.arcade.moveToXY(this.dog, 310, 900, 100 );
+              
             }
         }
 
         if(stage == 3){
-            this.dog.body.x = 1;
-            if(this.dog.body.x <= 5){
-              game.physics.arcade.moveToXY(this.dog, 660, 900, 100 );
-            } 
-            if(this.dog.body.x >=660){
-              game.physics.arcade.moveToXY(this.dog, 0, 900, 100 );
+
+               if(this.dog.body.x < 310){
+              this.dog.scale.x=-1;
+              game.physics.arcade.moveToXY(this.dog, 500, 900, 100 );
+              
+            }
+            if(this.dog.body.x > 490){
+              this.dog.scale.x=1;
+              game.physics.arcade.moveToXY(this.dog, 10, 900, 100 );
+              
             }
         }
       
