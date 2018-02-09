@@ -14,8 +14,6 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog) {
       dog = Dog.addDog();
       Platform.groupPlatforms();
       BarLife.lifeBar(game.world.width);
-
-      
    }
 
 
@@ -26,9 +24,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog) {
       Platform.createPlatforms(14, game.world.width,80);
       Platform.createPlatforms(14, 0,80);
       BarLife.initLife();
-     
-     
-  }
+    }
 
 
     var loadStage2 = function(){

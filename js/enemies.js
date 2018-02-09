@@ -16,7 +16,7 @@
     };
 
     var peresozin = function () {
-      this.peresozin=game.add.sprite(game.world.width-10,130,"enemy1");
+      this.peresozin=game.add.sprite(game.world.width-50,130,"enemy1");
       this.peresozin.animations.add('attack1', [1,2,3,4,5,6,7,8,9,10,11,12], 6,true);
       this.peresozin.animations.play('attack1',[1,2,3,4,5,6,7,8,9,10,11,12],6,true); 
       this.peresozin.anchor.set(0.5,0.5);

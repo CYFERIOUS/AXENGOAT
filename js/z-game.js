@@ -4,8 +4,8 @@
   var platforms;
   var emitter1, emitter2, emitter3, emitter4, emitter5;
   var ground, house;
-  var speed, robot, dog;
-  var stageSelector = 3;
+  var speed, robot, dog, mira;
+  var stageSelector = 1;
 
    var  loadGlobal = function(){
         Stage.loadStage(stageSelector);
@@ -47,6 +47,8 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       Characters.moveCharacters();
       Platform.blockUpdater();
       Dog.moveDog(stageSelector);
+
+    
 
       if(stageSelector == 1){
         Texto.updateC("stage 1");
