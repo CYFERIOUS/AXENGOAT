@@ -3,7 +3,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
    
       var blockContainerRight = new Array(); 
       var blockContainerLeft = new Array();
-      var ledge1, ledge2, ledge3;
+      var ledge1, ledge2, ledge3, ledge4, ledge5, ledge6, ledge7;
     
       
     var preloadImagesPlatforms = function () {
@@ -11,19 +11,26 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
         game.load.image('piso1', 'images/platform.png');
         game.load.image('piso2', 'images/platform.png');
         game.load.image('piles', 'images/platform.png');
+        
+        game.load.image('piles1', 'images/platform1.png');
+        game.load.image('piles2', 'images/platform2.png');
+        game.load.image('piles3', 'images/platform3.png');
+        game.load.image('piles4', 'images/platform4.png');
+        game.load.image('piles5', 'images/platform5.png');
+
         game.load.image('ground', 'images/ground.png');
     };
 
 
   
-    var buildPlatformsEnemies = function(tiles, pos, base){
+    var buildPlatformsEnemies = function(tiles, pos, base, pila){
     
     var enemiesFloor = base;
     
     var placeX = pos == 0 ? 0 : (pos-enemiesFloor);
     
       for(var i = 0; i<tiles; i++){
-        ledge3 = platforms.create( placeX, 200+(35*i), 'piles');
+        ledge3 = platforms.create( placeX, 200+(35*i), pila);
         ledge3.width = enemiesFloor;
         ledge3.body.immovable = true;
         ledge3.body.bounce.setTo(0.5, 0.5);

@@ -31,6 +31,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       cursors = game.input.keyboard.createCursorKeys();
       jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
       Stage.initStages();
+      Characters.mira();
       loadGlobal();
      
       

@@ -21,8 +21,8 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog) {
       
       peresozin = Enemies.addPeresozin();
       sickBoy = Enemies.addSickBoy();
-      Platform.createPlatforms(14, game.world.width,80);
-      Platform.createPlatforms(14, 0,80);
+      Platform.createPlatforms(14, game.world.width,80,'piles1');
+      Platform.createPlatforms(14, 0,80,'piles2');
       BarLife.initLife();
     }
 
@@ -30,8 +30,8 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog) {
     var loadStage2 = function(){
       
           BarLife.initLife(); 
-          Platform.createPlatforms(14,1200,80);
-          Platform.createPlatforms(14,0,80);
+          Platform.createPlatforms(14,1200,80,'piles3');
+          Platform.createPlatforms(14,0,80,'piles4');
           vaguinho = Enemies.addVaguinho();
           shiquilin = Enemies.addShiquilin();
        
@@ -39,7 +39,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog) {
 
      var loadStage3 = function(){
           BarLife.initLife(); 
-          Platform.createPlatforms(14,1200,200);
+          Platform.createPlatforms(14,1200,200,'piles5');
           bigBoss = Enemies.addBigBoss();
           home.x = -100;
           emitter1.x  = game.world.width-210;

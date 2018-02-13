@@ -32,15 +32,11 @@
 
 
     var snipe = function(point){
-    this.mira=game.add.sprite(game.input.mousePointer.x,game.input.mousePointer.y,"aim");
-
-        if (point == true){
-          this.mira.visible = true; 
-        }
-        else{
-          this.mira.visible = false;
-          this.mira.kill();
-        }
+      $( "#body" ).mousedown(function() {
+            $("#body").css( 'cursor', 'url(images/aim.png)50 50, auto' );
+        }).mouseup(function(){
+            $("#body").css( 'cursor', 'cell' );
+      });
     };
 
     var movements = function () {
@@ -69,13 +65,13 @@
       if (game.input.mousePointer.isDown){
         this.robot.animations.play('turbo',12,true);
         game.physics.arcade.moveToPointer(this.robot, 700);
-        //snipe(true);
+      
         
 
       }
       if (game.input.mousePointer.isUp){
          this.robot.body.velocity.x = 0;
-         //snipe(false);
+     
       } 
     };
 
@@ -110,6 +106,7 @@
       moveCharacters: movements,
       lColliding: collideLeft,
       rColliding: collideRight,
+      mira:snipe
       
     };
 
