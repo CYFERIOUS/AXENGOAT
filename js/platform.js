@@ -7,11 +7,12 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
     
       
     var preloadImagesPlatforms = function () {
+    	
         game.load.image('piso0', 'images/platform.png');
         game.load.image('piso1', 'images/platform.png');
         game.load.image('piso2', 'images/platform.png');
         game.load.image('piles', 'images/platform.png');
-        
+
         game.load.image('piles1', 'images/platform1.png');
         game.load.image('piles2', 'images/platform2.png');
         game.load.image('piles3', 'images/platform3.png');

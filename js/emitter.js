@@ -3,24 +3,30 @@
 
 
     var preloadImages = function () {
-         game.load.spritesheet('particles', 'images/partuculas.png', 63, 63);   
+         game.load.spritesheet('particles0', 'images/peresozinPartuculas.png', 63, 63);
+         game.load.spritesheet('particles1', 'images/salukoPartuculas.png', 63, 63);
+         game.load.spritesheet('particles2', 'images/zinoKupaPartuculas.png', 63, 63);
+         game.load.spritesheet('particles3', 'images/malinfantyPartuculas.png', 63, 63);
+         game.load.spritesheet('particles4', 'images/vivienzorPartuculas.png', 63, 63);  
     };
 
 
-    var addEmitter = function (initialX,initialY,xfast,yfast,nomos,bounce) {
+    var addEmitter = function (initialX,initialY,xfast,yfast,nomos,bounce,enemyName) {
       
       emitter = game.add.emitter(initialX, initialY, 1);
       emitter.name = nomos;
       emitter.enableBody = true;
       if(emitter.name == "izquierda1" || emitter.name == "izquierda2" ){
     
-           emitter.makeParticles('particles',[0,1,2,3,4], 1, true, true);
+           emitter.makeParticles(enemyName,[0,1,2,3,4], 1, true, true);
            
       }
       if(emitter.name == "derecha1" || emitter.name == "derecha2" || emitter.name == "derecha3" ){
          
-           emitter.makeParticles('particles',[0,1,2,3,4], 1, true, true);          
+           emitter.makeParticles(enemyName,[0,1,2,3,4], 1, true, true);          
       }
+
+
       emitter.start(false, 8000, 400);
       emitter.setXSpeed(xfast, yfast);
       emitter.setYSpeed(xfast, yfast);
