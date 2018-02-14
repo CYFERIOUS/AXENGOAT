@@ -39,7 +39,7 @@ var BarLife = (function (Texto,Home) {
               Texto.updateB("SOBRESALIENDO",60);
               this.myHealthBar.setBarColor('#E5FF00');
             }else{
-                  Texto.updateB("PELIGRO: ZONA DE ESCASEZ",30);
+                  Texto.updateB("PELIGRO: HA PASADO LA LINEA DE POBREZA",30);
                   this.myHealthBar.setBarColor('#FF0000');
             }
             if( stamina >= 100){

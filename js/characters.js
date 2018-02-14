@@ -37,6 +37,7 @@
         }).mouseup(function(){
             $("#body").css( 'cursor', 'cell' );
       });
+
     };
 
     var movements = function () {
@@ -65,14 +66,16 @@
       if (game.input.mousePointer.isDown){
         this.robot.animations.play('turbo',12,true);
         game.physics.arcade.moveToPointer(this.robot, 700);
-      
-        
-
+          if(game.input.mousePointer.x>=600){
+            this.robot.scale.x=1;
+          }else{
+            this.robot.scale.x=-1;
+          }
       }
       if (game.input.mousePointer.isUp){
          this.robot.body.velocity.x = 0;
-     
-      } 
+      }
+      
     };
 
     

@@ -1,4 +1,4 @@
-var Dog = (function () {
+var Dog = (function (Emittor) {
  
     var preloadImagesDog = function () {
   
@@ -19,10 +19,25 @@ var Dog = (function () {
       return this.dog;
     };
 
+    var dogReject = function(){
+        if(this.dog.body.touching.left){
+          emitter1.forEachAlive(function(particle){
+          particle.body.acceleration.x = -180;
+          particle.body.acceleration.y = 30;
+          }); 
+        }
+
+      if(this.dog.body.touching.right){
+            emitter2.forEachAlive(function(particle){
+            particle.body.acceleration.x = 180;
+            particle.body.acceleration.y = 30;
+          });
+       }
+    }
+
 
 
     var dogMove  = function(stage){
-       
          if(stage == 1 || stage == 2 ){
             
             if(this.dog.body.x < 310){
@@ -50,7 +65,7 @@ var Dog = (function () {
               
             }
         }
-      
+        dogReject();
     };
 
 
@@ -61,4 +76,4 @@ var Dog = (function () {
       
     };
 
-  })();
+  })(Emittor);
