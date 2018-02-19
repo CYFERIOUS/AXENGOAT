@@ -1,19 +1,24 @@
-  var CMenu = (function () {
+  var CMenu = (function (Texto) {
 
-    var menuChar1, menuChar2, menuChar3, menuChar4;
+    var menuChar1,menuChar1over, menuChar2, menuChar3, menuChar4, backstage;
     var robot = null;
     
     var preloadInstructions = function(){
-        game.load.image('move', 'images/moveInstruction.png');
-        game.load.image('jump', 'images/jumpInstruction.png');
-        game.load.image('turbo', 'images/turboInstruction.png');
+        game.load.image('background', 'images/backMenu.png');
+        game.load.image('instructions', 'images/instructions.png');
+       
     }
 
     var preload = function () {
         game.load.image('dad', 'images/dad.png');
+        game.load.image('dadOver', 'images/dadOver.png');
         game.load.image('mom', 'images/mom.png');
+        game.load.image('momOver', 'images/momOver.png');
         game.load.image('son', 'images/son.png');
+        game.load.image('sonOver', 'images/sonOver.png');
         game.load.image('daughter', 'images/daughter.png');
+        game.load.image('daughterOver', 'images/daughterOver.png');
+
 
         preloadInstructions();
 
@@ -22,15 +27,22 @@
 
 
     var create = function () {
-    
-      menuChar1 =game.add.sprite(20,130,"dad");
-      menuChar2 =game.add.sprite(320,130,"mom");
-      menuChar3 =game.add.sprite(620,130,"son");
-      menuChar4 =game.add.sprite(920,130,"daughter");
 
-      moveInstructions =game.add.sprite(270,460,"move");
-      jumpInstructions =game.add.sprite(580,460,"jump");
-      turboInstructions =game.add.sprite(875,460,"turbo");
+   // bmpText = game.add.bitmapText(10, 100, 'carrier_command','Drag me around !',34);
+
+     backstage =game.add.sprite(0,0,"background");
+      
+      menuChar1over =game.add.sprite(130,150,"dadOver");
+      menuChar1 =game.add.sprite(130,150,"dad");
+      menuChar2over =game.add.sprite(380,150,"momOver");
+      menuChar2 =game.add.sprite(380,150,"mom");
+      menuChar3over =game.add.sprite(620,150,"sonOver");
+      menuChar3 =game.add.sprite(620,150,"son");
+      menuChar4over =game.add.sprite(855,150,"daughterOver");
+      menuChar4 =game.add.sprite(855,150,"daughter");
+
+      instructions =game.add.sprite(10,540,"instructions");
+   
       
      
       menuChar1.inputEnabled = true;
@@ -48,6 +60,9 @@
       menuChar2.events.onInputDown.add(listener, this);
       menuChar3.events.onInputDown.add(listener, this);
       menuChar4.events.onInputDown.add(listener, this);
+
+      game.input.addMoveCallback(p, this);
+
     
     };
 
@@ -61,13 +76,53 @@
       return robot;
     }
 
+    var overChar = function (){
+      
+        if (menuChar1.input.pointerOver())
+        {
+          menuChar1.alpha = 0;
+        }
+        else
+        {
+          menuChar1.alpha = 1;
+        }
+
+        if (menuChar2.input.pointerOver())
+        {
+          menuChar2.alpha = 0;
+        }
+        else
+        {
+          menuChar2.alpha = 1;
+        }
+
+        if (menuChar3.input.pointerOver())
+        {
+          menuChar3.alpha = 0;
+        }
+        else
+        {
+          menuChar3.alpha = 1;
+        }
+
+        if (menuChar4.input.pointerOver())
+        {
+          menuChar4.alpha = 0;
+        }
+        else
+        {
+          menuChar4.alpha = 1;
+        }
+    }
+
   
     return {
       preloadMenu: preload,
       createMenu: create,
-      returnChar: returnChar
+      returnChar: returnChar,
+      overDad:overChar
     };
 
-  })();
+  })(Texto);
 
 

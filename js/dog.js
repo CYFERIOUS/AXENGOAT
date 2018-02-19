@@ -22,14 +22,14 @@ var Dog = (function (Emittor) {
     var dogReject = function(){
         if(this.dog.body.touching.left){
           emitter1.forEachAlive(function(particle){
-          particle.body.acceleration.x = -180;
+          particle.body.acceleration.x = -280;
           particle.body.acceleration.y = 30;
           }); 
         }
 
       if(this.dog.body.touching.right){
             emitter2.forEachAlive(function(particle){
-            particle.body.acceleration.x = 180;
+            particle.body.acceleration.x = 280;
             particle.body.acceleration.y = 30;
           });
        }

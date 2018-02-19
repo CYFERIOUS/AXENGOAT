@@ -48,7 +48,7 @@
       CMenu.createMenu();
     },
     update: function(){
-      
+      CMenu.overDad();
     },
     render: function(){
        

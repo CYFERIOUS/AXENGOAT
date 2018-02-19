@@ -48,6 +48,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       Characters.moveCharacters();
       Platform.blockUpdater();
       Dog.moveDog(stageSelector);
+      
 
     
 

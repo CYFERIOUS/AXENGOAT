@@ -16,6 +16,7 @@ var Texto = (function () {
     var text3 = null;
     var text4 = null;
     var text5 = null;
+    var text6 = null;
 
     var preloadText = function(){
       game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');

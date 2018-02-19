@@ -98,7 +98,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
       var word = str.slice(0, 4);
       if( platforms.name == "piso1" || platforms.name == "piso2" ){
           BarLife.damage(2);
-          game.camera.shake(0.005, 100);
+          game.camera.shake(0.003, 100);
       }
       if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" && word == "pila"  ){
         var numba;
@@ -118,7 +118,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
       var word = str.slice(0, 4);
       if( platforms.name == "piso1" || platforms.name == "piso2" ){
         BarLife.damage(2);
-        game.camera.shake(0.005, 100);
+        game.camera.shake(0.003, 100);
       }
       if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" && word == "pola" ){
         var numba;
