@@ -25,6 +25,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       Texto.precharge();
       Dog.loadDog();
       Audios.preloadAudio();
+
      
     }
     function create(){
@@ -34,7 +35,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       Stage.initStages();
       Characters.mira();
       loadGlobal();
-     
+      Audios.stageAudio();
       
       Texto.creatingText();
       TimerObject.createTimer();

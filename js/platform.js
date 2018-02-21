@@ -99,6 +99,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
       if( platforms.name == "piso1" || platforms.name == "piso2" ){
           BarLife.damage(2);
           game.camera.shake(0.003, 100);
+          Audios.hitSound();
       }
       if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" && word == "pila"  ){
         var numba;
@@ -109,7 +110,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
         BarLife.restore(2);
         var statEnemyL = blockContainerLeft.length;
         Texto.updateD(statEnemyL);
-        Audios.hitSound();
+        
 
       }
     };
@@ -120,6 +121,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
       if( platforms.name == "piso1" || platforms.name == "piso2" ){
         BarLife.damage(2);
         game.camera.shake(0.003, 100);
+        Audios.hitSound();
       }
       if(platforms.name != "piso0" && platforms.name != "piso1" && platforms.name != "piso2" && word == "pola" ){
         var numba;
@@ -133,7 +135,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
         BarLife.restore(2);
         var statEnemyR = blockContainerRight.length;
         Texto.updateE(statEnemyR);
-        Audios.hitSound();
+
       }
     };
 
