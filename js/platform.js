@@ -1,4 +1,4 @@
-var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
+var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
 
    
       var blockContainerRight = new Array(); 
@@ -109,6 +109,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
         BarLife.restore(2);
         var statEnemyL = blockContainerLeft.length;
         Texto.updateD(statEnemyL);
+        Audios.hitSound();
 
       }
     };
@@ -132,6 +133,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
         BarLife.restore(2);
         var statEnemyR = blockContainerRight.length;
         Texto.updateE(statEnemyR);
+        Audios.hitSound();
       }
     };
 
@@ -196,4 +198,4 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage) {
       activeEmissionLevel3:stagePileListenerStage3
     };
 
-})(Emittor, BarLife, Texto,Enemies, Stage);
+})(Emittor, BarLife, Texto,Enemies, Stage, Audios);

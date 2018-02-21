@@ -2,7 +2,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog) {
 
   
   var home;
-  
+ 
    var initStages = function(){
       home = Home.addHome();
       function radioactivity(emitorA,emitorB,emitorC,emitorD,emitorE){

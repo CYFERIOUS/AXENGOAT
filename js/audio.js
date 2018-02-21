@@ -1,9 +1,10 @@
   var Audios = (function () {
 
    var music;
+   var hithouse;
     
     var preload = function () {
-        // game.load.audio('boden', ['sounds/audio1.mp3', 'assets/audio/bodenstaendig_2000_in_rock_4bit.ogg']);
+        game.load.audio('boden', ['../sounds/hitHouse.mp3', '../sounds/hitHouse.ogg']);
 
     };
 
@@ -16,12 +17,17 @@
     
     };
 
+    hitHouse = function(){
+      hithouse = game.sound.play('boden');
+    }
+
     
   
   
     return {
-      preloadMenu: preload,
-      createMenu: create
+      preloadAudio: preload,
+      createMenu: create,
+      hitSound:hitHouse
     };
 
   })();

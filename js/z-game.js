@@ -12,7 +12,7 @@
     }
   
 
-var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage, Dog) {
+var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage, Dog, Audios) {
 
     function preload(){
       game.physics.startSystem(Phaser.Physics.P2JS);
@@ -24,6 +24,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       Enemies.addEnemies();
       Texto.precharge();
       Dog.loadDog();
+      Audios.preloadAudio();
      
     }
     function create(){
@@ -95,4 +96,4 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       
     };
 
-})(Texto, BarLife, Characters, Emittor, Enemies, Platform,CMenu,CollideManager,TimerObject,Home, Stage,Dog);
+})(Texto, BarLife, Characters, Emittor, Enemies, Platform,CMenu,CollideManager,TimerObject,Home, Stage, Dog, Audios);
