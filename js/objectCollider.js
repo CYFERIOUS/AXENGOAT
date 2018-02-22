@@ -11,38 +11,40 @@ var CollideManager = (function () {
 
       var hitPlatform5 = game.physics.arcade.collide(emitter1, robot, Characters.lColliding);
       var hitPlatform6 = game.physics.arcade.collide(emitter2, robot, Characters.rColliding);
-      var hitPlatform7 = game.physics.arcade.collide(peresozin, platforms);
-      var hitPlatform8 = game.physics.arcade.collide(sickBoy, platforms);
+      var hitPlatform7 = game.physics.arcade.collide(emitter1, dog);
+      var hitPlatform8 = game.physics.arcade.collide(emitter2, dog);
+      var hitPlatform9 = game.physics.arcade.collide(peresozin, platforms);
+      var hitPlatform10 = game.physics.arcade.collide(sickBoy, platforms);
 
-      var hitPlatform9 = game.physics.arcade.collide(emitter1, emitter2);
-      var hitPlatform10 = game.physics.arcade.collide(dog, emitter1);
-      var hitPlatform11 = game.physics.arcade.collide(dog, emitter2);
+      var hitPlatform11 = game.physics.arcade.collide(emitter1, emitter2);
+      var hitPlatform12 = game.physics.arcade.collide(dog, emitter1, Dog.dogBounce);
+      var hitPlatform13 = game.physics.arcade.collide(dog, emitter2, Dog.dogBounce);
     };
 
     var collideStage2 = function (){
       
 
-      var hitPlatform12 = game.physics.arcade.collide(emitter1, platforms,Platform.collideBlockLeft);
-      var hitPlatform13 = game.physics.arcade.collide(emitter2, platforms,Platform.collideBlockRight);
-      var hitPlatform14 = game.physics.arcade.collide(emitter3, platforms,Platform.collideBlockLeft);
-      var hitPlatform15 = game.physics.arcade.collide(emitter4, platforms,Platform.collideBlockRight);
+      var hitPlatform14 = game.physics.arcade.collide(emitter1, platforms,Platform.collideBlockLeft);
+      var hitPlatform15 = game.physics.arcade.collide(emitter2, platforms,Platform.collideBlockRight);
+      var hitPlatform16 = game.physics.arcade.collide(emitter3, platforms,Platform.collideBlockLeft);
+      var hitPlatform17 = game.physics.arcade.collide(emitter4, platforms,Platform.collideBlockRight);
 
-      var hitPlatform16 = game.physics.arcade.collide(emitter1, robot, Characters.lColliding);
-      var hitPlatform17 = game.physics.arcade.collide(emitter2, robot, Characters.rColliding);
-      var hitPlatform18 = game.physics.arcade.collide(emitter3, robot, Characters.lColliding);
-      var hitPlatform19 = game.physics.arcade.collide(emitter4, robot, Characters.rColliding);
-      var hitPlatform20 = game.physics.arcade.collide(shiquilin, platforms);
-      var hitPlatform21 = game.physics.arcade.collide(vaguinho, platforms);
+      var hitPlatform18 = game.physics.arcade.collide(emitter1, robot, Characters.lColliding);
+      var hitPlatform19 = game.physics.arcade.collide(emitter2, robot, Characters.rColliding);
+      var hitPlatform20 = game.physics.arcade.collide(emitter3, robot, Characters.lColliding);
+      var hitPlatform21 = game.physics.arcade.collide(emitter4, robot, Characters.rColliding);
+      var hitPlatform22 = game.physics.arcade.collide(shiquilin, platforms);
+      var hitPlatform23 = game.physics.arcade.collide(vaguinho, platforms);
 
-      var hitPlatform22 = game.physics.arcade.collide(emitter1, emitter2);
-      var hitPlatform23 = game.physics.arcade.collide(emitter3, emitter4);
-      var hitPlatform24 = game.physics.arcade.collide(emitter2, emitter4);
-      var hitPlatform25 = game.physics.arcade.collide(emitter3, emitter2);
-      var hitPlatform26 = game.physics.arcade.collide(emitter4, emitter1);
-      var hitPlatform27 = game.physics.arcade.collide(emitter3, emitter1);
+      var hitPlatform24 = game.physics.arcade.collide(emitter1, emitter2);
+      var hitPlatform25 = game.physics.arcade.collide(emitter3, emitter4);
+      var hitPlatform26 = game.physics.arcade.collide(emitter2, emitter4);
+      var hitPlatform27 = game.physics.arcade.collide(emitter3, emitter2);
+      var hitPlatform28 = game.physics.arcade.collide(emitter4, emitter1);
+      var hitPlatform29 = game.physics.arcade.collide(emitter3, emitter1);
 
-      var hitPlatform28 = game.physics.arcade.collide(dog, emitter3);
-      var hitPlatform29 = game.physics.arcade.collide(dog, emitter4);
+      var hitPlatform30 = game.physics.arcade.collide(emitter3,dog ,Dog.dogBounce);
+      var hitPlatform31 = game.physics.arcade.collide(emitter4,dog,Dog.dogBounce);
     };
 
     var collideStage3 = function(){
@@ -61,11 +63,11 @@ var CollideManager = (function () {
       var hitPlatform39 = game.physics.arcade.collide(emitter5, robot, Characters.rColliding);
       var hitPlatform40 = game.physics.arcade.collide(bigBoss, platforms);
 
-      var hitPlatform41 = game.physics.arcade.collide(dog, emitter1);
-      var hitPlatform42 = game.physics.arcade.collide(dog, emitter2);
-      var hitPlatform43 = game.physics.arcade.collide(dog, emitter3);
-      var hitPlatform44 = game.physics.arcade.collide(dog, emitter4);
-      var hitPlatform45 = game.physics.arcade.collide(dog, emitter5);
+      var hitPlatform41 = game.physics.arcade.collide(emitter1,dog,Dog.dogBounce);
+      var hitPlatform42 = game.physics.arcade.collide(emitter2,dog,Dog.dogBounce);
+      var hitPlatform43 = game.physics.arcade.collide(emitter3,dog,Dog.dogBounce);
+      var hitPlatform44 = game.physics.arcade.collide(emitter4,dog,Dog.dogBounce);
+      var hitPlatform45 = game.physics.arcade.collide(emitter5,dog,Dog.dogBounce);
 
 
       

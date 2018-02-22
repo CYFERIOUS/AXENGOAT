@@ -105,6 +105,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
         var numba;
         numba = blockContainerLeft.indexOf(platforms);
         platforms.destroy();
+        Audios.platformHit();
         Platform.fallBlocksLeft(numba);
         Emittor.destroyer1(emitter.parent.name);
         BarLife.restore(2);
@@ -127,6 +128,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
         var numba;
         numba = blockContainerRight.indexOf(platforms);
         platforms.destroy();
+        Audios.platformHit();
         Platform.fallBlocksRight(numba);
         Emittor.destroyer2(emitter.parent.name);
         if(stageSelector == 3){

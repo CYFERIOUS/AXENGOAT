@@ -1,4 +1,4 @@
-var Dog = (function (Emittor) {
+var Dog = (function (Emittor,Audios) {
  
     var preloadImagesDog = function () {
   
@@ -6,7 +6,7 @@ var Dog = (function (Emittor) {
        
     };
 
-    var dog = function () {
+    var dogo = function () {
       this.dog=game.add.sprite(300,600,"bruno");
       this.dog.animations.add('attack1', [1,2,3,4,5,6,7,8,9,10], 6,true);
       this.dog.animations.play('attack1',true); 
@@ -20,14 +20,19 @@ var Dog = (function (Emittor) {
     };
 
     var dogReject = function(){
-        if(this.dog.body.touching.left){
+
+        if(dog.body.touching.left){
+          alert("pegoIzq");
+          Audios.dogHit();
           emitter1.forEachAlive(function(particle){
-          particle.body.acceleration.x = -280;
-          particle.body.acceleration.y = 30;
+            particle.body.acceleration.x = -280;
+            particle.body.acceleration.y = 30;
           }); 
         }
 
-      if(this.dog.body.touching.right){
+      if(dog.body.touching.right){
+            alert("pegoDer");
+            Audios.dogHit();
             emitter2.forEachAlive(function(particle){
             particle.body.acceleration.x = 280;
             particle.body.acceleration.y = 30;
@@ -40,40 +45,40 @@ var Dog = (function (Emittor) {
     var dogMove  = function(stage){
          if(stage == 1 || stage == 2 ){
             
-            if(this.dog.body.x < 310){
-              this.dog.scale.x=-1;
-              game.physics.arcade.moveToXY(this.dog, 910, 900, 100 );
+            if(dog.body.x < 310){
+              dog.scale.x=-1;
+              game.physics.arcade.moveToXY(dog, 910, 900, 100 );
               
             }
-            if(this.dog.body.x > 900){
-              this.dog.scale.x=1;
-              game.physics.arcade.moveToXY(this.dog, 310, 900, 100 );
+            if(dog.body.x > 900){
+              dog.scale.x=1;
+              game.physics.arcade.moveToXY(dog, 310, 900, 100 );
               
             }
         }
 
         if(stage == 3){
 
-               if(this.dog.body.x < 310){
-              this.dog.scale.x=-1;
-              game.physics.arcade.moveToXY(this.dog, 500, 900, 100 );
+               if(dog.body.x < 310){
+              dog.scale.x=-1;
+              game.physics.arcade.moveToXY(dog, 500, 900, 100 );
               
             }
-            if(this.dog.body.x > 490){
-              this.dog.scale.x=1;
-              game.physics.arcade.moveToXY(this.dog, 10, 900, 100 );
+            if(dog.body.x > 490){
+              dog.scale.x=1;
+              game.physics.arcade.moveToXY(dog, 10, 900, 100 );
               
             }
         }
-        dogReject();
     };
 
 
     return {
       loadDog: preloadImagesDog,
-      addDog: dog,
-      moveDog:dogMove
+      addDog: dogo,
+      moveDog:dogMove,
+      dogBounce:dogReject
       
     };
 
-  })(Emittor);
+  })(Emittor,Audios);

@@ -1,4 +1,4 @@
-  var Characters = (function (Emittor) {
+  var Characters = (function (Emittor,Audios) {
 
 
 
@@ -63,6 +63,7 @@
       }
       if (game.input.mousePointer.isDown){
         this.robot.animations.play("turbo");
+        Audios.turboAdd();
         game.physics.arcade.moveToPointer(this.robot, 700);
           if(game.input.mousePointer.x>=600){
             this.robot.scale.x=1;
@@ -79,6 +80,7 @@
 
     
     var collideLeft = function(){
+      Audios.robotHit();
       if(robot.body.touching.left){
         emitter1.forEachAlive(function(particle){
           particle.body.acceleration.x = -80;
@@ -90,6 +92,7 @@
        //this.robot.body.velocity.x = 0;
     };
     var collideRight = function(){
+       Audios.robotHit();
        if(robot.body.touching.right){
           emitter2.forEachAlive(function(particle){
             particle.body.acceleration.x = 80;
@@ -114,4 +117,4 @@
       
     };
 
-  })(Emittor);
+  })(Emittor,Audios);
