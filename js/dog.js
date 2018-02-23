@@ -13,6 +13,8 @@ var Dog = (function (Emittor,Audios) {
       this.dog.anchor.set(0.5,0.5);
       game.physics.arcade.enable(this.dog);
       this.dog.body.collideWorldBounds = true;
+      this.dog.body.checkCollision.left = true;
+      this.dog.body.checkCollision.right = true;
       this.dog.body.bounce.y = 0.2;
       this.dog.body.gravity.y = 400;
        
@@ -20,18 +22,14 @@ var Dog = (function (Emittor,Audios) {
     };
 
     var dogReject = function(){
-
         if(dog.body.touching.left){
-          alert("pegoIzq");
           Audios.dogHit();
           emitter1.forEachAlive(function(particle){
             particle.body.acceleration.x = -280;
             particle.body.acceleration.y = 30;
           }); 
         }
-
       if(dog.body.touching.right){
-            alert("pegoDer");
             Audios.dogHit();
             emitter2.forEachAlive(function(particle){
             particle.body.acceleration.x = 280;

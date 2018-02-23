@@ -11,8 +11,7 @@ var CollideManager = (function () {
 
       var hitPlatform5 = game.physics.arcade.collide(emitter1, robot, Characters.lColliding);
       var hitPlatform6 = game.physics.arcade.collide(emitter2, robot, Characters.rColliding);
-      var hitPlatform7 = game.physics.arcade.collide(emitter1, dog);
-      var hitPlatform8 = game.physics.arcade.collide(emitter2, dog);
+      
       var hitPlatform9 = game.physics.arcade.collide(peresozin, platforms);
       var hitPlatform10 = game.physics.arcade.collide(sickBoy, platforms);
 

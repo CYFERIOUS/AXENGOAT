@@ -15,8 +15,6 @@
         game.load.audio('platform', ['../sounds/plats.mp3', '../sounds/plats.ogg']);
         game.load.audio('gaspar', ['../sounds/doggy.mp3', '../sounds/doggy.ogg']);
         game.load.audio('turbo', ['../sounds/turbo.mp3', '../sounds/turbo.ogg']);
-
-
     };
 
 
