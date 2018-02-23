@@ -27,6 +27,7 @@ var Dog = (function (Emittor,Audios) {
           emitter1.forEachAlive(function(particle){
             particle.body.acceleration.x = -280;
             particle.body.acceleration.y = 30;
+            dog.body.velocity.x=-100;
           }); 
         }
       if(dog.body.touching.right){
@@ -34,6 +35,7 @@ var Dog = (function (Emittor,Audios) {
             emitter2.forEachAlive(function(particle){
             particle.body.acceleration.x = 280;
             particle.body.acceleration.y = 30;
+            dog.body.velocity.x=100;
           });
        }
     }

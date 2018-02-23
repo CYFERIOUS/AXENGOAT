@@ -19,7 +19,7 @@
 
 
     var audioStage = function () {
-      alert("carga");
+  
        music = game.sound.play('stage');
        music.loopFull(0.6);
 
