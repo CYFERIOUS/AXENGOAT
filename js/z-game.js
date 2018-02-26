@@ -4,7 +4,7 @@
   var platforms;
   var emitter1, emitter2, emitter3, emitter4, emitter5;
   var ground, house;
-  var speed, robot, dog, mira;
+  var speed, robot, dog, mira, pad1;
   var stageSelector = 1;
 
    var  loadGlobal = function(){

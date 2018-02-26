@@ -26,6 +26,10 @@
       this.robot.body.bounce.y = 0.2;
       this.robot.body.gravity.y = 400;
       this.robot.z = 5;
+
+      game.input.gamepad.start();
+      pad1 = game.input.gamepad.pad1;
+
       return this.robot;
     };
 
@@ -39,14 +43,15 @@
     };
 
     var movements = function () {
-      if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT) || game.input.keyboard.isDown(Phaser.Keyboard.A)){
+    
+      if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT) || game.input.keyboard.isDown(Phaser.Keyboard.A) || (pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_LEFT) < -0.1) || (pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) < -0.1)) {
         this.robot.x-=this.speed;
         this.robot.body.checkCollision.left = true;
         this.robot.play("run");
         this.robot.scale.x=-1;
       
       }
-      else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) || game.input.keyboard.isDown(Phaser.Keyboard.D)){
+      else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) || game.input.keyboard.isDown(Phaser.Keyboard.D) || (pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_RIGHT)  > 0.1) || (pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) > 0.1)){
         this.robot.x+=this.speed;
         this.robot.body.checkCollision.right = true;
         this.robot.play("run");
@@ -56,7 +61,7 @@
       }else{
         this.robot.play('idle');
       }
-      if (jumpButton.isDown  && game.time.now > jumpTimer){
+      if ((jumpButton.isDown  && game.time.now > jumpTimer)||pad1.justPressed(Phaser.Gamepad.XBOX360_A)){
         this.robot.animations.play('run',12,true);
         this.robot.body.velocity.y = -250;
         jumpTimer = game.time.now + 750;
@@ -75,6 +80,9 @@
       if (game.input.mousePointer.isUp){
          this.robot.body.velocity.x = 0;
       }
+
+      
+
       
     };
 
