@@ -4,7 +4,7 @@
   var platforms;
   var emitter1, emitter2, emitter3, emitter4, emitter5;
   var ground, house;
-  var speed, robot, dog, mira, pad1;
+  var speed, robot, dog, mira, pad1, cursors, gamePad, indicator;
   var stageSelector = 1;
 
    var  loadGlobal = function(){
@@ -12,7 +12,7 @@
     }
   
 
-var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage, Dog, Audios) {
+var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage, Dog, Audios, Joystick) {
 
     function preload(){
       game.physics.startSystem(Phaser.Physics.P2JS);
@@ -25,15 +25,20 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       Texto.precharge();
       Dog.loadDog();
       Audios.preloadAudio();
-
+      Joystick.preloadInput();
      
     }
+
+
     function create(){
 
       cursors = game.input.keyboard.createCursorKeys();
       jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+      gamePad = game.input.gamepad.start();
+      pad1 = game.input.gamepad.pad1;
+
       Stage.initStages();
-      Characters.mira();
       loadGlobal();
       Audios.stageAudio();
       
@@ -45,15 +50,24 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
     }
 
     function update() {
-      
+
+    if (game.input.gamepad.supported && game.input.gamepad.active && pad1.connected){
+       console.log("isConnected!");
+      	Joystick.setInput(1);
+      	Characters.characterMoveJ();
+      	Characters.miraJ();
+      }else{
+        console.log("isNotConnected!");
+        Characters.characterMoveK();
+      	Characters.miraK();
+        Joystick.setInput(0);
+      }
+       
       CollideManager.general();
-      Characters.moveCharacters();
+      
       Platform.blockUpdater();
       Dog.moveDog(stageSelector);
       
-
-    
-
       if(stageSelector == 1){
         Texto.updateC("stage 1");
         Platform.activeEmissionLevel1();
@@ -97,4 +111,4 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       
     };
 
-})(Texto, BarLife, Characters, Emittor, Enemies, Platform,CMenu,CollideManager,TimerObject,Home, Stage, Dog, Audios);
+})(Texto, BarLife, Characters, Emittor, Enemies, Platform,CMenu,CollideManager,TimerObject,Home, Stage, Dog, Audios,Joystick);

@@ -9,11 +9,10 @@
         game.load.spritesheet('son', 'images/robot3.png', 80, 111);
         game.load.spritesheet('daughter', 'images/robot4.png', 80, 111);
         game.load.spritesheet('aim', 'images/aim.png', 100, 100);
-        game.load.spritesheet('power', 'images/aim.png', 100, 100);
+        game.load.spritesheet('inputState', 'images/inputState.png', 32, 32);
     };
 
     var mainCharacter = function (bot) {
-
       this.speed=10;
       this.robot=game.add.sprite(game.world.centerX,130,bot);
       game.physics.arcade.enable(this.robot);
@@ -26,15 +25,12 @@
       this.robot.body.bounce.y = 0.2;
       this.robot.body.gravity.y = 400;
       this.robot.z = 5;
-
-      game.input.gamepad.start();
-      pad1 = game.input.gamepad.pad1;
-
       return this.robot;
     };
 
 
-    var snipe = function(point){
+
+    var snipeK = function(){
       $( "#body" ).mousedown(function() {
             $("#body").css( 'cursor', 'url(images/aim.png)50 50, auto' );
         }).mouseup(function(){
@@ -42,16 +38,17 @@
       });
     };
 
-    var movements = function () {
+   
+    var movementsKeyboard = function () {
     
-      if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT) || game.input.keyboard.isDown(Phaser.Keyboard.A) || (pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_LEFT) < -0.1) || (pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) < -0.1)) {
+      if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT) || game.input.keyboard.isDown(Phaser.Keyboard.A)) {
         this.robot.x-=this.speed;
         this.robot.body.checkCollision.left = true;
         this.robot.play("run");
         this.robot.scale.x=-1;
       
       }
-      else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) || game.input.keyboard.isDown(Phaser.Keyboard.D) || (pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_RIGHT)  > 0.1) || (pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) > 0.1)){
+      else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) || game.input.keyboard.isDown(Phaser.Keyboard.D)){
         this.robot.x+=this.speed;
         this.robot.body.checkCollision.right = true;
         this.robot.play("run");
@@ -61,30 +58,70 @@
       }else{
         this.robot.play('idle');
       }
-      if ((jumpButton.isDown  && game.time.now > jumpTimer)||pad1.justPressed(Phaser.Gamepad.XBOX360_A)){
+      if ((jumpButton.isDown  && game.time.now > jumpTimer)){
         this.robot.animations.play('run',12,true);
         this.robot.body.velocity.y = -250;
         jumpTimer = game.time.now + 750;
       }
       if (game.input.mousePointer.isDown){
+        game.physics.arcade.moveToPointer(this.robot, 700);
         this.robot.animations.play("turbo");
         Audios.turboAdd();
-        game.physics.arcade.moveToPointer(this.robot, 700);
-          if(game.input.mousePointer.x>=600){
+        
+        
+        if(game.input.mousePointer.x>=600){
             this.robot.scale.x=1;
-          }else{
+        }else{
             this.robot.scale.x=-1;
-          }
+         }
          
       }
       if (game.input.mousePointer.isUp){
          this.robot.body.velocity.x = 0;
       }
 
-      
-
-      
     };
+
+
+    var movementsJoystick = function () {
+    
+      if ((pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_LEFT) < -0.1) || (pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) < -0.1)) {
+        this.robot.x-=this.speed;
+        this.robot.body.checkCollision.left = true;
+        this.robot.play("run");
+        this.robot.scale.x=-1;
+      
+      }
+      else if ((pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_RIGHT)  > 0.1) || (pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) > 0.1)){
+        this.robot.x+=this.speed;
+        this.robot.body.checkCollision.right = true;
+        this.robot.play("run");
+        this.robot.scale.x=1;
+
+
+      }else{
+        this.robot.play('idle');
+      }
+      if ((pad1.justPressed(Phaser.Gamepad.XBOX360_A)  && game.time.now > jumpTimer)){
+        this.robot.animations.play('run',12,true);
+        this.robot.body.velocity.y = -250;
+        jumpTimer = game.time.now + 750;
+      }
+      if ((pad1.justPressed(Phaser.Gamepad.XBOX360_B))){
+        //game.physics.arcade.moveToPointer(this.robot, 700);
+        this.robot.animations.play("turbo");
+        Audios.turboAdd();
+         
+      }
+      // if (game.input.mousePointer.isUp){
+      //    this.robot.body.velocity.x = 0;
+      // }
+
+    };
+    var snipeJ = function(){
+     $("#body").css( 'cursor', 'none' );
+    };
+ 
 
     
     var collideLeft = function(){
@@ -118,10 +155,12 @@
     return {
       createCharacters: preloadImagesCharacters,
       setMainCharacter: mainCharacter,
-      moveCharacters: movements,
+      characterMoveK: movementsKeyboard,
+      characterMoveJ: movementsJoystick,
       lColliding: collideLeft,
       rColliding: collideRight,
-      mira:snipe
+      miraK:snipeK,
+      miraJ:snipeJ,
       
     };
 
