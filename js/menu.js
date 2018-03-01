@@ -61,7 +61,7 @@
       menuChar3.events.onInputDown.add(listener, this);
       menuChar4.events.onInputDown.add(listener, this);
 
-      game.input.addMoveCallback(p, this);
+     // game.input.addMoveCallback(p, this);
 
     
     };

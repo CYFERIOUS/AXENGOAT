@@ -12,7 +12,7 @@
     }
   
 
-var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage, Dog, Audios, Joystick) {
+var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage, Dog, Audios, Joystick,Keyboard) {
 
     function preload(){
       game.physics.startSystem(Phaser.Physics.P2JS);
@@ -32,11 +32,10 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
 
     function create(){
 
-      cursors = game.input.keyboard.createCursorKeys();
-      jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    	
 
-      gamePad = game.input.gamepad.start();
-      pad1 = game.input.gamepad.pad1;
+      Keyboard.controlK();
+      Joystick.controlJ();
 
       Stage.initStages();
       loadGlobal();
@@ -49,18 +48,18 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       TimerObject.formatTime();
     }
 
+
     function update() {
 
     if (game.input.gamepad.supported && game.input.gamepad.active && pad1.connected){
-       console.log("isConnected!");
+       
       	Joystick.setInput(1);
-      	Characters.characterMoveJ();
-      	Characters.miraJ();
+      	Joystick.cbControls();
+
       }else{
-        console.log("isNotConnected!");
-        Characters.characterMoveK();
-      	Characters.miraK();
-        Joystick.setInput(0);
+       	Keyboard.robotK(robot);
+ 		Keyboard.aimK();
+        
       }
        
       CollideManager.general();
@@ -111,4 +110,4 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       
     };
 
-})(Texto, BarLife, Characters, Emittor, Enemies, Platform,CMenu,CollideManager,TimerObject,Home, Stage, Dog, Audios,Joystick);
+})(Texto, BarLife, Characters, Emittor, Enemies, Platform,CMenu,CollideManager,TimerObject,Home, Stage, Dog, Audios,Joystick,Keyboard);

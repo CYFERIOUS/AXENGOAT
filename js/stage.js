@@ -1,9 +1,10 @@
-var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog) {
+var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog,Joystick,Keyboard) {
 
   
   var home;
  
    var initStages = function(){
+
       home = Home.addHome();
       function radioactivity(emitorA,emitorB,emitorC,emitorD,emitorE){
           emitter1 = Emittor.emitor(100,100,300,30,"izquierda1",0.5,emitorA);
@@ -26,6 +27,8 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog) {
       dog = Dog.addDog();
       Platform.groupPlatforms();
       BarLife.lifeBar(game.world.width);
+      
+
    }
 
 
@@ -84,4 +87,4 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog) {
       loadStage: setStage,
     };
 
-})(Emittor, BarLife, Texto,Enemies,Platform,Home,Dog);
+})(Emittor, BarLife, Texto,Enemies,Platform,Home,Dog,Joystick,Keyboard);
