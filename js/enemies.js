@@ -27,10 +27,9 @@
     };
 
      var sickBoy = function () {
-
-      this.sickBoy=game.add.sprite(90,100,"enemy2");
-      this.sickBoy.animations.add('attack2', [1,2,3,4,5], 12,true);
-      this.sickBoy.animations.play('attack2',[1,2,3,4,5],12,true); 
+      this.sickBoy=game.add.sprite(45,100,"enemy2");
+      this.sickBoy.animations.add('attack2', [1,2,3,4,5,6,7,8,9,10,11,12], 6,true);
+      this.sickBoy.animations.play('attack2',[1,2,3,4,5,6,7,8,9,10,11,12],6,true); 
       this.sickBoy.anchor.set(0.5,0.5);
       game.physics.arcade.enable(this.sickBoy);
       this.sickBoy.body.bounce.y = 0.2;

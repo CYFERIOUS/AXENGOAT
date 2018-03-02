@@ -32,11 +32,6 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
 
     function create(){
 
-    	
-
-      Keyboard.controlK();
-      Joystick.controlJ();
-
       Stage.initStages();
       loadGlobal();
       Audios.stageAudio();
@@ -52,12 +47,15 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
     function update() {
 
     if (game.input.gamepad.supported && game.input.gamepad.active && pad1.connected){
-       
+       	
+       	Joystick.controlJ();
       	Joystick.setInput(1);
       	Joystick.cbControls();
 
       }else{
-       	Keyboard.robotK(robot);
+
+      	Keyboard.controlK();
+       	Keyboard.robotK();
  		Keyboard.aimK();
         
       }

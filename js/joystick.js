@@ -58,26 +58,16 @@ var Joystick = (function (Characters ) {
     var movementsJoystick = function () {
 
       if ((pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_LEFT) < -0.1) || (pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) < -0.1)) {
-        this.robot.x-=this.speed;
-        this.robot.body.checkCollision.left = true;
-        this.robot.play("run");
-        this.robot.scale.x=-1;
+        
       
       }
       else if ((pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_RIGHT)  > 0.1) || (pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) > 0.1)){
-        this.robot.x+=this.speed;
-        this.robot.body.checkCollision.right = true;
-        this.robot.play("run");
-        this.robot.scale.x=1;
+       
 
 
-      }else{
-        this.robot.play('idle');
       }
       if (pad1.justPressed(Phaser.Gamepad.XBOX360_A)  && game.time.now > jumpTimer){
-        this.robot.animations.play('run',12,true);
-        this.robot.body.velocity.y = -250;
-        jumpTimer = game.time.now + 750;
+ 
       }
       // if ((pad1.justPressed(Phaser.Gamepad.XBOX360_B))){
       //   //game.physics.arcade.moveToPointer(this.robot, 700);
