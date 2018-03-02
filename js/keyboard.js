@@ -1,8 +1,9 @@
-var Keyboard = (function (Characters,Audios) {
+var Keyboard = (function (Characters) {
 
     var inputK = function(){
       cursors = game.input.keyboard.createCursorKeys();
       jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+      Device.setInput(1);
     }
 
     var movementsKeyboard = function () {
@@ -40,4 +41,4 @@ var Keyboard = (function (Characters,Audios) {
       aimK: snipeK
     };
 
-})(Characters,Audios);
+})(Characters);

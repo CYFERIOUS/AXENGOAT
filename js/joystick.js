@@ -1,4 +1,4 @@
-var Joystick = (function (Characters ) {
+var Joystick = (function (Characters,Device) {
 
   var buttonA;
   var buttonB;
@@ -8,20 +8,9 @@ var Joystick = (function (Characters ) {
   var inputJ = function(){
       gamePad = game.input.gamepad.start();
       pad1 = game.input.gamepad.pad1;
-      Joystick.setInput(0);
+      Device.setInput(0);
   }
  
-  var loadInput = function(){
-      game.load.spritesheet('controller-indicator', 'images/inputState.png', 32,32);
-  };
-
-  var showInput = function(state){
-       indicator = game.add.sprite(600,688, 'controller-indicator');
-      indicator.animations.frame = state;
-  };
-
-
-
   var callbackWay = function(){
       if (pad1.connected){
         game.input.gamepad.pad1.addCallbacks(this, {
@@ -58,7 +47,7 @@ var Joystick = (function (Characters ) {
     var movementsJoystick = function () {
 
       if ((pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_LEFT) < -0.1) || (pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) < -0.1)) {
-        
+      
       
       }
       else if ((pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_RIGHT)  > 0.1) || (pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) > 0.1)){
@@ -85,8 +74,6 @@ var Joystick = (function (Characters ) {
 
     return {
       controlJ:inputJ,
-      preloadInput:loadInput,
-      setInput: showInput,
       cbControls: callbackWay
     };
 

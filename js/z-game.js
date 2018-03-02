@@ -12,7 +12,7 @@
     }
   
 
-var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage, Dog, Audios, Joystick,Keyboard) {
+var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage, Dog, Audios, Joystick,Keyboard,Device) {
 
     function preload(){
       game.physics.startSystem(Phaser.Physics.P2JS);
@@ -25,8 +25,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       Texto.precharge();
       Dog.loadDog();
       Audios.preloadAudio();
-      Joystick.preloadInput();
-     
+      Device.preloadInput();
     }
 
 
@@ -49,7 +48,6 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
     if (game.input.gamepad.supported && game.input.gamepad.active && pad1.connected){
        	
        	Joystick.controlJ();
-      	Joystick.setInput(1);
       	Joystick.cbControls();
 
       }else{
@@ -108,4 +106,4 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       
     };
 
-})(Texto, BarLife, Characters, Emittor, Enemies, Platform,CMenu,CollideManager,TimerObject,Home, Stage, Dog, Audios,Joystick,Keyboard);
+})(Texto, BarLife, Characters, Emittor, Enemies, Platform,CMenu,CollideManager,TimerObject,Home, Stage, Dog, Audios,Joystick,Keyboard,Device);

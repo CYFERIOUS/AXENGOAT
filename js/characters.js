@@ -83,7 +83,6 @@
         }); 
       }
        
-       //this.robot.body.velocity.x = 0;
     };
     var collideRight = function(){
        Audios.robotHit();
@@ -95,7 +94,6 @@
           });
        }
       
-     //this.robot.body.velocity.x = 0;
     };
    
    
