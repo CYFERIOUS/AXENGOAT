@@ -26,6 +26,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       Dog.loadDog();
       Audios.preloadAudio();
       Device.preloadInput();
+
     }
 
 
@@ -35,6 +36,13 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       loadGlobal();
       Audios.stageAudio();
       
+
+      cursors = game.input.keyboard.createCursorKeys();
+      jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+      
+      gamePad = game.input.gamepad.start();
+      pad1 = game.input.gamepad.pad1;
+
       Texto.creatingText();
       TimerObject.createTimer();
 
@@ -49,6 +57,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
        	
        	Joystick.controlJ();
       	Joystick.cbControls();
+      	Joystick.aimJ();
 
       }else{
 

@@ -1,14 +1,7 @@
 var Joystick = (function (Characters,Device) {
 
-  var buttonA;
-  var buttonB;
-  var buttonX;
-  var buttonY;
-
   var inputJ = function(){
-      gamePad = game.input.gamepad.start();
-      pad1 = game.input.gamepad.pad1;
-      Device.setInput(0);
+      Device.setInput(1);
   }
  
   var callbackWay = function(){
@@ -40,8 +33,6 @@ var Joystick = (function (Characters,Device) {
       $("#body").css( 'cursor', 'none' );
       mira =game.add.sprite(game.world.centerX,200,"aim");
        
-       
-
     };
 
     var movementsJoystick = function () {
@@ -68,13 +59,12 @@ var Joystick = (function (Characters,Device) {
       //    this.robot.body.velocity.x = 0;
       // }
 
-      snipeJ();
-
     };
 
     return {
       controlJ:inputJ,
+      aimJ:snipeJ,
       cbControls: callbackWay
     };
 
-})(Characters);
+})(Characters,Device);

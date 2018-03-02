@@ -95,10 +95,7 @@
        }
       
     };
-   
-   
-
-    
+       
     return {
       createCharacters: preloadImagesCharacters,
       setMainCharacter: mainCharacter,
