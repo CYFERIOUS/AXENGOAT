@@ -56,7 +56,12 @@
       if (d){
         this.robot.animations.play("turbo");
         Audios.turboAdd();
-        game.physics.arcade.moveToPointer(this.robot, 700);
+           if (pad1.connected){
+              alert("ok");
+           }else{
+              game.physics.arcade.moveToPointer(this.robot, 700);
+           }
+       
         if(e>=600){
             this.robot.scale.x=1;
         }else{

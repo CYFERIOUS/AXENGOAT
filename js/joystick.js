@@ -4,8 +4,12 @@ var Joystick = (function (Characters,Device) {
       Device.setInput(1);
   }
  
-  var callbackWay = function(){
-      if (pad1.connected){
+  
+   var snipeJ = function(){
+
+      $("#body").css( 'cursor', 'none' );
+      mira =game.add.sprite(game.world.centerX,200,"aim");
+          if (pad1.connected){
         game.input.gamepad.pad1.addCallbacks(this, {
           onConnect: function(padIndex){
               console.log('Last activity all pads: Connected with pad index '+padIndex);
@@ -15,46 +19,49 @@ var Joystick = (function (Characters,Device) {
           },
           onDown: function(buttonCode, value, padIndex){
               console.log('Last activity all pads: Pad index '+padIndex+' buttonCode: '+buttonCode+' | value: '+value);
+              
           },
           onUp: function(buttonCode, value, padIndex){
              console.log('Last activity all pads: Pad index '+padIndex+' buttonCode: '+buttonCode+' | value: '+value);
           },
           onAxis: function(pad, axis, value) {
-             console.log('Last activity all pads: Pad index '+pad.index+': axis '+axis+': '+value);
+
+            console.log('Last activity all pads: Pad index '+pad.index+': axis '+axis+': '+value);
+
+             if(axis == 0 && value ==1){
+                Characters.moveRobot(false,true,false,false,false,false);   
+             }
+
+             if(axis == 0 && value ==-1){
+                Characters.moveRobot(true,false,false,false,false,false);
+             }
+            
+              
           },
           onFloat: function(buttonCode, value, padIndex) {
               console.log('Last activity all pads: Pad index '+padIndex+' buttonCode: '+buttonCode+' | value (float): '+value);
-          }
+          },
         });
       }
-  };
-   var snipeJ = function(){
-
-      $("#body").css( 'cursor', 'none' );
-      mira =game.add.sprite(game.world.centerX,200,"aim");
        
     };
 
     var movementsJoystick = function () {
-
-      if ((pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_LEFT) < -0.1) || (pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) < -0.1)) {
+      Characters.moveRobot(false,false,false,false,false,true);
       
-      
+      if ((pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_LEFT) < -0.1) || (pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) < -0.1)) {  
+        Characters.moveRobot(true,false,false,false,false,false);
       }
       else if ((pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_RIGHT)  > 0.1) || (pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) > 0.1)){
-       
-
-
+        Characters.moveRobot(false,true,false,false,false,false); 
       }
-      if (pad1.justPressed(Phaser.Gamepad.XBOX360_A)  && game.time.now > jumpTimer){
- 
+      if (pad1.justPressed(Phaser.Gamepad.XBOX360_A) && game.time.now > jumpTimer){
+         Characters.moveRobot(false,false,true,false,false,false);
       }
-      // if ((pad1.justPressed(Phaser.Gamepad.XBOX360_B))){
-      //   //game.physics.arcade.moveToPointer(this.robot, 700);
-      //   this.robot.animations.play("turbo");
-      //   Audios.turboAdd();
-         
-      // }
+
+      if ((pad1.justPressed(Phaser.Gamepad.XBOX360_B))){
+          Characters.moveRobot(false,false,false,true,game.input.mousePointer.x,false);
+      }
       // if (game.input.mousePointer.isUp){
       //    this.robot.body.velocity.x = 0;
       // }
@@ -64,7 +71,7 @@ var Joystick = (function (Characters,Device) {
     return {
       controlJ:inputJ,
       aimJ:snipeJ,
-      cbControls: callbackWay
+      cbControls:  movementsJoystick
     };
 
 })(Characters,Device);
