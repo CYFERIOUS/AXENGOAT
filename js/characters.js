@@ -6,7 +6,6 @@
         game.load.spritesheet('son', 'images/robot3.png', 80, 111);
         game.load.spritesheet('daughter', 'images/robot4.png', 80, 111);
         game.load.spritesheet('aim', 'images/aim.png', 100, 100);
-        game.load.spritesheet('inputState', 'images/inputState.png', 32, 32);
     };
 
     var mainCharacter = function (bot) {
@@ -48,7 +47,7 @@
       }else{
        this.robot.animations.play('idle'); 
       }
-      if ((c  && game.time.now > jumpTimer)){
+      if (c && game.time.now > jumpTimer){
         this.robot.animations.play('run');
         this.robot.body.velocity.y = -250;
         this.jumpTimer = game.time.now + 750;
@@ -57,7 +56,7 @@
         this.robot.animations.play("turbo");
         Audios.turboAdd();
            if (pad1.connected){
-              alert("ok");
+              game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,700);
            }else{
               game.physics.arcade.moveToPointer(this.robot, 700);
            }

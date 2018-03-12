@@ -12,7 +12,7 @@
     }
   
 
-var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage, Dog, Audios, Joystick,Keyboard,Device) {
+var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage, Dog, Audios, Joystick,Keyboard,Device,VirtualJ) {
 
     function preload(){
       game.physics.startSystem(Phaser.Physics.P2JS);
@@ -27,6 +27,8 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       Audios.preloadAudio();
       Device.preloadInput();
 
+        //VirtualJ.preVJimg();
+
     }
 
 
@@ -35,7 +37,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       Stage.initStages();
       loadGlobal();
       Audios.stageAudio();
-      
+      Joystick.addJMira();
 
       cursors = game.input.keyboard.createCursorKeys();
       jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
@@ -48,22 +50,28 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
 
       //TimerObject.endTimer();
       TimerObject.formatTime();
+
+      //VirtualJ.addVJ();
     }
 
 
     function update() {
 
+
+
     if (game.input.gamepad.supported && game.input.gamepad.active && pad1.connected){
        	
        	Joystick.controlJ();
       	Joystick.cbControls();
+
       	Joystick.aimJ();
+         //VirtualJ.vjControls();
 
       }else{
 
       	Keyboard.controlK();
        	Keyboard.robotK();
- 		Keyboard.aimK();
+ 		     Keyboard.aimK();
         
       }
        
@@ -115,4 +123,4 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       
     };
 
-})(Texto, BarLife, Characters, Emittor, Enemies, Platform,CMenu,CollideManager,TimerObject,Home, Stage, Dog, Audios,Joystick,Keyboard,Device);
+})(Texto, BarLife, Characters, Emittor, Enemies, Platform,CMenu,CollideManager,TimerObject,Home, Stage, Dog, Audios,Joystick,Keyboard,Device,VirtualJ);
