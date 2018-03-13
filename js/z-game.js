@@ -1,10 +1,11 @@
   var stageOne, stageTwo, stageThree;
   var jumpButton;
   var jumpTimer = 0;
-  var platforms;
+  var platforms, ledge1, ledge2;
   var emitter1, emitter2, emitter3, emitter4, emitter5;
   var ground, house;
   var speed, robot, dog, mira, pad1, cursors, gamePad, indicator;
+  var control = false;
   var stageSelector = 1;
 
    var  loadGlobal = function(){
@@ -38,7 +39,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       loadGlobal();
       Audios.stageAudio();
       Joystick.addJMira();
-
+      
       cursors = game.input.keyboard.createCursorKeys();
       jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
       
@@ -60,10 +61,9 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
 
 
     if (game.input.gamepad.supported && game.input.gamepad.active && pad1.connected){
-       	
+       	control = true;
        	Joystick.controlJ();
       	Joystick.cbControls();
-
       	Joystick.aimJ();
          //VirtualJ.vjControls();
 

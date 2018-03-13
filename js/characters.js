@@ -33,6 +33,7 @@
       if (a) {
         this.robot.x-=this.speed;
         this.robot.body.checkCollision.left = true;
+        this.robot.body.enable = true;
         this.robot.play("run");
         this.robot.scale.x=-1;
       
@@ -40,6 +41,7 @@
       else if (b){
         this.robot.x+=this.speed;
         this.robot.body.checkCollision.right = true;
+        this.robot.body.enable = true;
         this.robot.play("run");
         this.robot.scale.x=1;
 
@@ -47,7 +49,7 @@
       }else{
        this.robot.animations.play('idle'); 
       }
-      if (c && game.time.now > jumpTimer){
+      if (c ==true  && game.time.now > jumpTimer){
         this.robot.animations.play('run');
         this.robot.body.velocity.y = -250;
         this.jumpTimer = game.time.now + 750;
@@ -55,6 +57,9 @@
       if (d){
         this.robot.animations.play("turbo");
         Audios.turboAdd();
+        ledge1.body.enable = false;
+        ledge2.body.enable = false;
+
            if (pad1.connected){
               game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,700);
            }else{
@@ -71,6 +76,8 @@
       }else if (f){
         this.robot.animations.play("idle");
         this.robot.body.velocity.x = 0;
+        ledge1.body.enable = true;
+        ledge2.body.enable = true;
       }
 
 

@@ -4,8 +4,9 @@ var Joystick = (function (Characters,Device) {
       Device.setInput(1);
   }
     var jMira = function(){
-      mira =game.add.sprite(game.world.centerX,200,"aim");
+        mira =game.add.sprite(game.world.centerX,200,"aim");
        $("#body").css( 'cursor', 'none' );
+    
     };
   
     var snipeJ = function(){
@@ -14,6 +15,8 @@ var Joystick = (function (Characters,Device) {
       if (pad1.connected){
         var rightStickX = pad1.axis(Phaser.Gamepad.XBOX360_STICK_RIGHT_X);
         var rightStickY = pad1.axis(Phaser.Gamepad.XBOX360_STICK_RIGHT_Y);
+
+        console.log( "rightStickY" +  rightStickY);
 
         if (rightStickX)
         {
@@ -47,7 +50,11 @@ var Joystick = (function (Characters,Device) {
           },
           onAxis: function(pad, axis, value) {
             console.log('Last activity all pads: Pad index '+pad.index+': axis '+axis+': '+value);   
-              
+              if(axis == 5 && value == 1){
+                  mira.y += 50;
+              }else if(axis == 5 && value == -1){
+                  mira.y -= 50;
+              }
           },
           onFloat: function(buttonCode, value, padIndex) {
               console.log('Last activity all pads: Pad index '+padIndex+' buttonCode: '+buttonCode+' | value (float): '+value);
@@ -83,7 +90,7 @@ var Joystick = (function (Characters,Device) {
       controlJ:inputJ,
       addJMira:jMira,
       aimJ:snipeJ,
-      cbControls:  movementsJoystick
+      cbControls:movementsJoystick
     };
 
 })(Characters,Device);
