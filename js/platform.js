@@ -3,7 +3,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
    
       var blockContainerRight = new Array(); 
       var blockContainerLeft = new Array();
-      var ledge3, ledge4, ledge5, ledge6, ledge7;
+      var ledge1, ledge2, ledge3, ledge4, ledge5, ledge6, ledge7;
     
       
     var preloadImagesPlatforms = function () {
@@ -59,6 +59,8 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
     //  This stops it from falling away when you jump on it
       ground.body.immovable = true;
 
+      
+
       var houseFloor2 = 450;
       ledge2 = platforms.create(game.world.centerX-(houseFloor2/2), 350, 'piso2');
       ledge2.width = houseFloor2;
@@ -72,6 +74,8 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
       ledge1.name = "piso1";
       ledge1.body.immovable = true;
       ledge1.alpha = 0;
+
+       
     };
 
     var  applyGravityRight = function(numba){

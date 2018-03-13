@@ -57,9 +57,8 @@
       if (d){
         this.robot.animations.play("turbo");
         Audios.turboAdd();
-        ledge1.body.enable = false;
-        ledge2.body.enable = false;
 
+       
            if (pad1.connected){
               game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,700);
            }else{
@@ -76,8 +75,7 @@
       }else if (f){
         this.robot.animations.play("idle");
         this.robot.body.velocity.x = 0;
-        ledge1.body.enable = true;
-        ledge2.body.enable = true;
+ 
       }
 
 

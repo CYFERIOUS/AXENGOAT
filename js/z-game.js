@@ -1,7 +1,7 @@
   var stageOne, stageTwo, stageThree;
   var jumpButton;
   var jumpTimer = 0;
-  var platforms, ledge1, ledge2;
+  var platforms;
   var emitter1, emitter2, emitter3, emitter4, emitter5;
   var ground, house;
   var speed, robot, dog, mira, pad1, cursors, gamePad, indicator;
@@ -11,6 +11,8 @@
    var  loadGlobal = function(){
         Stage.loadStage(stageSelector);
     }
+
+   
   
 
 var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage, Dog, Audios, Joystick,Keyboard,Device,VirtualJ) {
@@ -69,9 +71,9 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
 
       }else{
 
-      	Keyboard.controlK();
-       	Keyboard.robotK();
- 		     Keyboard.aimK();
+       Keyboard.controlK();
+       Keyboard.robotK();
+ 		   Keyboard.aimK();
         
       }
        
