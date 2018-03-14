@@ -15,11 +15,12 @@ var Keyboard = (function (Characters,Device) {
       if ((jumpButton.isDown  && game.time.now > jumpTimer)){
         Characters.moveRobot(false,false,true,false,false,false);
       }
-      if (game.input.mousePointer.isDown){
-        Characters.moveRobot(false,false,false,true,game.input.mousePointer.x,false);       
+      if (game.input.activePointer.justPressed(1000)){
+        Characters.moveRobot(false,false,false,true,game.input.mousePointer.x,false);
       }
-      if (game.input.mousePointer.isUp){
+      if (game.input.activePointer.isUp){
           Characters.moveRobot(false,false,false,false,false,true);
+    
       }
 
     };

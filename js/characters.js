@@ -55,27 +55,32 @@
         this.jumpTimer = game.time.now + 750;
       }
       if (d){
-        this.robot.animations.play("turbo");
-        Audios.turboAdd();
+        
+          this.robot.animations.play("turbo");
+          Audios.turboAdd();
+          turboCross(false,false);
+          setTimeout(function(){
+              turboCross(true,true);
+          }, 2000);
+      
 
-       
-           if (pad1.connected){
+          if (pad1.connected){
               game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,700);
-           }else{
+          }else{
               game.physics.arcade.moveToPointer(this.robot, 700);
-           }
-       
-        if(e>=600){
+          }
+          if(e>=600){
             this.robot.scale.x=1;
-        }else{
+          }else{
            
             this.robot.scale.x=-1;
-         }
+          }
         
       }else if (f){
         this.robot.animations.play("idle");
         this.robot.body.velocity.x = 0;
- 
+        turboCross(true,true);
+
       }
 
 

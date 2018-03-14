@@ -77,8 +77,8 @@ var Joystick = (function (Characters,Device) {
          Characters.moveRobot(false,false,true,false,false,false);
       }
 
-      if ((pad1.isDown(Phaser.Gamepad.XBOX360_B))){
-          Characters.moveRobot(false,false,false,true,game.input.mousePointer.x,false);
+      if ((pad1.justPressed(Phaser.Gamepad.XBOX360_B) && 1000)){
+          Characters.moveRobot(false,false,false,true,mira.x,false);
       }
       // if (game.input.mousePointer.isUp){
       //    this.robot.body.velocity.x = 0;
