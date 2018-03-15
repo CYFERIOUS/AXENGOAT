@@ -4,7 +4,7 @@ var Joystick = (function (Characters,Device) {
         Device.setInput(1);
     }
     var jMira = function(){
-        mira =game.add.sprite(game.world.centerX,200,"aim");
+         mira =game.add.sprite(game.world.centerX,200,"aim");
          game.physics.arcade.enable(mira);
          mira.body.collideWorldBounds = true;
          mira.alpha = 0;

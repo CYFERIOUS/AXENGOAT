@@ -5,7 +5,7 @@
   var ground, house;
   var speed, robot, dog, mira, pad1, cursors, gamePad, indicator;
   var stageSelector = 1;
-  var vj = false;
+  var vj = true;
 
 
    var  loadGlobal = function(){

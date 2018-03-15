@@ -1,14 +1,14 @@
-var VirtualJ = (function (Characters,Device) {
+var VirtualJ = (function (Characters,Device,Joystick) {
 
   var inputV = function(){
       Device.setInput(2);
   }
 
   var registerVJ = function(){
-
         game.vjoy = game.plugins.add(Phaser.Plugin.VJoy);
         game.vjoy.inputEnable(0, 0, 1200, 720);
-
+        Joystick.addJMira();
+        mira.alpha = 1;
   }
  
 
@@ -21,18 +21,17 @@ var VirtualJ = (function (Characters,Device) {
     
 
     var movementsVJ = function () {
+        this.vel=10;
         var cursors = game.vjoy.cursors;
-        
         if (cursors.left) {
-          game.physics.arcade.moveToXY(robot,10,0,700);
+          mira.x -= this.vel;
         } else if (cursors.right) {
-           game.physics.arcade.moveToXY(robot,-10,0,700);
+          mira.x +=  this.vel;
         }
-
         if (cursors.up) {
-           game.physics.arcade.moveToXY(robot,0,10,700);
+          mira.y -= this.vel;
         } else if (cursors.down) {
-           game.physics.arcade.moveToXY(robot,0,-10,700);
+          mira.y += this.vel;
         }
 
     };
@@ -44,4 +43,4 @@ var VirtualJ = (function (Characters,Device) {
       vjControls:movementsVJ
     };
 
-})(Characters,Device);
+})(Characters,Device,Joystick);
