@@ -4,8 +4,9 @@
   var emitter1, emitter2, emitter3, emitter4, emitter5;
   var ground, house;
   var speed, robot, dog, mira, pad1, cursors, gamePad, indicator;
-  var stageSelector = 1;
+  var stageSelector = 2;
   var vj = true;
+  var pad,stick1,stick2,buttonL,buttonR;
 
 
    var  loadGlobal = function(){
