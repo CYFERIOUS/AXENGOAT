@@ -12,7 +12,7 @@ var Keyboard = (function (Characters,Device) {
       else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) || game.input.keyboard.isDown(Phaser.Keyboard.D)){
         Characters.moveRobot(false,true,false,false,false,false);
       }
-      if ((jumpButton.isDown  && game.time.now > jumpTimer)){
+      if (jumpButton.isDown){
         Characters.moveRobot(false,false,true,false,false,false);
       }
       if (game.input.activePointer.justPressed(1000)){

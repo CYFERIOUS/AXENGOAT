@@ -1,5 +1,7 @@
   var Characters = (function (Emittor,Audios) {
 
+    var jumpTimer = 0;
+
     var preloadImagesCharacters = function () {
         game.load.spritesheet('dad', 'images/robot1.png', 80, 111);
         game.load.spritesheet('mom', 'images/robot2.png', 80, 111);
@@ -29,6 +31,7 @@
     var moveCharacter = function(a,b,c,d,e,f){
 
       this.speed=10;
+
       
       if (a) {
         this.robot.x-=this.speed;
@@ -49,21 +52,21 @@
       }else{
        this.robot.animations.play('idle'); 
       }
-      if (c ==true  && game.time.now > jumpTimer){
-        this.robot.animations.play('run');
-        this.robot.body.velocity.y = -250;
-        this.jumpTimer = game.time.now + 750;
+      if (c){
+
+        if (game.time.now > jumpTimer) {
+              this.robot.animations.play('run');
+              this.robot.body.velocity.y = -250;
+              this.jumpTimer = game.time.now + 750;
+        }
       }
       if (d){
-        
           this.robot.animations.play("turbo");
           Audios.turboAdd();
           turboCross(false,false);
-          setTimeout(function(){
-              turboCross(true,true);
-          }, 2000);
-      
-
+          setTimeout(function(){ 
+            turboCross(true,true);
+          }, 1000);
           if (pad1.connected){
               game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,700);
           }else{

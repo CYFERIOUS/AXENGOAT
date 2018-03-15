@@ -15,6 +15,7 @@ var Dog = (function (Emittor,Audios) {
       this.dog.body.collideWorldBounds = true;
       this.dog.body.checkCollision.left = true;
       this.dog.body.checkCollision.right = true;
+      this.dog.body.checkCollision.up = false;
       this.dog.body.bounce.y = 0.2;
       this.dog.body.gravity.y = 400;
        
