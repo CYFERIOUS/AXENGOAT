@@ -24,6 +24,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
 
     function preload(){
       game.physics.startSystem(Phaser.Physics.P2JS);
+      game.physics.startSystem(Phaser.Physics.ARCADE);
       game.time.desiredFps = 30;  
       Emittor.preloading();
       Platform.preloadPlatforms();
