@@ -37,22 +37,28 @@ var VirtualJ = (function (Characters,Device,Joystick) {
 
        var maxSpeed = 400;
 
-
-       if (stick1.isDown)
-        {
+       if (stick1.isDown){
             var moveX = stick1.forceX * maxSpeed;
             if(moveX>=0){
               Characters.moveRobot(false,true,false,false,false,false);
             }else if(moveX<=0){
               Characters.moveRobot(true,false,false,false,false,false);
             }
-           
-            
-        }
-        else
-        {
+        }else{
             Characters.moveRobot(false,false,false,false,false,true);
         }
+
+         if (stick2.isDown){
+            game.physics.arcade.velocityFromRotation(stick2.rotation, stick2.force * maxSpeed, mira.body.velocity);
+        }
+        else{
+            mira.body.velocity.set(0);
+        }
+
+
+
+
+
         // this.vel=10;
         // var cursors = game.vjoy.cursors;
         // if (cursors.left) {
