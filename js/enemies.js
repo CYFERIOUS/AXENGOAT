@@ -9,7 +9,7 @@
   
         game.load.spritesheet('enemy1', 'images/peresozin.png', 189, 189);
         game.load.spritesheet('enemy2', 'images/sinSalud.png', 189, 189);
-        game.load.spritesheet('enemy3', 'images/vaguinho.png', 0, 0);
+        game.load.spritesheet('enemy3', 'images/vaguinho.png', 189, 189);
         game.load.spritesheet('enemy4', 'images/shiquilin.png', 0, 0);
         game.load.spritesheet('enemy5', 'images/bigboss.png', 0, 0);
        
@@ -45,7 +45,9 @@
     };
 
      var vaguinho = function () {
-      this.vaguinho=game.add.sprite(game.world.width-80,130,"enemy3");
+      this.vaguinho=game.add.sprite(game.world.width-40,100,"enemy3");
+      this.vaguinho.animations.add('attack2', [1,2,3,4,5,6,7,8,9,10,11,12], 6,true);
+      this.vaguinho.animations.play('attack2',[1,2,3,4,5,6,7,8,9,10,11,12],6,true); 
       this.vaguinho.anchor.set(0.5,0.5);
       game.physics.arcade.enable(this.vaguinho);
       this.vaguinho.body.bounce.y = 0.2;
@@ -54,7 +56,7 @@
     };
 
      var shiquilin = function () {
-      this.shiquilin=game.add.sprite(50,130,"enemy4");
+      this.shiquilin=game.add.sprite(50,100,"enemy4");
       this.shiquilin.anchor.set(0.5,0.5);
       game.physics.arcade.enable(this.shiquilin);
       this.shiquilin.body.bounce.y = 0.2;
