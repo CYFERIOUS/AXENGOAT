@@ -5,6 +5,7 @@
   var ground, house;
   var speed, robot, dog, mira, pad1, cursors, gamePad, indicator;
   var stageSelector = 1;
+  var vj = false;
 
 
    var  loadGlobal = function(){
@@ -32,8 +33,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       Dog.loadDog();
       Audios.preloadAudio();
       Device.preloadInput();
-
-        //VirtualJ.preVJimg();
+      VirtualJ.preVJimg();
 
     }
 
@@ -56,8 +56,8 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
 
       //TimerObject.endTimer();
       TimerObject.formatTime();
-
-      //VirtualJ.addVJ();
+      if (vj){VirtualJ.addVJ();}
+      
     }
 
 
@@ -65,18 +65,18 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
 
 
 
-    if (game.input.gamepad.supported && game.input.gamepad.active && pad1.connected){
+      if (game.input.gamepad.supported && game.input.gamepad.active && pad1.connected){
        	Joystick.controlJ();
       	Joystick.cbControls();
       	Joystick.aimJ();
-         //VirtualJ.vjControls();
-
+      }else if (vj){
+        VirtualJ.vjControls();
       }else{
-       Keyboard.controlK();
-       Keyboard.robotK();
- 		   Keyboard.aimK();
-        
+          Keyboard.controlK();
+          Keyboard.robotK();
+          Keyboard.aimK();
       }
+
        
       CollideManager.general();
       
