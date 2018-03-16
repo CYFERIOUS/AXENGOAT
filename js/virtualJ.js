@@ -1,6 +1,6 @@
 var VirtualJ = (function (Characters,Device,Joystick) {
 
-  var inputV = function(){
+  var inputVJ = function(){
       Device.setInput(2);
   }
 
@@ -12,8 +12,6 @@ var VirtualJ = (function (Characters,Device,Joystick) {
 
     var createVJ = function(){
 
-        
-        
         pad = game.plugins.add(Phaser.VirtualJoystick);
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.physics.arcade.enable(mira);
@@ -25,13 +23,12 @@ var VirtualJ = (function (Characters,Device,Joystick) {
         //buttonA.onDown.add(this.pressButtonA, this);
 
         buttonB = pad.addButton(1080, 400, 'arcade', 'button2-up', 'button2-down');
-        //buttonB.onDown.add(this.pressButtonB, this);
+        buttonB.onDown.add(pressButtonB);
         
-
         Joystick.addJMira();
         mira.alpha = 1;
   }
-    
+
 
     var movementsVJ = function () {
 
@@ -48,34 +45,26 @@ var VirtualJ = (function (Characters,Device,Joystick) {
             Characters.moveRobot(false,false,false,false,false,true);
         }
 
-         if (stick2.isDown){
+        if (stick2.isDown){
             game.physics.arcade.velocityFromRotation(stick2.rotation, stick2.force * maxSpeed, mira.body.velocity);
         }
         else{
             mira.body.velocity.set(0);
         }
-
-
-
-
-
-        // this.vel=10;
-        // var cursors = game.vjoy.cursors;
-        // if (cursors.left) {
-        //   mira.x -= this.vel;
-        // } else if (cursors.right) {
-        //   mira.x +=  this.vel;
-        // }
-        // if (cursors.up) {
-        //   mira.y -= this.vel;
-        // } else if (cursors.down) {
-        //   mira.y += this.vel;
-        // }
+        if(buttonA.isDown){
+           Characters.moveRobot(false,false,true,false,false,false);
+        }
+        if(buttonB.isDown){
+        }
 
     };
 
+    function pressButtonB(){
+        Characters.moveRobot(false,false,false,true,mira.x,false);
+    };
+
     return {
-      controlV:inputV,
+      controlVJ:inputVJ,
       preVJimg:preloadVJ,
       addVJ:createVJ,
       vjControls:movementsVJ

@@ -65,21 +65,19 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
 
     function update() {
 
-
-
       if (game.input.gamepad.supported && game.input.gamepad.active && pad1.connected){
        	Joystick.controlJ();
       	Joystick.cbControls();
       	Joystick.aimJ();
       }else if (vj){
         VirtualJ.vjControls();
+        VirtualJ.controlVJ();
       }else{
           Keyboard.controlK();
           Keyboard.robotK();
           Keyboard.aimK();
       }
 
-       
       CollideManager.general();
       
       Platform.blockUpdater();
