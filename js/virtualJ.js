@@ -23,7 +23,7 @@ var VirtualJ = (function (Characters,Device,Joystick) {
         //buttonA.onDown.add(this.pressButtonA, this);
 
         buttonB = pad.addButton(1080, 400, 'arcade', 'button2-up', 'button2-down');
-        buttonB.onDown.add(pressButtonB);
+        //buttonB.onDown.add(pressButtonB);
         
         Joystick.addJMira();
         mira.alpha = 1;
@@ -54,12 +54,18 @@ var VirtualJ = (function (Characters,Device,Joystick) {
         if(buttonA.isDown){
            Characters.moveRobot(false,false,true,false,false,false);
         }
+
         if(buttonB.isDown){
+          if(game.input.activePointer.duration<=1000){
+              Characters.moveRobot(false,false,false,true,mira.x,false);
+          }
         }
+        
 
     };
 
     function pressButtonB(){
+
         Characters.moveRobot(false,false,false,true,mira.x,false);
     };
 

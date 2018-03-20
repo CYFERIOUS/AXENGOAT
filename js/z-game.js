@@ -5,7 +5,7 @@
   var ground, house;
   var speed, robot, dog, mira, pad1, cursors, gamePad, indicator;
   var stageSelector = 2;
-  var vj = true;
+  var vj = false;
   var pad,stick1,stick2,buttonL,buttonR;
 
 
@@ -73,9 +73,9 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
         VirtualJ.vjControls();
         VirtualJ.controlVJ();
       }else{
-          Keyboard.controlK();
-          Keyboard.robotK();
-          Keyboard.aimK();
+        Keyboard.controlK();
+        Keyboard.robotK();
+        Keyboard.aimK();
       }
 
       CollideManager.general();

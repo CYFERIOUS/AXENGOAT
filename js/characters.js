@@ -66,8 +66,10 @@
           turboCross(false,false);
           setTimeout(function(){ 
             turboCross(true,true);
-          }, 1000);
+          }, 3000);
           if (pad1.connected){
+              game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,700);
+          }else if(vj == true){
               game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,700);
           }else{
               game.physics.arcade.moveToPointer(this.robot, 700);
