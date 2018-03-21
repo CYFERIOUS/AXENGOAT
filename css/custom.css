@@ -1,0 +1,285 @@
+@charset "UTF-8";
+/*------------Fonts--------------*/
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/Open_Sans/OpenSans-Regular.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans'), local('Open Sans'), 
+       url('../fonts/Open_Sans/OpenSans-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Open_Sans/Open_Sans.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/Open_Sans/OpenSans-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/Open_Sans/Open_Sans-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
+ font-style: normal;
+ font-weight: 400;
+}
+
+@font-face {
+font-family: 'Roboto Slab';
+src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'),
+     url('../fonts/Roboto_Slab/Roboto_Slab.woff2') format('woff2'),
+	 url('../fonts/Roboto_Slab/Roboto_Slab-Regular.ttf') format('truetype'); 
+font-style: normal;
+font-weight: 400;
+}
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/font-awesome-4.5.0/fontawesome-webfont.eot');
+  src: url('../fonts/font-awesome-4.5.0/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/font-awesome-4.5.0/fontawesome-webfont.woff') format('woff'), url('../fonts/font-awesome-4.5.0/fontawesome-webfont.ttf') format('truetype'), url('../fonts/font-awesome-4.5.0/fontawesome-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+font-family:'Open Sans';
+font-size: 13px;
+color: #70706F;
+	display: flex;
+    flex-direction: column;
+}
+h1, h2, h3{
+	font-family:'Roboto Slab', Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+	font-weight: normal;
+}
+h1{
+  font-size: 28px;
+  color: #575757;
+}
+h2{
+  font-size: 1.5em;
+  color: #8D143E;
+  letter-spacing: 0.02em;
+  text-align: left;
+}
+h3{
+  font-size: 1.5em;
+  color: #575757;
+}
+
+.container-fluid{
+    padding-left: 0;
+    padding-right: 0;
+}
+/*.nav{
+	background: #f6f6f6;
+	height: 30px;
+  margin: 20px 0 40px 0;
+}*/
+.navbar {
+  padding: 0px;
+  margin:20px 0 20px 0;
+}
+/*
+.nav-link{
+  font-size: 12px;
+  color: #70706F;
+}
+.nav-item {
+      padding-top: 10px;
+      cursor: pointer;
+}
+
+.nav-item .active, .nav-link:hover{
+  font-weight:bolder;
+  color: #000;
+}
+
+.nav-link{
+  margin: -8px 20px 0px 20px;
+}*/
+.bd-light{
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  padding: 10px;
+}
+.bd-light .dropdown button{
+  width: 100%;
+  text-align: left;
+  color: #868686;
+}
+.form-control:focus {
+  border: 1px solid #8D143E;
+}
+.btn-success{
+  background-color: #AFAF38;
+  border-color: transparent;
+  color: #fff;
+}
+.btn-success:focus{
+  background-color: #BBC144;
+  border-color: transparent;
+  color: #fff;
+  box-shadow:0 0 0 0px rgba(0,0,0,0);
+}
+.btn-success:hover{
+  background-color: #BBC144;
+  border-color: transparent;
+  color: #fff;
+}
+.custom-control-input:checked~.custom-control-indicator {
+    color: #fff;
+    background-color: #8D143E;
+}
+.custom-control-input:focus~.custom-control-indicator {
+    box-shadow: none;;
+}
+.custom-control-input:active~.custom-control-indicator {
+    color: #fff;
+    background-color: #fff;
+}
+.list-Noindent{
+  margin-left: -25px;
+}
+
+.card{
+  background-color: #FAFAFA;
+  margin: 10px 0 10px 0;
+}
+
+.card-title:before {
+  font-family: 'Open Sans';
+  content: 'Titulo';
+  font-size: 11px;
+  color:#8D143E;
+  display: block;
+  margin-bottom: 5px;
+}
+.card-deck hr{
+  margin-bottom: 0px;
+}
+.card-title{
+  font-family:'Roboto Slab', Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+  font-size: 15px;
+  color:#70706F;
+  margin-bottom: 0px;
+}
+.card-img-top{
+  width: 63px;
+  height: 90px;
+  float: left;
+  margin-right: 10px;
+
+}
+.card-text{
+    margin-top: 20px;
+    font-size: 11px;
+}
+.card-block ul{
+  text-transform: lowercase;
+}
+.card-block li:first-letter {
+  text-transform: uppercase;
+}
+.autor:before {
+  content: 'Autor:';
+  margin-top: 0px;
+  padding-top: 10px;
+}
+.editor, .NoPag, .categoria, .autor, .fecha{
+margin: 10px 0 0 0;
+}
+
+.editor:before, .NoPag:before, .categoria:before, .autor:before, .fecha:before, .sizeFile:before{
+  font-family: 'Open Sans';
+  font-size: 11px;
+  color:#8D143E;
+  font-weight: bold;
+  display: block;
+}
+.NoPag:before {
+  content: 'Número de páginas: ';
+}
+.categoria:before {
+  content: 'Categoría: ';
+}
+.editor:before {
+  content: 'Editor: ';
+}
+.fecha:before {
+  content: 'Fecha de publicación: ';
+}
+.sizeFile:before{
+  content: 'Tamaño de archivo: ';
+  margin-top: -10px;
+}
+a{
+    color:#70706F;
+    text-decoration:none; 
+    font-size: 0.9em;
+}
+a:hover, a:focus{
+    color:#8D143E;
+    cursor: pointer;
+    text-decoration:none; 
+}
+a .fa{
+    margin:0 10px 0 10px;
+  }
+
+@media (min-width: 1200px) {
+
+}
+@media (max-width: 992px) {
+   
+
+}
+@media (max-width: 767px) {
+   
+}
+
+@media (max-width: 495px){
+  .header_main-content h1 {
+        margin: 10px 0px 0 0;
+        text-align: center
+  }
+  a .fa{
+    font-size: 2em;
+    color:#70706F;
+    margin-right: 20px;
+  }
+  a .fa: hover{
+    font-size: 2em;
+    color:#8D143E;
+  }
+  .bg-faded {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+  }
+  .btn-success .fa{
+    color: #fff;
+    margin: 0px;
+    font-size: 1.5em;
+  }
+}
+ 
+
+.btn_callapse{
+background: #8d143d;	
+outline: none;	
+color: white;
+border-color: #8d143d;
+border-bottom: none;
+border-top-color: #8d143d;
+
+	
+}
+.content_footerinfo{
+display: flex;
+ flex-wrap: wrap;
+justify-content: space-between;
+padding: 20px 20px 2px 20px;
+}
+
+.position_logo{
+display: flex;	
+ display: -webkit-flex;
+  display:         flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+
+.position_allfooter{
+position: fixed;
+bottom: 0px;
+	
+}
+

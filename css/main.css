@@ -1,0 +1,221 @@
+@charset "UTF-8";
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Slab:400,700" rel="stylesheet">
+
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Avoid the IE 10-11 `min-height` bug. */
+}
+.content {
+  flex: 1 0 auto; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+}
+.footer {
+  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  margin-top: 20px;
+}
+.header_main-content{
+	margin-top: 20px;
+}
+.header_main-content h1{
+  margin: 30px 0px 0 0;
+}
+.header_main-content div{
+   padding-left: 0;
+    padding-right: 0;
+}
+.logo_dane-2017 img{
+	max-width: 392px;
+}
+.titulo-aplicativo h1{
+	text-align: right;
+	font-family: 'Roboto Slab';
+	font-size: 28px;
+	color: #631028; 
+}
+.fecha_dane{
+	font-family: 'Open Sans';
+	font-size: 14px;
+	color: #575756;
+	float: left;
+	margin-top: 10px
+}
+
+.pattern-line{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.linea-dane {
+    margin-bottom: -8px;
+}
+.bg-footer{
+	background-color: #8d143d;
+}
+.content-footer_dane{
+	float: left;
+    width: 120%;
+}
+.icon-position{
+	width: 28px;
+	height: 28px;
+	margin-right: 15px;
+	float: left;
+}
+.item-info_dane{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.text-info_dane h5{
+	font-family: 'Roboto Slab';
+	font-weight: 700;
+	font-size: 13px;
+	color: #fff;
+	margin: 0;
+}
+.text-info_dane p {
+	font-family: 'Open Sans';
+	font-weight: 400;
+	font-size: 12px;
+	color: #fff;
+	margin: 0;
+	margin-left: 45px;
+}
+.col-border {
+    padding: 0 40px;
+    border-right: 1px solid #fff;
+}
+.pattern-dane{
+	width: 120%;
+	height: 30px;
+    margin: 0px -15px -2px -15px;
+	padding-top: 0px;
+	background-image: url(../img/pattern-block.png);
+}
+.logo-gobierno{
+	float: right;
+	text-align: right;
+}
+.logo-gobierno_v {
+	text-align: right;
+	margin: -40px -20px 0px 0px;
+
+}
+@media (min-width: 1200px) {
+
+}
+@media (min-width: 1380px) {
+	.linea-dane {
+    	margin-bottom: -12px;
+	}
+}
+@media (max-width: 992px) {
+	.logo_dane-2017 img {
+   		max-width: 304px;
+    	margin-top: 20px;
+	}
+
+	.linea-dane {
+    	margin-bottom: -7px;
+	}
+	.text-info_dane h5{
+		font-size: 12.5px;
+	}
+	.text-info_dane p, .text-info_dane ul li p a{
+		font-size: 11.5px;
+	}
+	.col-border{    
+		padding: 0 15px;
+	}
+
+}
+@media (max-width: 814px) {
+	.logo-gobierno img {
+	    position: relative;
+	    bottom: -25px;
+	}
+}
+@media (max-width: 767px) {
+	.header_main-content h1{
+	  margin: 20px 0px 0 0;
+	}
+	.logo_dane-2017 img {
+	    max-width: 98%;
+	}
+	.titulo-aplicativo h1{
+		font-size: 25px;
+	}
+	.fecha_dane{
+		text-align: center;
+		width: 100%
+	}
+	.idioms-line {
+	    padding-right: 0;
+	}
+	.idioms-block {
+	    float: none;
+	    margin-left: auto;
+	    margin-right: auto;
+	}
+	#custom-search-input {
+	    float: none;
+	    width: 75%;
+	    margin: 20px auto 15px auto;
+	}
+
+	.logo-gobierno img {
+	    position: initial;
+   		margin-top: -40px;
+	}
+}
+@media (max-width: 690px){
+	.logo-gobierno img {
+   		margin-top: -20px;
+	}
+}
+@media (max-width: 575px){
+	.logo_dane-2017 img {
+	    max-width: 70%;
+	    margin-left: 15%;
+	    margin-right: 15%;
+	}
+	.titulo-aplicativo h1{
+		text-align: center;
+	}
+	.titulo-aplicativo {
+		margin-top: 20px;
+	}
+	.logo-gobierno{
+		float: left;
+		text-align: center;
+		margin-top: 30px;
+	}
+	.logo-gobierno img{
+		max-width: 50%;
+	}
+
+}
+@media (max-width: 500px){
+	body{
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	.logo_dane-2017 img {
+	    max-width: 90%;
+	    margin-left: 6%;
+	    margin-right: ;
+	}
+	#custom-search-input {
+	    width: 94%;
+	}
+	.content-footer_dane{
+		padding: 10px 10px 0px 10px;
+	}
+}
+@media (max-width: 479px){
+	.logo-gobierno img{
+		max-width: 70%;
+	}
+}
