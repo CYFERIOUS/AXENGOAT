@@ -150,20 +150,24 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
       Emittor.stageEmission(true,true,false,false,false);
       if(blockContainerLeft.length == 0 ){
         Emittor.stageEmission(false,true,false,false,false);
+       
       }
       if(blockContainerRight.length == 0){
         Emittor.stageEmission(true,false,false,false,false);
       }
+   
     };
 
     var stagePileListenerStage2 = function(){
       Emittor.stageEmission(true,true,true,true,false);
       if(blockContainerLeft.length == 0 ){
         Emittor.stageEmission(false,true,false,true,false);
+        
       }
       if(blockContainerRight.length == 0){
         Emittor.stageEmission(true,false,true,false,false);
       }
+      
     };
 
     var stagePileListenerStage3 = function(){
@@ -175,10 +179,12 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
 
 
     var blockListener = function(){
+     
       if(stageSelector == 1 || stageSelector == 2){
         if(blockContainerLeft.length == 0 && blockContainerRight.length == 0){
           stageSelector ++;
           Enemies.enemyKiller(stageSelector);
+          Emittor.destroy();
           loadGlobal();
         }
       }

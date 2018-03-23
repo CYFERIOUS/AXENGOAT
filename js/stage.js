@@ -2,57 +2,49 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog,Joystick,
 
   
   var home;
+
+
  
    var initStages = function(){
 
-      home = Home.addHome();
-      function radioactivity(emitorA,emitorB,emitorC,emitorD,emitorE){
-          emitter1 = Emittor.emitor(100,100,300,30,"izquierda1",0.5,emitorA);
-          emitter2 = Emittor.emitor(game.world.width-63,100,-300,30,"derecha1",0.5,emitorB);
-          emitter3 = Emittor.emitor(100,100,300,20,"izquierda2",0.5,emitorC);
-          emitter4 = Emittor.emitor(game.world.width-63,100,-400,20,"derecha2",0.5,emitorD);
-          emitter5 = Emittor.emitor(game.world.width-63,100,-500,10,"derecha3",0.5,emitorE);
-      }
-      if(stageSelector == 1){
-        radioactivity('particles1','particles0','particles0','particles0','particles0');
-      }
-      if(stageSelector == 2){
-        radioactivity('particles3','particles2','particles3','particles2','particles0');
-      }
-      if(stageSelector == 3){
-        radioactivity('particles4','particles4','particles4','particles4','particles4');
-      }
-      
+      home = Home.addHome(); 
       robot = Characters.setMainCharacter(CMenu.returnChar());
       dog = Dog.addDog();
       Platform.groupPlatforms();
       BarLife.lifeBar(game.world.width);
       
 
-   }
-
+   };
+    var radioactivity = function(emitorA,emitorB,emitorC,emitorD,emitorE){
+          emitter1 = Emittor.emitor(100,100,300,30,"izquierda1",0.5,emitorA);
+          emitter2 = Emittor.emitor(game.world.width-63,100,-300,30,"derecha1",0.5,emitorB);
+          emitter3 = Emittor.emitor(100,100,300,20,"izquierda2",0.5,emitorC);
+          emitter4 = Emittor.emitor(game.world.width-63,100,-400,20,"derecha2",0.5,emitorD);
+          emitter5 = Emittor.emitor(game.world.width-63,100,-500,10,"derecha3",0.5,emitorE);
+    };
 
    var loadStage1 = function(){
-      
+      radioactivity('particles1','particles0','particles0','particles0','particles0');
       peresozin = Enemies.addPeresozin();
       sickBoy = Enemies.addSickBoy();
       Platform.createPlatforms(14, game.world.width,80,'piles1');
       Platform.createPlatforms(14, 0,80,'piles2');
       BarLife.initLife();
-    }
+    };
 
 
     var loadStage2 = function(){
-      
+          radioactivity('particles3','particles2','particles3','particles2','particles0');
           BarLife.initLife(); 
           Platform.createPlatforms(14,1200,80,'piles3');
           Platform.createPlatforms(14,0,80,'piles4');
           vaguinho = Enemies.addVaguinho();
           shiquilin = Enemies.addShiquilin();
        
-    }
+    };
 
      var loadStage3 = function(){
+          radioactivity('particles4','particles4','particles4','particles4','particles4');
           BarLife.initLife(); 
           Platform.createPlatforms(14,1200,200,'piles5');
           bigBoss = Enemies.addBigBoss();

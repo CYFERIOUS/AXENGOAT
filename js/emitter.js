@@ -76,11 +76,18 @@
         emitter5.on = e;
     };
 
+    var emittorDestroy = function(){
+        emitter1.destroy();
+        emitter2.destroy();
+        emitter3.destroy();
+        emitter4.destroy();
+    };
 
 
     return {
       preloading: preloadImages,
       emitor: addEmitter,
+      destroy: emittorDestroy,
       destroyer1: destroyParticleLeft,
       destroyer2: destroyParticleRight,
       stageEmission: emittorStage

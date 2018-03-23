@@ -36,6 +36,7 @@
       if (a) {
         this.robot.x-=this.speed;
         this.robot.body.checkCollision.left = true;
+        collideLeft();
         this.robot.body.enable = true;
         this.robot.play("run");
         this.robot.scale.x=-1;
@@ -44,6 +45,7 @@
       else if (b){
         this.robot.x+=this.speed;
         this.robot.body.checkCollision.right = true;
+        collideRight();
         this.robot.body.enable = true;
         this.robot.play("run");
         this.robot.scale.x=1;
@@ -93,8 +95,8 @@
 
 
     var collideLeft = function(){
-      Audios.robotHit();
       if(robot.body.touching.left){
+        Audios.robotHit();
         emitter1.forEachAlive(function(particle){
           particle.body.acceleration.x = -80;
           particle.body.acceleration.y = 30;
@@ -104,8 +106,8 @@
        
     };
     var collideRight = function(){
-       Audios.robotHit();
        if(robot.body.touching.right){
+          Audios.robotHit();
           emitter2.forEachAlive(function(particle){
             particle.body.acceleration.x = 80;
             particle.body.acceleration.y = 30;
