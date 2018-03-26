@@ -97,6 +97,8 @@
         emitter1.forEachAlive(function(particle){
           particle.body.acceleration.x = -80;
           particle.body.acceleration.y = 30;
+          particle.body.velocity.x = -80;
+          robot.body.velocity.x = -80;
       
         }); 
       }
@@ -106,8 +108,11 @@
        if(robot.body.touching.right){
           Audios.robotHit();
           emitter2.forEachAlive(function(particle){
+
             particle.body.acceleration.x = 80;
             particle.body.acceleration.y = 30;
+            particle.body.velocity.x = 80;
+            robot.body.velocity.x = 80;
             
           });
        }
