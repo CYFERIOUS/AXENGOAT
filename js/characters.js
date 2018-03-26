@@ -54,13 +54,10 @@
       }else{
        this.robot.animations.play('idle'); 
       }
-      if (c){
-
-        if (game.time.now > jumpTimer) {
-              this.robot.animations.play('run');
-              this.robot.body.velocity.y = -250;
-              this.jumpTimer = game.time.now + 750;
-        }
+      if (c && game.time.now > jumpTimer){
+          this.robot.animations.play('run');
+          this.robot.body.velocity.y = -250;
+          this.jumpTimer = game.time.now + 750;
       }
       if (d){
           this.robot.animations.play("turbo");
