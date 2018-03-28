@@ -5,7 +5,7 @@
     var preloadImages = function () {
          game.load.spritesheet('particles0', 'images/peresozinPartuculas.png', 63, 63);
          game.load.spritesheet('particles1', 'images/salukoPartuculas.png', 63, 63);
-         game.load.spritesheet('particles2', 'images/zinoKupaPartuculas.png', 63, 63);
+         game.load.spritesheet('particles2', 'images/zinokupaPartuculas.png', 63, 63);
          game.load.spritesheet('particles3', 'images/malinfantyPartuculas.png', 63, 63);
          game.load.spritesheet('particles4', 'images/vivienzorPartuculas.png', 63, 63);  
     };

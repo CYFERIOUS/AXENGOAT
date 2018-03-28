@@ -8,12 +8,12 @@
    var turbo;
     
     var preload = function () {
-        game.load.audio('hitfloor', ['../sounds/hitHouse.mp3', '../sounds/hitHouse.ogg']);
-        game.load.audio('stage', ['../sounds/audio3.mp3', '../sounds/audio3.ogg']);
-        game.load.audio('robot', ['../sounds/pop.mp3', '../sounds/pop.ogg']);
-        game.load.audio('platform', ['../sounds/plats.mp3', '../sounds/plats.ogg']);
-        game.load.audio('gaspar', ['../sounds/doggy.mp3', '../sounds/doggy.ogg']);
-        game.load.audio('turbo', ['../sounds/turbo.mp3', '../sounds/turbo.ogg']);
+        game.load.audio('hitfloor', ['sounds/hitHouse.mp3', 'sounds/hitHouse.ogg']);
+        game.load.audio('stage', ['sounds/audio3.mp3', 'sounds/audio3.ogg']);
+        game.load.audio('robot', ['sounds/pop.mp3', 'sounds/pop.ogg']);
+        game.load.audio('platform', ['sounds/plats.mp3', 'sounds/plats.ogg']);
+        game.load.audio('gaspar', ['sounds/doggy.mp3', 'sounds/doggy.ogg']);
+        game.load.audio('turbo', ['sounds/turbo.mp3', 'sounds/turbo.ogg']);
     };
 
 
