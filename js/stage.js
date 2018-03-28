@@ -6,7 +6,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog,Joystick,
 
  
    var initStages = function(){
-
+      Home.addLand();
       home = Home.addHome(); 
       robot = Characters.setMainCharacter(CMenu.returnChar());
       dog = Dog.addDog();
@@ -24,6 +24,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog,Joystick,
     };
 
    var loadStage1 = function(){
+   
       radioactivity('particles1','particles0','particles0','particles0','particles0');
       peresozin = Enemies.addPeresozin();
       sickBoy = Enemies.addSickBoy();
@@ -34,6 +35,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog,Joystick,
 
 
     var loadStage2 = function(){
+     
           radioactivity('particles3','particles2','particles3','particles2','particles0');
           BarLife.initLife(); 
           Platform.createPlatforms(14,1200,80,'piles3');
@@ -44,6 +46,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog,Joystick,
     };
 
      var loadStage3 = function(){
+      
           radioactivity('particles4','particles4','particles4','particles4','particles4');
           BarLife.initLife(); 
           Platform.createPlatforms(14,1200,200,'piles5');

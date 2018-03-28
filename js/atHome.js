@@ -4,21 +4,21 @@ var Home = (function () {
     var landScape;
       var preloadingHouse = function () {
           game.load.spritesheet('casita', 'images/casita.png', 659, 373,5);
-          game.load.image('fondo1', 'images/fondo1.png');
-          game.load.image('fondo3', 'images/fondo3.png');
+          game.load.spritesheet('bckGrd', 'images/background.png', 1200, 719,2);
+      
 
     };
 
     var addLandscape = function(){
-        if(stageSelector == 1 || stageSelector ==2){
-         var image = game.add.image(0, 0, 'fondo1');
-        }else{
-          var image = game.add.image(0, 0, 'fondo3');
-        }
+        image = game.add.sprite(0,0, 'bckGrd');
+        image.frame = 0;
+       
+      
+         
     }
     
     var addHouse = function(){
-      addLandscape();
+      
       house = game.add.sprite(game.world.centerX-330,373-32, 'casita');
       house.frame = 0;
       return house;
@@ -26,6 +26,7 @@ var Home = (function () {
     };
 
     var changeHouse = function(frame){
+
       house.frame = frame;
     }
 

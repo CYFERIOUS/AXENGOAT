@@ -4,9 +4,10 @@
   var emitter1, emitter2, emitter3, emitter4, emitter5;
   var ground, house;
   var speed, robot, dog, mira, pad1, cursors, gamePad, indicator;
-  var stageSelector = 1;
+  var stageSelector = 2;
   var vj = false;
   var pad,stick1,stick2,buttonL,buttonR;
+   var image;
 
 
    var  loadGlobal = function(){
@@ -88,7 +89,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
         emitter4.y = vaguinho.body.y;
       }
        if(stageSelector == 3){
-       
+          image.frame = 1;
           Texto.updateC("stage 3");
           Platform.activeEmissionLevel3();
           CollideManager.stageThree();
