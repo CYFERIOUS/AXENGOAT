@@ -7,7 +7,7 @@
   var stageSelector = 1;
   var vj = false;
   var pad,stick1,stick2,buttonL,buttonR;
-   var image;
+  var image;
 
 
    var  loadGlobal = function(){
@@ -18,7 +18,10 @@
        ledge1.body.enable = isTurbo;
        ledge2.body.enable = isTurbo;
     }
-   
+
+    if(window.innerWidth <= 1024 || window.innerWidth <= 768 && window.innerHeight <= 1024 || window.innerHeight <= 768){
+      vj = true;
+    }
   
 
 var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage, Dog, Audios, Joystick,Keyboard,Device,VirtualJ) {
