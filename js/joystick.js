@@ -2,6 +2,7 @@ var Joystick = (function (Characters,Device) {
 
   var rightStickX;
   var rightStickY;
+  var vel=10;
 
     var inputJ = function(){
         Device.setInput(1);
@@ -16,7 +17,7 @@ var Joystick = (function (Characters,Device) {
     };
   
     var snipeJ = function(){
-      this.vel=10;
+     
    
       if (pad1.connected){
             mira.alpha = 1;
@@ -24,10 +25,10 @@ var Joystick = (function (Characters,Device) {
             rightStickY = pad1.axis(Phaser.Gamepad.AXIS_5);
            
               if (rightStickX){
-               mira.x += rightStickX * this.vel;
+               mira.x += rightStickX * vel;
               }
               if (rightStickY){
-                mira.y += rightStickY * this.vel;
+                mira.y += rightStickY * vel;
               }
             
       }  
@@ -45,12 +46,16 @@ var Joystick = (function (Characters,Device) {
         Characters.moveRobot(true,false,false,false,false,false);
         if(rightStickX == false || rightStickY==false){
           mira.x = robot.x-200;
+        }else{
+          mira.x += rightStickX * vel;
         }
       }
       else if ((pad1.isDown(Phaser.Gamepad.PS3XC_DPAD_RIGHT)  > 0.1) || (pad1.axis(Phaser.Gamepad.PS3XC_STICK_LEFT_X) > 0.1)){
         Characters.moveRobot(false,true,false,false,false,false);
         if(rightStickX == false || rightStickY==false){
           mira.x = robot.x+100;
+        }else{
+           mira.y += rightStickY * vel;
         }
 
       }
