@@ -4,10 +4,21 @@
   Init.Main.prototype = {
 
     preload: function(){
-     
+     game.load.image('intro', 'images/splash-intro.jpg');
     },
     create: function(){
-        alert("call");
+        var s = game.add.sprite(0, 0, 'intro');
+       
+       function loadMenu(){
+         game.state.start("menu");
+       }
+      
+    
+        s.inputEnabled = true;
+
+        s.events.onInputDown.add(loadMenu, this);
+
+       
      
     },
     update: function(){
@@ -17,6 +28,8 @@
        
     }
   }
+
+   
 
   var Story = {};
   Story.Main = function(game){};
