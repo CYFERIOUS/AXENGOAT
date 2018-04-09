@@ -35,12 +35,11 @@ var Joystick = (function (Characters,Device) {
     };
 
     var movementsJoystick = function () {
-      Characters.moveRobot("idleEst");
-      
+     
       if(rightStickX == false || rightStickY==false){
         mira.y = robot.y-100; 
       }
-     
+      
       if ((pad1.isDown(Phaser.Gamepad.PS3XC_DPAD_LEFT) < -0.1) || (pad1.axis(Phaser.Gamepad.PS3XC_STICK_LEFT_X) < -0.1)) {  
        Characters.moveRobot("moveLeft");
         if(rightStickX == false || rightStickY==false){
@@ -57,6 +56,8 @@ var Joystick = (function (Characters,Device) {
            mira.y += rightStickY * vel;
         }
 
+      }else{
+         Characters.moveRobot("idleEst");
       }
       if (pad1.isDown(Phaser.Gamepad.PS3XC_L1)){
           Characters.moveRobot("jumpEst");
