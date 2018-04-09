@@ -20,7 +20,7 @@
       this.robot.anchor.set(0.8,0.8);
       this.robot.animations.add('idle', [0,1,2,3], 12,true);
       this.robot.animations.add('run', [10,11,12,13,14,15,16], 12,true);
-      this.robot.animations.add('turbo', [20], 4,true);
+      this.robot.animations.add('turbo', [20,21,22,23,24], 12,true);
       this.robot.body.collideWorldBounds = true;
       this.robot.body.bounce.y = 0.2;
       this.robot.body.gravity.y = 400;
@@ -29,13 +29,13 @@
     };
 
     var validateInput = function(){
-       if (pad1.connected){
-              game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,700);
-          }else if(vj == true){
-              game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,700);
-          }else{
-              game.physics.arcade.moveToPointer(this.robot, 700);
-          }
+      if (pad1.connected){
+          game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,700);
+      }else if(vj == true){
+          game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,700);
+      }else{
+          game.physics.arcade.moveToPointer(this.robot, 700);
+      }
     };
 
     function moveLeft(){
@@ -45,27 +45,29 @@
         this.robot.body.enable = true;
         this.robot.play("run");
         this.robot.scale.x=-1;
-    }
+    };
 
     function moveRight(){
-            this.robot.x+=speed;
-            this.robot.body.checkCollision.right = true;
-            collideRight();
-            this.robot.body.enable = true;
-            this.robot.play("run");
-            this.robot.scale.x=1;
-    }
+        this.robot.x+=speed;
+        this.robot.body.checkCollision.right = true;
+        collideRight();
+        this.robot.body.enable = true;
+        this.robot.play("run");
+        this.robot.scale.x=1;
+    };
 
     function jumpEst(){
         if(game.time.now > jumpTimer){
-          this.robot.animations.play('run');
+          this.robot.play('run');
           this.robot.body.velocity.y = -250;
           this.jumpTimer = game.time.now + 750;
         }
-    }
+    };
 
     function turboEst(){
-         this.robot.animations.play("turbo");
+
+         this.robot.play("turbo");
+
           Audios.turboAdd();
           validateInput();
           turboCross(false,false);
@@ -79,13 +81,13 @@
           }else{
             this.robot.scale.x=-1;
           }
-    }
+    };
 
     function idleEst(){
-        this.robot.animations.play("idle");
+        this.robot.play("idle");
         this.robot.body.velocity.x = 0;
         turboCross(true,true);
-    }
+    };
     
 
     var moveCharacter = function(data){
