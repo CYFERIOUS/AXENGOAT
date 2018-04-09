@@ -12,18 +12,19 @@ var Keyboard = (function (Characters,Device) {
       }
       else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) || game.input.keyboard.isDown(Phaser.Keyboard.D)){
        Characters.moveRobot("moveRight");
-      }else{
-        Characters.moveRobot("idleEst");
-      }
-      if (jumpButton.isDown){
-         Characters.moveRobot("jumpEst");
-      }
-      if (game.input.activePointer.isDown){
+      }else if (game.input.activePointer.isDown){
         if(game.input.activePointer.duration<=1000){
          Characters.moveRobot("turboEst");
         }
-        
+      }else{
+        Characters.moveRobot("idleEst");
       }
+
+
+      if (jumpButton.isDown){
+         Characters.moveRobot("jumpEst");
+      }
+      
     };
 
     var snipeK = function(){

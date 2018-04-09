@@ -20,7 +20,7 @@
       this.robot.anchor.set(0.8,0.8);
       this.robot.animations.add('idle', [0,1,2,3], 12,true);
       this.robot.animations.add('run', [10,11,12,13,14,15,16], 12,true);
-      this.robot.animations.add('turbo', [20,21,22,23,24], 12,true);
+      this.robot.animations.add('turbo', [20,21,22,23,24,25,26,27], 12,true);
       this.robot.body.collideWorldBounds = true;
       this.robot.body.bounce.y = 0.2;
       this.robot.body.gravity.y = 400;

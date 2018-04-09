@@ -41,6 +41,10 @@ var VirtualJ = (function (Characters,Device,Joystick) {
             }else if(moveX<=0){
                Characters.moveRobot("moveLeft");
             }
+        }else if(buttonB.isDown){
+          if(game.input.activePointer.duration<=1000){
+              Characters.moveRobot("turboEst");
+          }
         }else{
               Characters.moveRobot("idleEst");
         }
@@ -55,11 +59,7 @@ var VirtualJ = (function (Characters,Device,Joystick) {
            Characters.moveRobot("jumpEst");
         }
 
-        if(buttonB.isDown){
-          if(game.input.activePointer.duration<=1000){
-              Characters.moveRobot("turboEst");
-          }
-        }
+        
         
 
     };

@@ -56,6 +56,8 @@ var Joystick = (function (Characters,Device) {
            mira.y += rightStickY * vel;
         }
 
+      }else if ((pad1.justPressed(Phaser.Gamepad.PS3XC_R1))){
+          Characters.moveRobot("turboEst");
       }else{
          Characters.moveRobot("idleEst");
       }
@@ -63,9 +65,7 @@ var Joystick = (function (Characters,Device) {
           Characters.moveRobot("jumpEst");
       }
 
-      if ((pad1.justPressed(Phaser.Gamepad.PS3XC_R1))){
-          Characters.moveRobot("turboEst");
-      }
+      
     };
 
     return {
