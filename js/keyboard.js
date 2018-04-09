@@ -7,23 +7,24 @@ var Keyboard = (function (Characters,Device) {
     var movementsKeyboard = function () {
        
       if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT) || game.input.keyboard.isDown(Phaser.Keyboard.A)) {
-        Characters.moveRobot(true,false,false,false,false,false);
+       
+         Characters.moveRobot("moveLeft");
       }
       else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) || game.input.keyboard.isDown(Phaser.Keyboard.D)){
-        Characters.moveRobot(false,true,false,false,false,false);
+       
+       Characters.moveRobot("moveRight");
       }
       if (jumpButton.isDown){
-        Characters.moveRobot(false,false,true,false,false,false);
+         Characters.moveRobot("jumpEst");
       }
       if (game.input.activePointer.isDown){
         if(game.input.activePointer.duration<=1000){
-          Characters.moveRobot(false,false,false,true,game.input.mousePointer.x,false);
+         Characters.moveRobot("turboEst");
         }
         
       }
       if (game.input.activePointer.isUp){
-          Characters.moveRobot(false,false,false,false,false,true);
-    
+           Characters.moveRobot("idleEst");
       }
 
     };

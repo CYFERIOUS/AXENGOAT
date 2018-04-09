@@ -34,15 +34,17 @@ var VirtualJ = (function (Characters,Device,Joystick) {
 
        var maxSpeed = 400;
 
+     
+
        if (stick1.isDown){
             var moveX = stick1.forceX * maxSpeed;
             if(moveX>=0){
-              Characters.moveRobot(false,true,false,false,false,false);
+               Characters.moveRobot("moveRight");
             }else if(moveX<=0){
-              Characters.moveRobot(true,false,false,false,false,false);
+               Characters.moveRobot("moveLeft");
             }
         }else{
-            Characters.moveRobot(false,false,false,false,false,true);
+              Characters.moveRobot("idleEst");
         }
 
         if (stick2.isDown){
@@ -52,22 +54,19 @@ var VirtualJ = (function (Characters,Device,Joystick) {
             mira.body.velocity.set(0);
         }
         if(buttonA.isDown){
-           Characters.moveRobot(false,false,true,false,false,false);
+           Characters.moveRobot("jumpEst");
         }
 
         if(buttonB.isDown){
           if(game.input.activePointer.duration<=1000){
-              Characters.moveRobot(false,false,false,true,mira.x,false);
+              Characters.moveRobot("turboEst");
           }
         }
         
 
     };
 
-    function pressButtonB(){
-
-        Characters.moveRobot(false,false,false,true,mira.x,false);
-    };
+    
 
     return {
       controlVJ:inputVJ,

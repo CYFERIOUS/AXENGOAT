@@ -35,15 +35,14 @@ var Joystick = (function (Characters,Device) {
     };
 
     var movementsJoystick = function () {
-      Characters.moveRobot(false,false,false,false,false,true);
+      Characters.moveRobot("idleEst");
       
-
       if(rightStickX == false || rightStickY==false){
         mira.y = robot.y-100; 
       }
      
       if ((pad1.isDown(Phaser.Gamepad.PS3XC_DPAD_LEFT) < -0.1) || (pad1.axis(Phaser.Gamepad.PS3XC_STICK_LEFT_X) < -0.1)) {  
-        Characters.moveRobot(true,false,false,false,false,false);
+       Characters.moveRobot("moveLeft");
         if(rightStickX == false || rightStickY==false){
           mira.x = robot.x-200;
         }else{
@@ -51,7 +50,7 @@ var Joystick = (function (Characters,Device) {
         }
       }
       else if ((pad1.isDown(Phaser.Gamepad.PS3XC_DPAD_RIGHT)  > 0.1) || (pad1.axis(Phaser.Gamepad.PS3XC_STICK_LEFT_X) > 0.1)){
-        Characters.moveRobot(false,true,false,false,false,false);
+       Characters.moveRobot("moveRight");
         if(rightStickX == false || rightStickY==false){
           mira.x = robot.x+100;
         }else{
@@ -60,11 +59,11 @@ var Joystick = (function (Characters,Device) {
 
       }
       if (pad1.isDown(Phaser.Gamepad.PS3XC_L1)){
-         Characters.moveRobot(false,false,true,false,false,false);
+          Characters.moveRobot("jumpEst");
       }
 
       if ((pad1.justPressed(Phaser.Gamepad.PS3XC_R1))){
-          Characters.moveRobot(false,false,false,true,mira.x,false);
+          Characters.moveRobot("turboEst");
       }
     };
 
