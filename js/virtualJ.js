@@ -34,8 +34,6 @@ var VirtualJ = (function (Characters,Device,Joystick) {
 
        var maxSpeed = 400;
 
-     
-
        if (stick1.isDown){
             var moveX = stick1.forceX * maxSpeed;
             if(moveX>=0){

@@ -11,8 +11,9 @@ var Keyboard = (function (Characters,Device) {
          Characters.moveRobot("moveLeft");
       }
       else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) || game.input.keyboard.isDown(Phaser.Keyboard.D)){
-       
        Characters.moveRobot("moveRight");
+      }else{
+        Characters.moveRobot("idleEst");
       }
       if (jumpButton.isDown){
          Characters.moveRobot("jumpEst");
@@ -23,10 +24,6 @@ var Keyboard = (function (Characters,Device) {
         }
         
       }
-      if (game.input.activePointer.isUp){
-           Characters.moveRobot("idleEst");
-      }
-
     };
 
     var snipeK = function(){
