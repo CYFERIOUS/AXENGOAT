@@ -7,7 +7,7 @@
       StageManager.preload();
     },
     create: function(){
-      StageManager.addSplash();
+      StageManager.addSplashIntro();
     },
     update: function(){
       
@@ -101,11 +101,14 @@
   Loose.Main.prototype = {
 
     preload: function(){
-     
+       StageManager.preload();
     },
     create: function(){
-      alert("all hell break it loose");
-      location.reload();
+      StageManager.addSplashLoose();
+      setTimeout(function(){ 
+          location.reload();
+      }, 5000);
+      
     },
     update: function(){
        
@@ -120,10 +123,10 @@
   Win.Main.prototype = {
 
     preload: function(){
-     
+      StageManager.preload();
     },
     create: function(){
-      alert("gano");
+      StageManager.addSplashWin();
     },
     update: function(){
        
