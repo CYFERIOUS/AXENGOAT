@@ -34,7 +34,16 @@
       }else if(vj == true){
           game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,700);
       }else{
-          game.physics.arcade.moveToPointer(this.robot, 700);
+         game.physics.arcade.moveToPointer(this.robot, 700);
+         robotFacing();
+      }
+    };
+
+    function robotFacing(){
+      if(game.input.mousePointer.x > this.robot.x){
+        this.robot.scale.x=1;
+      }else{
+        this.robot.scale.x=-1;
       }
     };
 
@@ -76,11 +85,7 @@
             turboCross(true,true);
           }, 3000);
           
-          if(game.input.mousePointer.x>=600){
-            this.robot.scale.x=1;
-          }else{
-            this.robot.scale.x=-1;
-          }
+          
     };
 
     function idleEst(){
