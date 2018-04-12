@@ -57,7 +57,6 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       gamePad = game.input.gamepad.start();
       pad1 = game.input.gamepad.pad1;
 
-      Texto.creatingText();
       TimerObject.createTimer();
 
       //TimerObject.endTimer();

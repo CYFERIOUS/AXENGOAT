@@ -24,9 +24,8 @@ var Texto = (function () {
 
     var createText = function(){
 
-        this.text1 = game.add.text(260, 50);
+        this.text1 = game.add.text(230, 50);
         this.text1.anchor.setTo(0.5);
-        this.text1.width = 200;
         this.text1.font = 'VT323';
         this.text1.fontSize = 60;
         this.text1.fill = '#FFF';
@@ -35,7 +34,6 @@ var Texto = (function () {
        
        	this.text2 = game.add.text(600, 50);
         this.text2.anchor.setTo(0.5);
-        this.text2.width = 200;
         this.text2.font = 'VT323';
         this.text2.fill = '#FFF';
         this.text2.inputEnabled = true;
@@ -43,7 +41,6 @@ var Texto = (function () {
 
         this.text3 = game.add.text(1000, 50);
         this.text3.anchor.setTo(0.5);
-        this.text3.width = 200;
         this.text3.font = 'VT323';
         this.text3.fontSize = 30;
         this.text3.fill = '#FFF';
@@ -52,7 +49,6 @@ var Texto = (function () {
 
         this.text4 = game.add.text(30, 700);
         this.text4.anchor.setTo(0.5);
-        this.text4.width = 200;
         this.text4.font = 'VT323';
         this.text4.fontSize = 30;
         this.text4.fill = '#FFF';
@@ -61,7 +57,6 @@ var Texto = (function () {
 
         this.text5 = game.add.text(1160, 700);
         this.text5.anchor.setTo(0.5);
-        this.text5.width = 200;
         this.text5.font = 'VT323';
         this.text5.fontSize = 30;
         this.text5.fill = '#FFF';

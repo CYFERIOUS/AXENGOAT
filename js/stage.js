@@ -14,6 +14,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog,Joystick,
       Platform.cleanPlatform();
       Platform.groupPlatforms();
       BarLife.lifeBar(game.world.width);
+      Texto.creatingText();
       
 
    };
