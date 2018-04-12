@@ -6,10 +6,12 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog,Joystick,
 
  
    var initStages = function(){
+      
       Home.addLand();
       home = Home.addHome(); 
       robot = Characters.setMainCharacter(CMenu.returnChar());
       dog = Dog.addDog();
+      Platform.cleanPlatform();
       Platform.groupPlatforms();
       BarLife.lifeBar(game.world.width);
       

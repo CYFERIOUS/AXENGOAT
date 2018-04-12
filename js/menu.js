@@ -68,7 +68,7 @@
 
     var  listener = function(obj){
       robot =  obj.name;
-      setTimeout(function(){ game.state.start("play"); }, 3000);
+      setTimeout(function(){ game.state.start("play",true,true); }, 3000);
   
     };
 

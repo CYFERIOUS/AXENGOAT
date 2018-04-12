@@ -1,6 +1,5 @@
 var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
 
-   
       var blockContainerRight = new Array(); 
       var blockContainerLeft = new Array();
       var ledge3, ledge4, ledge5, ledge6, ledge7;
@@ -25,6 +24,8 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
 
   
     var buildPlatformsEnemies = function(tiles, pos, base, pila){
+
+ 
     
     var enemiesFloor = base;
     
@@ -38,9 +39,11 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
         if (placeX == 0) {
           ledge3.name = 'pila' + i;
           blockContainerLeft.push(ledge3);
+          console.log(ledge3);
         }else{
           ledge3.name = 'pola' + i;
           blockContainerRight.push(ledge3);
+          console.log(ledge3);
         }
       }
     };
@@ -81,19 +84,21 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
     var  applyGravityRight = function(numba){
       var iRight = 0;
       while(iRight < numba ){
+        console.log(blockContainerRight.length); 
         blockContainerRight[iRight].body.y = ((blockContainerRight[iRight].body.y+2) + blockContainerRight[iRight].height);
         iRight++;
       }
-      blockContainerRight.splice(numba, 1); 
+      blockContainerRight.splice(numba, 1);
+      
     };
 
     var applyGravityLeft = function (numba){
       var iLeft = 0;
       while(iLeft < numba ){
+        console.log(blockContainerLeft.length);
         blockContainerLeft[iLeft].body.y = ((blockContainerLeft[iLeft].body.y+2) + blockContainerLeft[iLeft].height);
         iLeft++;
       }
-    
       blockContainerLeft.splice(numba, 1);
     };
 
@@ -196,6 +201,12 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
        }
     };
 
+    var cleanRack = function(){
+      blockContainerRight.splice(0, 13);
+      blockContainerLeft.splice(0, 13);
+    };
+
+
    
 
     return {
@@ -209,7 +220,8 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
       blockUpdater:blockListener,
       activeEmissionLevel1:stagePileListenerStage1,
       activeEmissionLevel2:stagePileListenerStage2,
-      activeEmissionLevel3:stagePileListenerStage3
+      activeEmissionLevel3:stagePileListenerStage3,
+      cleanPlatform:cleanRack
     };
 
 })(Emittor, BarLife, Texto,Enemies, Stage, Audios);

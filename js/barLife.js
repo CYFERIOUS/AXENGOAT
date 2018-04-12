@@ -50,8 +50,6 @@ var BarLife = (function (Texto,Home) {
               }, 1000);
               
             }
-
-           
     }
 
     var lifeLevelMinus = function(value){        

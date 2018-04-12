@@ -105,8 +105,8 @@
     },
     create: function(){
       StageManager.addSplashLoose();
-      setTimeout(function(){ 
-          location.reload();
+      setTimeout(function(){
+          game.state.start("menu",true,true);
       }, 5000);
       
     },
