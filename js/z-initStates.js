@@ -49,9 +49,10 @@
     create: function(){
       
       CMenu.createMenu();
+     
     },
     update: function(){
-     
+      CMenu.instructions();
       CMenu.overDad();
     },
     render: function(){

@@ -1,11 +1,14 @@
   var CMenu = (function (Texto) {
 
     var menuChar1,menuChar1over, menuChar2, menuChar3, menuChar4, backstage;
+    var instructionsK, instructionsJ, instructionsVJ ;
     var robot = null;
-    
+   
     var preloadInstructions = function(){
         game.load.image('background', 'images/backMenu.png');
-        game.load.image('instructions', 'images/instructions.png');
+        game.load.image('instructionsK', 'images/instructionsK.png');
+         game.load.image('instructionsJ', 'images/instructionsJ.png');
+          game.load.image('instructionsVJ', 'images/instructionsVJ.png');
        
     }
 
@@ -41,7 +44,7 @@
       menuChar4over =game.add.sprite(855,150,"daughterOver");
       menuChar4 =game.add.sprite(855,150,"daughter");
 
-      instructions =game.add.sprite(10,540,"instructions");
+     
    
       
      
@@ -63,6 +66,8 @@
 
      // game.input.addMoveCallback(p, this);
 
+
+
     
     };
 
@@ -77,6 +82,7 @@
     }
 
     var overChar = function (){
+      
       
         if (menuChar1.input.pointerOver())
         {
@@ -113,6 +119,21 @@
         {
           menuChar4.alpha = 1;
         }
+    };
+
+    var validateInput = function(){
+      var gamePadA = game.input.gamepad.start();
+      var pad2= game.input.gamepad.pad2;
+      var centroid = game.world.centerX - 250;
+      if (game.input.gamepad.supported && game.input.gamepad.active && pad2.connected){
+       vj = false;
+       instructions =game.add.sprite(centroid,540,"instructionsJ");
+      }else if(vj){
+        instructions =game.add.sprite(centroid,540,"instructionsVJ");
+      }else{
+        vj = false;
+        instructions =game.add.sprite(centroid,540,"instructionsK");
+      }
     }
 
   
@@ -120,7 +141,8 @@
       preloadMenu: preload,
       createMenu: create,
       returnChar: returnChar,
-      overDad:overChar
+      overDad:overChar,
+      instructions:validateInput
     };
 
   })(Texto);
