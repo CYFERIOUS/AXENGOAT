@@ -43,10 +43,6 @@
       menuChar3 =game.add.sprite(620,150,"son");
       menuChar4over =game.add.sprite(855,150,"daughterOver");
       menuChar4 =game.add.sprite(855,150,"daughter");
-
-     
-   
-      
      
       menuChar1.inputEnabled = true;
       menuChar2.inputEnabled = true;
@@ -64,16 +60,12 @@
       menuChar3.events.onInputDown.add(listener, this);
       menuChar4.events.onInputDown.add(listener, this);
 
-     // game.input.addMoveCallback(p, this);
-
-
-
     
     };
 
     var  listener = function(obj){
       robot =  obj.name;
-      setTimeout(function(){ game.state.start("play",true,true); }, 3000);
+      game.state.start("play",true,true);
   
     };
 

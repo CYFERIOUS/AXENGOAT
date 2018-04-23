@@ -1,0 +1,7 @@
+{
+  "short_name": "indexPovGame",
+  "name": "juego indice de pobreza multidimensional",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "orientation": "landscape"
+}

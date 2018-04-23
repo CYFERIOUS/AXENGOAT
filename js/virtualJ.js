@@ -6,7 +6,7 @@ var VirtualJ = (function (Characters,Device,Joystick) {
 
    var preloadVJ = function(){
 
-        game.load.atlas('arcade', '../bower_components/vj/examples/assets/virtualjoystick/skins/arcade-joystick.png', '../bower_components/vj/examples/assets/virtualjoystick/skins/arcade-joystick.json');
+        game.load.atlas('arcade', 'bower_components/vj/examples/assets/virtualjoystick/skins/arcade-joystick.png', 'bower_components/vj/examples/assets/virtualjoystick/skins/arcade-joystick.json');
    }
   
 

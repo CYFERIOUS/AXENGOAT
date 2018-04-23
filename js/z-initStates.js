@@ -8,6 +8,8 @@
     },
     create: function(){
       StageManager.addSplashIntro();
+      game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+      game.input.onDown.add(gofull, this);
     },
     update: function(){
       
@@ -16,6 +18,20 @@
        
     }
   }
+
+  function gofull() {
+
+    if (game.scale.isFullScreen)
+    {
+        game.scale.stopFullScreen();
+        document.body.requestFullscreen();
+    }
+    else
+    {
+        game.scale.startFullScreen(false);
+    }
+
+}
 
    
 

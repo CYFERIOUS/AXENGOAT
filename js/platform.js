@@ -24,9 +24,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
 
   
     var buildPlatformsEnemies = function(tiles, pos, base, pila){
-
- 
-    
+      
     var enemiesFloor = base;
     
     var placeX = pos == 0 ? 0 : (pos-enemiesFloor);
@@ -84,7 +82,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
     var  applyGravityRight = function(numba){
       var iRight = 0;
       while(iRight < numba ){
-        console.log(blockContainerRight.length); 
+        console.log("lengthRight"+blockContainerRight.length); 
         blockContainerRight[iRight].body.y = ((blockContainerRight[iRight].body.y+2) + blockContainerRight[iRight].height);
         iRight++;
       }
@@ -95,7 +93,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
     var applyGravityLeft = function (numba){
       var iLeft = 0;
       while(iLeft < numba ){
-        console.log(blockContainerLeft.length);
+        console.log("lengthLeft"+blockContainerLeft.length);
         blockContainerLeft[iLeft].body.y = ((blockContainerLeft[iLeft].body.y+2) + blockContainerLeft[iLeft].height);
         iLeft++;
       }

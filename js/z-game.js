@@ -9,6 +9,8 @@
   var pad,stick1,stick2,buttonL,buttonR;
   var image;
 
+  var scaleRatio = window.devicePixelRatio / 3;
+
 
    var  loadGlobal = function(){
         Stage.loadStage(stageSelector);
@@ -62,6 +64,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       //TimerObject.endTimer();
       TimerObject.formatTime();
       if (vj){VirtualJ.addVJ();}
+      
       
     }
 

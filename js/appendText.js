@@ -19,7 +19,7 @@ var Texto = (function () {
     var text6 = null;
 
     var preloadText = function(){
-      game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+      game.load.script('webfont', 'static-lib/webfont.js');
     };
 
     var createText = function(){

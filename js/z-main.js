@@ -1,4 +1,5 @@
-var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-DANE-game');
+
+  var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-DANE-game');
 
   game.state.add("init", Init.Main);
   game.state.add("story", Story.Main);
@@ -12,9 +13,9 @@ var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-DANE-game');
 
   game.state.start("init");
 
+ 
 
-
-
+  
 
 
 
