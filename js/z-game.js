@@ -7,7 +7,7 @@
   var stageSelector = 1;
   var vj = false;
   var pad,stick1,stick2,buttonL,buttonR;
-  var image;
+  var background;
 
   var scaleRatio = window.devicePixelRatio / 3;
 
@@ -94,7 +94,7 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
         emitter4.y = vaguinho.body.y;
       }
        if(stageSelector == 3){
-          image.frame = 1;
+          background.frame = 1;
           Texto.updateC("stage 3");
           Platform.activeEmissionLevel3();
           CollideManager.stageThree();

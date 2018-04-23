@@ -10,8 +10,8 @@ var Home = (function () {
     };
 
     var addLandscape = function(){
-        image = game.add.sprite(0,0, 'bckGrd');
-        image.frame = 0;
+        background = game.add.sprite(0,0, 'bckGrd');
+        background.frame = 0;
        
       
          
