@@ -1,6 +1,6 @@
 var Home = (function () {
 
-    var house;
+    
     var landScape;
       var preloadingHouse = function () {
           game.load.spritesheet('casita', 'images/casita.png', 659, 373,5);

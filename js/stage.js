@@ -45,6 +45,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog,Joystick,
           Platform.createPlatforms(14,0,80,'piles4');
           vaguinho = Enemies.addVaguinho();
           shiquilin = Enemies.addShiquilin();
+          house.frame = 0;
        
     };
 
@@ -62,6 +63,7 @@ var Stage = (function (Emittor,BarLife,Texto,Enemies,Platform,Home,Dog,Joystick,
           emitter5.x  = game.world.width-210;
           emitter1.setXSpeed(-800, 10);
           emitter3.setXSpeed(-800,10);
+          house.frame = 0;
    
           
     }
