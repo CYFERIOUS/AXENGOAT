@@ -1,6 +1,7 @@
 
-  var game = new Phaser.Game(1200, 720, Phaser.CANVAS, 'phaser-DANE-game');
-
+  var config = {  width: 1200,  height: 720,  renderer: Phaser.AUTO,  parent: 'phaser-DANE-game',  transparent: false,  antialias: true,  forceSetTimeOut: true}
+  var game = new Phaser.Game(config);
+  
   game.state.add("init", Init.Main);
   game.state.add("story", Story.Main);
   game.state.add("menu", Menu.Main);
