@@ -11,7 +11,7 @@
         game.load.spritesheet('enemy2', 'images/sinSalud.png', 189, 189);
         game.load.spritesheet('enemy3', 'images/vaguinho.png', 189, 189);
         game.load.spritesheet('enemy4', 'images/shiquilin.png', 189, 189);
-        game.load.spritesheet('enemy5', 'images/bigboss.png', 0, 0);
+        game.load.spritesheet('enemy5', 'images/bigboss.png', 189, 189);
        
     };
 
@@ -74,7 +74,9 @@
     };
 
     var bigBoss = function () {
-      this.bigBoss=game.add.sprite(game.world.width-80,130,"enemy5");
+      this.bigBoss=game.add.sprite(game.world.width-100,100,"enemy5");
+      this.bigBoss.animations.add('attack', [1,2,3,4,5,6,7,8,9,10,11,12], 6,true);
+      this.bigBoss.animations.play('attack',[1,2,3,4,5,6,7,8,9,10,11,12],6,true);
       this.bigBoss.anchor.set(0.5,0.5);
       game.physics.arcade.enable(this.bigBoss);
       this.bigBoss.body.bounce.y = 0.2;
