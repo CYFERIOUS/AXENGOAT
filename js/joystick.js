@@ -5,6 +5,7 @@ var Joystick = (function (Characters,Device) {
   var vel=10;
 
 
+
     var inputJ = function(){
         Device.setInput(1);
     }
@@ -18,8 +19,6 @@ var Joystick = (function (Characters,Device) {
     };
   
     var snipeJ = function(){
-     
-   
       if (pad1.connected){
             mira.alpha = 1;
             rightStickX = pad1.axis(Phaser.Gamepad.PS3XC_STICK_RIGHT_X);
@@ -35,30 +34,35 @@ var Joystick = (function (Characters,Device) {
       }  
     };
 
-    var movementsJoystick = function () {
-     
-      if(!rightStickX || !rightStickY){
-        mira.y = robot.y-100; 
-      }
+    var snipeHelper = function(face){
       
+      snipeJ();
+      
+      if(!rightStickX || !rightStickY){
+          switch(face) {
+            case "idle":
+               mira.y = robot.y-100; 
+            break;
+            case "izq":
+              mira.x = robot.x-200;
+            break;
+            case "der":
+              mira.x = robot.x+100;
+            break;
+          }
+      }
+  
+    };
+
+    var movementsJoystick = function () {
+      snipeHelper("idle");
       if ((pad1.isDown(Phaser.Gamepad.PS3XC_DPAD_LEFT) < -0.1) || (pad1.axis(Phaser.Gamepad.PS3XC_STICK_LEFT_X) < -0.1)) {     
        Characters.moveRobot("moveLeft");
-        if(!rightStickX || !rightStickY){
-          mira.x = robot.x-200;
-        }else{
-          mira.x += rightStickX * vel;
-          mira.y += rightStickY * vel;
-        }
+       snipeHelper("izq");
       }
       else if ((pad1.isDown(Phaser.Gamepad.PS3XC_DPAD_RIGHT)  > 0.1) || (pad1.axis(Phaser.Gamepad.PS3XC_STICK_LEFT_X) > 0.1)){
        Characters.moveRobot("moveRight");
-        if(!rightStickX || !rightStickY){
-          mira.x = robot.x+100;
-        }else{
-           mira.x += rightStickX * vel;
-           mira.y += rightStickY * vel;
-        }
-
+        snipeHelper("der");
       }else{
          Characters.moveRobot("idleEst");
       }

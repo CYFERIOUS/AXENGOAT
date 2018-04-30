@@ -14,12 +14,12 @@
 
    var  loadGlobal = function(){
         Stage.loadStage(stageSelector);
-    }
+    };
 
     var  turboCross = function(isTurbo){
        ledge1.body.enable = isTurbo;
        ledge2.body.enable = isTurbo;
-    }
+    };
 
     if(window.innerWidth <= 1024 || window.innerWidth <= 768 && window.innerHeight <= 1024 || window.innerHeight <= 768){
       vj = true;
