@@ -29,23 +29,35 @@
     };
 
     var validateInput = function(){
-      robotFacing();
+   
       if (pad1.connected){
           game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,2000);
+          robotFacingJoystick()
       }else if(vj == true){
           game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,700);
+          robotFacingJoystick()
       }else{
          game.physics.arcade.moveToPointer(this.robot, 700);
+         robotFacingKeyboard();
       }
     };
 
-    function robotFacing(){
-      if(game.input.mousePointer.x > this.robot.x || mira.x > this.robot.x){
+    function robotFacingKeyboard(){
+      if(game.input.mousePointer.x > this.robot.x){
         this.robot.scale.x=1;
       }else{
         this.robot.scale.x=-1;
       }
     };
+
+
+    function robotFacingJoystick(){
+      if(mira.x > this.robot.x){
+        this.robot.scale.x=1;
+      }else{
+        this.robot.scale.x=-1;
+      }
+    }
 
     function moveLeft(){
         this.robot.x-=speed;
