@@ -73,25 +73,25 @@
         }
     };
 
+    function turboCollide(turboEst){
+      this.robot.body.checkCollision.down = turboEst;
+      this.robot.body.checkCollision.up = turboEst;
+    }
+
     function turboEst(){
 
-         this.robot.play("turbo");
-
-          Audios.turboAdd();
-          validateInput();
-          turboCross(false,false);
-          
-          setTimeout(function(){ 
-            turboCross(true,true);
-          }, 3000);
-          
+        this.robot.play("turbo");
+        turboCollide(false);
+        Audios.turboAdd();
+        validateInput();
+        
           
     };
 
     function idleEst(){
         this.robot.play("idle");
+        turboCollide(true);
         this.robot.body.velocity.x = 0;
-        turboCross(true,true);
     };
     
 

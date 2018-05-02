@@ -1,6 +1,6 @@
   var stageOne, stageTwo, stageThree;
   var jumpButton;
-  var platforms, ledge1, ledge2;
+  var platforms;
   var emitter1, emitter2, emitter3, emitter4, emitter5;
   var ground, house;
   var speed, robot, dog, mira, pad1, cursors, gamePad, indicator;
@@ -14,11 +14,6 @@
 
    var  loadGlobal = function(){
         Stage.loadStage(stageSelector);
-    };
-
-    var  turboCross = function(isTurbo){
-       ledge1.body.enable = isTurbo;
-       ledge2.body.enable = isTurbo;
     };
 
     if(window.innerWidth <= 1024 || window.innerWidth <= 768 && window.innerHeight <= 1024 || window.innerHeight <= 768){

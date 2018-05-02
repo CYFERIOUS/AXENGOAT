@@ -2,7 +2,7 @@ var Platform = (function (Emittor,BarLife,Texto,Enemies,Stage,Audios) {
 
       var blockContainerRight = new Array(); 
       var blockContainerLeft = new Array();
-      var ledge3, ledge4, ledge5, ledge6, ledge7;
+      var ledge1, ledge2, ledge3, ledge4, ledge5, ledge6, ledge7;
     
       
     var preloadImagesPlatforms = function () {

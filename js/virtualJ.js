@@ -41,14 +41,9 @@ var VirtualJ = (function (Characters,Device,Joystick) {
             }else if(moveX<=0){
                Characters.moveRobot("moveLeft");
             }
-        }else if(buttonB.isDown){
-          if(game.input.activePointer.duration<=1000){
-              Characters.moveRobot("turboEst");
-          }
         }else{
               Characters.moveRobot("idleEst");
         }
-
         if (stick2.isDown){
             game.physics.arcade.velocityFromRotation(stick2.rotation, stick2.force * maxSpeed, mira.body.velocity);
         }
@@ -57,6 +52,12 @@ var VirtualJ = (function (Characters,Device,Joystick) {
         }
         if(buttonA.isDown){
            Characters.moveRobot("jumpEst");
+        }
+
+         if(buttonB.isDown){
+          if(game.input.activePointer.duration<=1000){
+              Characters.moveRobot("turboEst");
+          }
         }
 
         

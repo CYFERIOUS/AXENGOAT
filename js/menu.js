@@ -119,6 +119,7 @@
       var centroid = game.world.centerX - 250;
       if (game.input.gamepad.supported && game.input.gamepad.active && pad2.connected){
        vj = false;
+       alert("¡por favor activa el control analogo!");
        instructions =game.add.sprite(centroid,540,"instructionsJ");
       }else if(vj){
         instructions =game.add.sprite(centroid,540,"instructionsVJ");
