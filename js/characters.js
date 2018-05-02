@@ -29,14 +29,13 @@
     };
 
     var validateInput = function(){
+      robotFacing();
       if (pad1.connected){
           game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,2000);
-          robotFacing();
       }else if(vj == true){
           game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,700);
       }else{
          game.physics.arcade.moveToPointer(this.robot, 700);
-         robotFacing();
       }
     };
 
@@ -127,8 +126,8 @@
       
         }); 
       }
-       
     };
+
     var collideRight = function(){
        if(robot.body.touching.right){
           Audios.robotHit();

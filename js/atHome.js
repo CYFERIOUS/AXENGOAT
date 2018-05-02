@@ -3,7 +3,7 @@ var Home = (function () {
     
     var landScape;
       var preloadingHouse = function () {
-          game.load.spritesheet('casita', 'images/casita.png', 659, 373,5);
+          game.load.spritesheet('casita', 'images/casita.png', 659, 373,6);
           game.load.spritesheet('bckGrd', 'images/background.png', 1200, 719,2);
       
 

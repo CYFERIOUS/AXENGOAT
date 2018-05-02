@@ -81,8 +81,11 @@ var BarLife = (function (Texto,Home) {
             if(score>66){
             Home.change(3);
            }
-            if(score>77){
+           if(score>77){
             Home.change(4);
+           }
+           if(score>88){
+            Home.change(5);
            }
            
    

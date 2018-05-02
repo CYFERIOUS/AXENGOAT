@@ -3,8 +3,7 @@ var Joystick = (function (Characters,Device) {
   var rightStickX;
   var rightStickY;
   var vel=10;
-
-
+  
 
     var inputJ = function(){
         Device.setInput(1);
@@ -25,55 +24,39 @@ var Joystick = (function (Characters,Device) {
             rightStickY = pad1.axis(Phaser.Gamepad.AXIS_5);
            
               if (rightStickX){
-               mira.x += rightStickX * vel;
+                mira.x += rightStickX * vel;
               }
               if (rightStickY){
                 mira.y += rightStickY * vel;
+              }else{
+                mira.y = robot.y-100; 
               }
-            
       }  
     };
 
-    var snipeHelper = function(face){
-      
-      snipeJ();
-      
-      if(!rightStickX || !rightStickY){
-          switch(face) {
-            case "idle":
-               mira.y = robot.y-100; 
-            break;
-            case "izq":
-              mira.x = robot.x-200;
-            break;
-            case "der":
-              mira.x = robot.x+100;
-            break;
-          }
-      }
-  
-    };
+   
 
     var movementsJoystick = function () {
-      snipeHelper("idle");
+      
       if ((pad1.isDown(Phaser.Gamepad.PS3XC_DPAD_LEFT) < -0.1) || (pad1.axis(Phaser.Gamepad.PS3XC_STICK_LEFT_X) < -0.1)) {     
        Characters.moveRobot("moveLeft");
-       snipeHelper("izq");
+       mira.x = robot.x-200;
+       
       }
       else if ((pad1.isDown(Phaser.Gamepad.PS3XC_DPAD_RIGHT)  > 0.1) || (pad1.axis(Phaser.Gamepad.PS3XC_STICK_LEFT_X) > 0.1)){
        Characters.moveRobot("moveRight");
-        snipeHelper("der");
+       mira.x = robot.x+100;
+    
       }else{
          Characters.moveRobot("idleEst");
       }
-      if (pad1.isDown(Phaser.Gamepad.PS3XC_L1)){
+      if (pad1.isDown(Phaser.Gamepad.PS3XC_L1) || pad1.isDown(Phaser.Gamepad.PS3XC_L2) ){
           Characters.moveRobot("jumpEst");
       }
-      if ((pad1.justPressed(Phaser.Gamepad.PS3XC_R1))){
+
+      if  (pad1.justPressed(Phaser.Gamepad.PS3XC_R1) || pad1.justPressed(Phaser.Gamepad.PS3XC_R2)){
           Characters.moveRobot("turboEst");
       }
-
-      
     };
 
     return {
