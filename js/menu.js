@@ -79,37 +79,45 @@
         if (menuChar1.input.pointerOver())
         {
           menuChar1.alpha = 0;
+          menuChar1over.alpha = 1;
         }
         else
         {
           menuChar1.alpha = 1;
+          menuChar1over.alpha = 0;
         }
 
         if (menuChar2.input.pointerOver())
         {
           menuChar2.alpha = 0;
+          menuChar2over.alpha = 1;
         }
         else
         {
           menuChar2.alpha = 1;
+          menuChar2over.alpha = 0;
         }
 
         if (menuChar3.input.pointerOver())
         {
           menuChar3.alpha = 0;
+          menuChar3over.alpha = 1;
         }
         else
         {
           menuChar3.alpha = 1;
+          menuChar3over.alpha = 0;
         }
 
         if (menuChar4.input.pointerOver())
         {
           menuChar4.alpha = 0;
+          menuChar4over.alpha = 1;
         }
         else
         {
           menuChar4.alpha = 1;
+          menuChar4over.alpha = 0;
         }
     };
 

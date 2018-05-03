@@ -24,7 +24,7 @@ var Texto = (function () {
 
     var createText = function(){
 
-        this.text1 = game.add.text(230, 50);
+        this.text1 = game.add.text(250, 50);
         this.text1.anchor.setTo(0.5);
         this.text1.font = 'VT323';
         this.text1.fontSize = 60;

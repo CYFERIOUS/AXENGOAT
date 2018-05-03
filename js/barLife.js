@@ -29,9 +29,9 @@ var BarLife = (function (Texto,Home) {
             stamina  =  actual;
             this.myHealthBar.setPercent(stamina);
             getBarPercent(actual);
-            Texto.updateA("INDICE:"+stamina);
+            Texto.updateA("IPM:"+stamina);
             if(stamina <= 0){
-                Texto.updateA("INDICE:"+0);
+                Texto.updateA("IPM:"+0);
             }
            
            
@@ -57,7 +57,7 @@ var BarLife = (function (Texto,Home) {
         stamina = actual <= 0 ? 0 : actual;
         this.myHealthBar.setPercent(stamina);
         if(stamina <= 0){
-          Texto.updateA("INDICE:"+0);
+          Texto.updateA("IPM:"+0);
         }
         
     }
