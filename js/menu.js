@@ -35,13 +35,13 @@
 
      backstage =game.add.sprite(0,0,"background");
       
-      menuChar1over =game.add.sprite(130,150,"dadOver");
+      menuChar1over =game.add.sprite(60,15,"dadOver");
       menuChar1 =game.add.sprite(130,150,"dad");
-      menuChar2over =game.add.sprite(380,150,"momOver");
+      menuChar2over =game.add.sprite(350,15,"momOver");
       menuChar2 =game.add.sprite(380,150,"mom");
-      menuChar3over =game.add.sprite(620,150,"sonOver");
+      menuChar3over =game.add.sprite(550,15,"sonOver");
       menuChar3 =game.add.sprite(620,150,"son");
-      menuChar4over =game.add.sprite(855,150,"daughterOver");
+      menuChar4over =game.add.sprite(830,15,"daughterOver");
       menuChar4 =game.add.sprite(855,150,"daughter");
      
       menuChar1.inputEnabled = true;
