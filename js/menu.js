@@ -114,12 +114,13 @@
     };
 
     var validateInput = function(){
-      var gamePadA = game.input.gamepad.start();
-      var pad2= game.input.gamepad.pad2;
+
+      var gamePad = game.input.gamepad.start();
+      var pad1 = game.input.gamepad.pad1;
       var centroid = game.world.centerX - 250;
-      if (game.input.gamepad.supported && game.input.gamepad.active && pad2.connected){
+      if (game.input.gamepad.supported && game.input.gamepad.active && pad1.connected){
        vj = false;
-       alert("¡por favor activa el control analogo!");
+       
        instructions =game.add.sprite(centroid,540,"instructionsJ");
       }else if(vj){
         instructions =game.add.sprite(centroid,540,"instructionsVJ");
