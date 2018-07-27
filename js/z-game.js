@@ -16,7 +16,7 @@
         Stage.loadStage(stageSelector);
     };
 
-    if(window.innerWidth <= 1024 || window.innerWidth <= 768 && window.innerHeight <= 1024 || window.innerHeight <= 768){
+    if(window.innerWidth < 950  && window.innerHeight < 720 ){
       vj = true;
     }
   

@@ -128,13 +128,12 @@
       var centroid = game.world.centerX - 250;
       if (game.input.gamepad.supported && game.input.gamepad.active && pad1.connected){
        vj = false;
-       
-       instructions =game.add.sprite(centroid,540,"instructionsJ");
+       instructionsJ =game.add.sprite(centroid,540,"instructionsJ");
       }else if(vj){
-        instructions =game.add.sprite(centroid,540,"instructionsVJ");
+        instructionsVJ =game.add.sprite(centroid,540,"instructionsVJ");
       }else{
         vj = false;
-        instructions =game.add.sprite(centroid,540,"instructionsK");
+        instructionsK =game.add.sprite(centroid,540,"instructionsK");
       }
     }
 

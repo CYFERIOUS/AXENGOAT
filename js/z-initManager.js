@@ -1,28 +1,38 @@
 var StageManager = (function () {
 
+
     var preloadImages = function(){
       game.load.image('intro', 'images/splash-intro.jpg');
       game.load.image('winner', 'images/splash-win.jpg');
       game.load.image('looser', 'images/splash-loose.jpg');
+       game.load.image('comic', 'images/comic-V3.jpg');
+
     };
     var addSplashIntro = function(){
-      var s = game.add.sprite(0, 0, 'intro');
-      s.inputEnabled = true;
-      s.events.onInputDown.add(loadMenu, this);
+      var intro = game.add.sprite(0, 0, 'intro');
+      intro.inputEnabled = true;
+      intro.events.onInputDown.add(addSplashComic, this);
     };
+    function addSplashComic(){
+      var story = game.add.sprite(0, 0, 'comic');
+      story.inputEnabled = true;
+      story.events.onInputDown.add(loadMenu, this);
+
+    }
     function loadMenu(){
          game.state.start("menu");
     }
     var addSplashWin = function(){
-      var w = game.add.sprite(0, 0, 'winner');
+      var win = game.add.sprite(0, 0, 'winner');
     };
     var addSplashLoose = function(){
-      var w = game.add.sprite(0, 0, 'looser');
+      var loose = game.add.sprite(0, 0, 'looser');
     };
 
     return {
       preload: preloadImages,
       addSplashIntro:addSplashIntro,
+      addSplashComic:addSplashComic,
       addSplashWin:addSplashWin,
       addSplashLoose:addSplashLoose
     };

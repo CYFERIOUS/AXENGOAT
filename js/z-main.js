@@ -5,7 +5,6 @@
   game.state.add("init", Init.Main);
   game.state.add("story", Story.Main);
   game.state.add("menu", Menu.Main);
-  game.state.add("preview", Preview.Main);
   game.state.add("play", Play.Main);
   game.state.add("loose", Loose.Main);
   game.state.add("win", Win.Main);

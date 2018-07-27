@@ -19,19 +19,7 @@
     }
   }
 
-  function gofull() {
-
-    if (game.scale.isFullScreen)
-    {
-        game.scale.stopFullScreen();
-        document.body.requestFullscreen();
-    }
-    else
-    {
-        game.scale.startFullScreen(false);
-    }
-
-}
+  
 
    
 
@@ -40,11 +28,13 @@
   Story.Main.prototype = {
 
     preload: function(){
-     
+      StageManager.preload();
     },
     create: function(){
-        alert("call");
-     
+       StageManager.addSplashComic();
+
+   
+
     },
     update: function(){
       
@@ -60,35 +50,13 @@
 
     preload: function(){
       CMenu.preloadMenu();
-   
     },
     create: function(){
-      
       CMenu.createMenu();
-     
     },
     update: function(){
       CMenu.instructions();
       CMenu.overDad();
-    },
-    render: function(){
-       
-    }
-  }
-
-  var Preview = {};
-  Preview.Main = function(game){};
-  Preview.Main.prototype = {
-
-    preload: function(){
-     
-    },
-    create: function(){
-        alert("call");
-     
-    },
-    update: function(){
-      
     },
     render: function(){
        
@@ -172,4 +140,13 @@
     }
   }
 
+
+function gofull() {
+    if (game.scale.isFullScreen){
+        game.scale.startFullScreen(true);
+    }
+    else{
+        game.scale.startFullScreen(false);
+    }
+  } 
    
