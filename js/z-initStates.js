@@ -90,9 +90,7 @@
     },
     create: function(){
       StageManager.addSplashLoose();
-      setTimeout(function(){
-          game.state.start("menu",true,true);
-      }, 5000);
+      
       
     },
     update: function(){
@@ -112,6 +110,7 @@
     },
     create: function(){
       StageManager.addSplashWin();
+      
     },
     update: function(){
        
@@ -129,7 +128,7 @@
      
     },
     create: function(){
-        alert("call3");
+          StageManager.addSplashCredits();
      
     },
     update: function(){
@@ -144,6 +143,7 @@
 function gofull() {
     if (game.scale.isFullScreen){
         game.scale.startFullScreen(true);
+
     }
     else{
         game.scale.startFullScreen(false);
