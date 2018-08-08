@@ -60,7 +60,7 @@
       menuChar3.events.onInputDown.add(listener, this);
       menuChar4.events.onInputDown.add(listener, this);
 
-    
+       
     };
 
     var  listener = function(obj){

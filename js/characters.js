@@ -31,10 +31,10 @@
     var validateInput = function(){
    
       if (pad1.connected){
-          game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,2000);
+          game.physics.arcade.moveToXY(this.robot,mira.x, mira.y+100,2000);
           robotFacingJoystick()
       }else if(vj == true){
-          game.physics.arcade.moveToXY(this.robot,mira.x, mira.y,700);
+          game.physics.arcade.moveToXY(this.robot,mira.x, mira.y+100,2000);
           robotFacingJoystick()
       }else{
          game.physics.arcade.moveToPointer(this.robot, 700);

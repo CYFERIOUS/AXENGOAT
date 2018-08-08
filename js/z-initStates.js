@@ -90,8 +90,7 @@
     },
     create: function(){
       StageManager.addSplashLoose();
-      
-      
+     
     },
     update: function(){
        

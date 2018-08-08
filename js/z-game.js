@@ -16,7 +16,7 @@
         Stage.loadStage(stageSelector);
     };
 
-    if(window.innerWidth < 950  && window.innerHeight < 720 ){
+    if(window.innerWidth <= 950 || window.innerWidth <= 768 && window.innerHeight <= 950 || window.innerHeight <= 768){
       vj = true;
     }
   
@@ -37,7 +37,6 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
       Audios.preloadAudio();
       Device.preloadInput();
       VirtualJ.preVJimg();
-
     }
 
 
@@ -58,7 +57,10 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
 
       //TimerObject.endTimer();
       TimerObject.formatTime();
-      if (vj){VirtualJ.addVJ();}
+      if (vj){
+        VirtualJ.vjDestroy();
+        VirtualJ.addVJ();
+      }
       
       
     }
@@ -98,8 +100,6 @@ var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, C
           emitter3.y  = bigBoss.body.y;
           emitter4.y  = bigBoss.body.y;
           emitter5.y  = bigBoss.body.y;
-          
-          
       }
       
       if (game.input.gamepad.supported && game.input.gamepad.active && pad1.connected){
