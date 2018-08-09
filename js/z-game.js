@@ -16,9 +16,9 @@
         Stage.loadStage(stageSelector);
     };
 
-    if(window.innerWidth <= 950 || window.innerWidth <= 768 && window.innerHeight <= 950 || window.innerHeight <= 768){
-      vj = true;
-    }
+    // if(window.innerWidth <=1200 || window.innerWidth <= 950 && window.innerHeight <= 768 || window.innerHeight <= 720){
+    //   vj = true;
+    // }
   
 
 var Zgame = (function (Texto, BarLife, Characters, Emittor, Enemies, Platform, CMenu, CollideManager,TimerObject, Home, Stage, Dog, Audios, Joystick,Keyboard,Device,VirtualJ) {
